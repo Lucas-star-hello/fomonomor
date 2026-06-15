@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="FilterSys â€” A FOMO reduction tool for university students. Make clear-headed decisions about extracurricular activities.">
-  <title>FilterSys â€” Not every opportunity is your opportunity</title>
+  <meta name="description" content="FilterSys — A FOMO reduction tool for university students. Make clear-headed decisions about extracurricular activities.">
+  <title>FilterSys — Not every opportunity is your opportunity</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <style>
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   FilterSys â€” Design System & Styles
+/* ═══════════════════════════════════════════════
+   FilterSys — Design System & Styles
    Palette: Warm Yellow / Red / White
    Font: Plus Jakarta Sans
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ═══════════════════════════════════════════════ */
 
-/* â”€â”€â”€ Tokens â”€â”€â”€ */
+/* ─── Tokens ─── */
 :root {
   --bg: #FDFBF7;
   --bg-alt: #F7F4EE;
@@ -65,7 +65,7 @@
   --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* â”€â”€â”€ Reset â”€â”€â”€ */
+/* ─── Reset ─── */
 *, *::before, *::after {
   margin: 0; padding: 0; box-sizing: border-box;
 }
@@ -86,7 +86,7 @@ body {
   overflow-x: hidden;
 }
 
-/* â”€â”€â”€ Typography â”€â”€â”€ */
+/* ─── Typography ─── */
 h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.5rem; }
@@ -99,7 +99,7 @@ h4 { font-size: 1rem; }
 .text-sm { font-size: 0.85rem; }
 .text-center { text-align: center; }
 
-/* â”€â”€â”€ Layout â”€â”€â”€ */
+/* ─── Layout ─── */
 .page {
   display: none !important;
   min-height: 100vh;
@@ -143,7 +143,7 @@ h4 { font-size: 1rem; }
   font-weight: 700;
 }
 
-/* â”€â”€â”€ Header â”€â”€â”€ */
+/* ─── Header ─── */
 .header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -195,7 +195,7 @@ h4 { font-size: 1rem; }
   padding: 0 12px;
 }
 
-/* â”€â”€â”€ Buttons â”€â”€â”€ */
+/* ─── Buttons ─── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -257,7 +257,7 @@ h4 { font-size: 1rem; }
 .btn-sm { padding: 6px 14px; font-size: 0.8rem; }
 .btn-full { width: 100%; }
 
-/* â”€â”€â”€ Inputs â”€â”€â”€ */
+/* ─── Inputs ─── */
 .input {
   width: 100%;
   padding: 12px 16px;
@@ -290,7 +290,7 @@ select.input {
   padding-right: 36px;
 }
 
-/* â”€â”€â”€ Forms â”€â”€â”€ */
+/* ─── Forms ─── */
 .form { display: flex; flex-direction: column; gap: 20px; }
 .form-group { display: flex; flex-direction: column; gap: 6px; }
 .form-group label {
@@ -320,7 +320,7 @@ select.input {
 }
 .input-row .input { flex: 1; }
 
-/* â”€â”€â”€ Sliders â”€â”€â”€ */
+/* ─── Sliders ─── */
 .slider-row {
   display: flex;
   align-items: center;
@@ -363,7 +363,7 @@ select.input {
   white-space: nowrap;
 }
 
-/* â”€â”€â”€ Radio & Checkbox cards â”€â”€â”€ */
+/* ─── Radio & Checkbox cards ─── */
 .radio-group, .checkbox-group {
   display: flex;
   flex-direction: column;
@@ -397,7 +397,7 @@ select.input {
 .radio-icon { font-size: 1.2rem; }
 .radio-text, .check-text { font-size: 0.9rem; font-weight: 500; }
 
-/* â”€â”€â”€ Tags Input â”€â”€â”€ */
+/* ─── Tags Input ─── */
 .tags-input-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -447,9 +447,9 @@ select.input {
   box-shadow: none !important;
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ═══════════════════════════════════════════════
    LANDING PAGE
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ═══════════════════════════════════════════════ */
 #page-landing {
   min-height: 100vh;
   flex-direction: column;
@@ -622,9 +622,9 @@ select.input {
   line-height: 1.6;
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ═══════════════════════════════════════════════
    DASHBOARD
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ═══════════════════════════════════════════════ */
 .dash-header {
   display: flex;
   justify-content: space-between;
@@ -958,9 +958,9 @@ select.input {
   font-style: italic;
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ═══════════════════════════════════════════════
    ADD ACTIVITY PAGE
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ═══════════════════════════════════════════════ */
 .gpa-display {
   padding: 12px 16px;
   background: var(--primary-light);
@@ -993,9 +993,9 @@ select.input {
   color: var(--text-muted);
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ═══════════════════════════════════════════════
    ANALYSIS RESULT PAGE
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ═══════════════════════════════════════════════ */
 .result-header {
   display: flex;
   align-items: center;
@@ -1123,8 +1123,8 @@ select.input {
   padding: 4px 0;
   color: var(--text-secondary);
 }
-.pros-item::before { content: 'âœ… '; }
-.cons-item::before { content: 'âŒ '; }
+.pros-item::before { content: '✅ '; }
+.cons-item::before { content: '❌ '; }
 
 .result-actions {
   display: grid;
@@ -1133,9 +1133,9 @@ select.input {
   margin-bottom: 10px;
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ═══════════════════════════════════════════════
    MENTOR PAGE
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ═══════════════════════════════════════════════ */
 .mentor-grid {
   display: flex;
   flex-direction: column;
@@ -1168,9 +1168,9 @@ select.input {
 
 .mentor-convo { margin-top: 20px; }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ═══════════════════════════════════════════════
    CHAT (shared by AI Friend & Mentor)
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ═══════════════════════════════════════════════ */
 .chat-area {
   display: flex;
   flex-direction: column;
@@ -1264,9 +1264,9 @@ select.input {
   border-color: var(--primary);
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ═══════════════════════════════════════════════
    MODAL
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ═══════════════════════════════════════════════ */
 .modal {
   position: fixed;
   inset: 0;
@@ -1318,9 +1318,9 @@ select.input {
   margin-top: 4px;
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ═══════════════════════════════════════════════
    TOAST
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ═══════════════════════════════════════════════ */
 .toast {
   position: fixed;
   bottom: 24px;
@@ -1341,9 +1341,9 @@ select.input {
   to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ═══════════════════════════════════════════════
    CONFIRM DIALOG (for removing activities)
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ═══════════════════════════════════════════════ */
 .confirm-overlay {
   position: fixed;
   inset: 0;
@@ -1377,9 +1377,9 @@ select.input {
 }
 .confirm-dialog .confirm-actions .btn { flex: 1; }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ═══════════════════════════════════════════════
    RESPONSIVE
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ═══════════════════════════════════════════════ */
 @media (max-width: 480px) {
   .landing-app-name { font-size: 1.8rem; }
   .landing-tagline { font-size: 1.1rem; }
@@ -1404,13 +1404,13 @@ select.input {
   .page-content { max-width: 580px; padding-top: 90px; }
 }
 
-/* â”€â”€â”€ Scrollbar â”€â”€â”€ */
+/* ─── Scrollbar ─── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
-/* â”€â”€â”€ Selection â”€â”€â”€ */
+/* ─── Selection ─── */
 ::selection {
   background: var(--primary-light);
   color: var(--text);
@@ -1419,9 +1419,9 @@ select.input {
 </style>
 </head>
 <body>
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <!-- GLOBAL HEADER (hidden on landing)      -->
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <header id="global-header" class="header hidden">
     <button id="header-back" class="header-btn" aria-label="Back">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -1430,9 +1430,9 @@ select.input {
     <button id="lang-toggle" class="header-btn lang-btn" aria-label="Toggle language">EN</button>
   </header>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <!-- PAGE: LANDING                          -->
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <section id="page-landing" class="page active">
     <div class="landing-lang-toggle">
       <button id="landing-lang-toggle" class="lang-pill" aria-label="Toggle language">EN</button>
@@ -1485,9 +1485,9 @@ select.input {
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <!-- PAGE: QUIZ                             -->
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <section id="page-quiz" class="page">
     <div class="page-content">
       <h2 id="quiz-title" class="page-title"></h2>
@@ -1506,9 +1506,9 @@ select.input {
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <!-- PAGE: ONBOARDING                       -->
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <section id="page-onboarding" class="page">
     <div class="page-content">
       <h2 id="onboarding-title" class="page-title"></h2>
@@ -1520,7 +1520,7 @@ select.input {
           <label id="lbl-alias" for="inp-alias"></label>
           <div class="input-row">
             <input type="text" id="inp-alias" class="input" maxlength="30">
-            <button type="button" id="btn-gen-alias" class="btn btn-ghost btn-sm">ðŸŽ²</button>
+            <button type="button" id="btn-gen-alias" class="btn btn-ghost btn-sm">🎲</button>
           </div>
         </div>
 
@@ -1575,27 +1575,27 @@ select.input {
           <div class="radio-group" id="radio-primary">
             <label class="radio-card">
               <input type="radio" name="primary" value="academics">
-              <span class="radio-icon">ðŸ“š</span>
+              <span class="radio-icon">📚</span>
               <span id="lbl-pri-academics" class="radio-text"></span>
             </label>
             <label class="radio-card">
               <input type="radio" name="primary" value="career">
-              <span class="radio-icon">ðŸ’¼</span>
+              <span class="radio-icon">💼</span>
               <span id="lbl-pri-career" class="radio-text"></span>
             </label>
             <label class="radio-card">
               <input type="radio" name="primary" value="income">
-              <span class="radio-icon">ðŸ’°</span>
+              <span class="radio-icon">💰</span>
               <span id="lbl-pri-income" class="radio-text"></span>
             </label>
             <label class="radio-card">
               <input type="radio" name="primary" value="growth">
-              <span class="radio-icon">ðŸŒ±</span>
+              <span class="radio-icon">🌱</span>
               <span id="lbl-pri-growth" class="radio-text"></span>
             </label>
             <label class="radio-card">
               <input type="radio" name="primary" value="balance">
-              <span class="radio-icon">âš–ï¸</span>
+              <span class="radio-icon">⚖️</span>
               <span id="lbl-pri-balance" class="radio-text"></span>
             </label>
           </div>
@@ -1643,9 +1643,9 @@ select.input {
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <!-- PAGE: DASHBOARD                        -->
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <section id="page-dashboard" class="page">
     <div class="page-content">
       <!-- Greeting -->
@@ -1667,23 +1667,23 @@ select.input {
       <!-- Quick Actions -->
       <div class="quick-actions">
         <button class="action-card" id="btn-check-activity">
-          <span class="action-icon">ðŸ“‹</span>
+          <span class="action-icon">📋</span>
           <span id="action-check" class="action-label"></span>
         </button>
         <button class="action-card action-card--ai" id="btn-gpa">
-          <span class="action-icon">ðŸ“Š</span>
+          <span class="action-icon">📊</span>
           <span id="action-gpa" class="action-label">GPA</span>
         </button>
         <button class="action-card action-card--ai" id="btn-ai-friend">
-          <span class="action-icon">ðŸ¤–</span>
+          <span class="action-icon">🤖</span>
           <span id="action-ai" class="action-label"></span>
         </button>
         <button class="action-card action-card--mentor" id="btn-find-mentor">
-          <span class="action-icon">ðŸ§­</span>
+          <span class="action-icon">🧭</span>
           <span id="action-mentor" class="action-label"></span>
         </button>
         <button class="action-card action-card--add" id="btn-add-activity">
-          <span class="action-icon">âž•</span>
+          <span class="action-icon">➕</span>
           <span id="action-add" class="action-label"></span>
         </button>
       </div>
@@ -1692,7 +1692,7 @@ select.input {
       <div class="status-bars">
         <div class="status-item">
           <div class="status-label">
-            <span>âš¡ <span id="status-energy-label"></span></span>
+            <span>⚡ <span id="status-energy-label"></span></span>
             <span id="status-energy-val" class="status-val mono"></span>
           </div>
           <div class="progress-bar">
@@ -1701,7 +1701,7 @@ select.input {
         </div>
         <div class="status-item">
           <div class="status-label">
-            <span>ðŸ• <span id="status-hours-label"></span></span>
+            <span>🕐 <span id="status-hours-label"></span></span>
             <span id="status-hours-val" class="status-val mono"></span>
           </div>
           <div class="progress-bar">
@@ -1710,7 +1710,7 @@ select.input {
         </div>
         <div class="status-item">
           <div class="status-label">
-            <span>âœ… <span id="status-committed-label"></span></span>
+            <span>✅ <span id="status-committed-label"></span></span>
             <span id="status-committed-val" class="status-val mono"></span>
           </div>
         </div>
@@ -1733,8 +1733,8 @@ select.input {
         <h3 id="academic-title" class="section-title"></h3>
         <div id="academic-list" class="card-list"></div>
         <div class="academic-actions">
-          <button id="btn-add-exam" class="btn btn-ghost btn-sm">ðŸ“… <span id="lbl-add-exam"></span></button>
-          <button id="btn-add-task" class="btn btn-ghost btn-sm">ðŸ“ <span id="lbl-add-task"></span></button>
+          <button id="btn-add-exam" class="btn btn-ghost btn-sm">📅 <span id="lbl-add-exam"></span></button>
+          <button id="btn-add-task" class="btn btn-ghost btn-sm">📝 <span id="lbl-add-task"></span></button>
         </div>
       </div>
 
@@ -1742,7 +1742,7 @@ select.input {
       <div class="section">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
           <h3 id="motivation-title" class="section-title" style="margin-bottom: 0;"></h3>
-          <button id="btn-add-motivation" class="btn btn-ghost btn-sm">âž• <span id="lbl-add-motivation"></span></button>
+          <button id="btn-add-motivation" class="btn btn-ghost btn-sm">➕ <span id="lbl-add-motivation"></span></button>
         </div>
         <p id="motivation-subtitle" class="text-muted text-sm" style="margin-top: -0.5rem; margin-bottom: 1rem;"></p>
         <div id="motivation-list" class="card-list"></div>
@@ -1750,9 +1750,9 @@ select.input {
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <!-- PAGE: ADD ACTIVITY                     -->
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <section id="page-add-activity" class="page">
     <div class="page-content">
       <h2 id="add-title" class="page-title"></h2>
@@ -1850,13 +1850,13 @@ select.input {
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <!-- PAGE: ANALYSIS RESULT                  -->
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <section id="page-result" class="page">
     <div class="page-content">
       <div class="result-header">
-        <div class="result-ai-icon">ðŸ¤–</div>
+        <div class="result-ai-icon">🤖</div>
         <h2 id="result-title" class="page-title"></h2>
       </div>
 
@@ -1880,19 +1880,19 @@ select.input {
       <!-- Detail sections -->
       <div class="result-sections">
         <div class="result-section">
-          <h4 id="result-opp-title" class="result-section-title">ðŸ“‰</h4>
+          <h4 id="result-opp-title" class="result-section-title">📉</h4>
           <p id="result-opp-text" class="result-text"></p>
         </div>
         <div class="result-section">
-          <h4 id="result-gpa-title" class="result-section-title">ðŸ“Š</h4>
+          <h4 id="result-gpa-title" class="result-section-title">📊</h4>
           <p id="result-gpa-text" class="result-text"></p>
         </div>
         <div class="result-section">
-          <h4 id="result-energy-title" class="result-section-title">ðŸ”‹</h4>
+          <h4 id="result-energy-title" class="result-section-title">🔋</h4>
           <p id="result-energy-text" class="result-text"></p>
         </div>
         <div class="result-section">
-          <h4 id="result-goal-title" class="result-section-title">ðŸŽ¯</h4>
+          <h4 id="result-goal-title" class="result-section-title">🎯</h4>
           <p id="result-goal-text" class="result-text"></p>
         </div>
         <div class="result-section">
@@ -1905,16 +1905,16 @@ select.input {
 
       <!-- Action buttons -->
       <div class="result-actions">
-        <button id="btn-commit" class="btn btn-primary btn-lg">âœ“</button>
+        <button id="btn-commit" class="btn btn-primary btn-lg">✓</button>
         <button id="btn-skip" class="btn btn-danger btn-lg"></button>
       </div>
       <p id="result-commit-note" class="text-center text-muted text-sm"></p>
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <!-- PAGE: MENTOR                           -->
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <section id="page-mentor" class="page">
     <div class="page-content">
       <h2 id="mentor-title" class="page-title"></h2>
@@ -1923,17 +1923,17 @@ select.input {
       <!-- Mentor selection -->
       <div id="mentor-select" class="mentor-grid">
         <button class="mentor-card" data-mentor="academic">
-          <span class="mentor-emoji">ðŸŽ¯</span>
+          <span class="mentor-emoji">🎯</span>
           <span id="mentor-name-academic" class="mentor-name"></span>
           <span id="mentor-desc-academic" class="mentor-desc"></span>
         </button>
         <button class="mentor-card" data-mentor="career">
-          <span class="mentor-emoji">ðŸ’¼</span>
+          <span class="mentor-emoji">💼</span>
           <span id="mentor-name-career" class="mentor-name"></span>
           <span id="mentor-desc-career" class="mentor-desc"></span>
         </button>
         <button class="mentor-card" data-mentor="realist">
-          <span class="mentor-emoji">âš–ï¸</span>
+          <span class="mentor-emoji">⚖️</span>
           <span id="mentor-name-realist" class="mentor-name"></span>
           <span id="mentor-desc-realist" class="mentor-desc"></span>
         </button>
@@ -1952,13 +1952,13 @@ select.input {
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <!-- PAGE: AI FRIEND                        -->
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <section id="page-ai-friend" class="page">
     <div class="page-content ai-friend-page">
       <div class="ai-friend-header">
-        <div class="ai-avatar">ðŸ¤–</div>
+        <div class="ai-avatar">🤖</div>
         <div>
           <h2 id="ai-title" class="page-title"></h2>
           <p id="ai-subtitle" class="page-subtitle"></p>
@@ -1979,9 +1979,9 @@ select.input {
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <!-- MODAL: Academic Task                   -->
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <div id="modal-academic" class="modal hidden">
     <div class="modal-overlay"></div>
     <div class="modal-content">
@@ -2028,9 +2028,9 @@ select.input {
     </div>
   </div>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <!-- MODAL: Motivation                      -->
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <div id="modal-motivation" class="modal hidden">
     <div class="modal-overlay"></div>
     <div class="modal-content">
@@ -2048,9 +2048,9 @@ select.input {
     </div>
   </div>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <!-- PAGE: GPA CALCULATOR                   -->
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <section id="page-gpa" class="page">
     <div class="page-content">
       <h2 id="gpa-title" class="page-title"></h2>
@@ -2083,7 +2083,7 @@ select.input {
       <div class="section">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
           <h3 id="gpa-courses-title" class="section-title" style="margin-bottom: 0;"></h3>
-          <button id="btn-add-course" class="btn btn-ghost btn-sm">âž• <span id="lbl-add-course"></span></button>
+          <button id="btn-add-course" class="btn btn-ghost btn-sm">➕ <span id="lbl-add-course"></span></button>
         </div>
         <div id="gpa-courses-list" class="card-list"></div>
       </div>
@@ -2145,9 +2145,9 @@ select.input {
     </div>
   </div>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <!-- CONFIRM DIALOG                         -->
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <div id="dialog-confirm" class="confirm-overlay hidden">
     <div class="confirm-dialog">
       <p id="confirm-msg"></p>
@@ -2158,42 +2158,42 @@ select.input {
     </div>
   </div>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <!-- TOAST / NOTIFICATION                   -->
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ═══════════════════════════════════════ -->
   <div id="toast" class="toast hidden">
     <span id="toast-text"></span>
   </div>
 
   <!-- Scripts -->
   <script>
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// FilterSys â€” i18n (EN / VN)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════
+// FilterSys — i18n (EN / VN)
+// ═══════════════════════════════════════════════
 
 const LANG = {
   en: {
-    // â”€â”€â”€ Landing â”€â”€â”€
+    // ─── Landing ───
     landing: {
       tagline: "Not every opportunity is your opportunity.",
-      desc: "FOMO doesn't just affect your mood. It fragments your focus, disrupts your sleep, and quietly erodes your GPA. This tool won't tell you everything is fine. It will help you see the trade-offs clearly â€” so you can decide with your eyes open.",
+      desc: "FOMO doesn't just affect your mood. It fragments your focus, disrupts your sleep, and quietly erodes your GPA. This tool won't tell you everything is fine. It will help you see the trade-offs clearly — so you can decide with your eyes open.",
       cta: "Start filtering",
       stat1val: "58%",
       stat1: "of students report moderate-to-high FOMO levels",
-      stat2val: "38â€“60%",
+      stat2val: "38–60%",
       stat2: "of university students experience burnout symptoms",
       stat3val: "80%",
       stat3: "feel overwhelmed at some point during undergrad",
-      stat4val: "2.3Ã—",
+      stat4val: "2.3×",
       stat4: "higher risk of academic underperformance from overcommitment",
-      ref1: "Â¹ Vietnam Journal of Preventive Medicine, 2025",
-      ref2: "Â² Preprints.org meta-analysis, 2024",
-      ref3: "Â³ American Society for Clinical Laboratory Science, 2024",
-      ref4: "â´ Taylor University, cocurricular overcommitment research, 2024",
+      ref1: "¹ Vietnam Journal of Preventive Medicine, 2025",
+      ref2: "² Preprints.org meta-analysis, 2024",
+      ref3: "³ American Society for Clinical Laboratory Science, 2024",
+      ref4: "⁴ Taylor University, cocurricular overcommitment research, 2024",
       refLabel: "References",
     },
 
-    // â”€â”€â”€ Quiz â”€â”€â”€
+    // ─── Quiz ───
     quiz: {
       title: "What is your ultimate goal?",
       subtitle: "Let's find out what you should focus on this semester.",
@@ -2219,7 +2219,7 @@ const LANG = {
       finishBtn: "Complete Quiz"
     },
 
-    // â”€â”€â”€ Onboarding â”€â”€â”€
+    // ─── Onboarding ───
     onboarding: {
       title: "Set up your profile",
       subtitle: "Anonymous. No tracking. Your data stays on this device only.",
@@ -2243,10 +2243,10 @@ const LANG = {
       maxHoursLabel: "Max weekly hours for extracurriculars",
       subjectsLabel: "Key subjects this semester",
       subjectsPlaceholder: "Type a subject and press Enter",
-      submit: "Enter FilterSys â†’",
+      submit: "Enter FilterSys →",
     },
 
-    // â”€â”€â”€ Dashboard â”€â”€â”€
+    // ─── Dashboard ───
     dashboard: {
       greeting: "Good evening",
       greetingMorning: "Good morning",
@@ -2282,7 +2282,7 @@ const LANG = {
       removeCancel: "Cancel",
     },
 
-    // â”€â”€â”€ Add Activity â”€â”€â”€
+    // ─── Add Activity ───
     addActivity: {
       title: "Add a new activity",
       eventSection: "Event Information",
@@ -2315,7 +2315,7 @@ const LANG = {
       whyLabel: "Why do you want to join?",
       whyPlaceholder: "Be honest with yourself.",
       gainLabel: "What will you gain specifically?",
-      gainPlaceholder: "Skills, connections, experienceâ€¦",
+      gainPlaceholder: "Skills, connections, experience…",
       gpaStatus: "Current GPA",
       deadlinesLabel: "Upcoming deadlines this week",
       deadlinesAuto: "Auto-populated from your Academic Checklist",
@@ -2327,9 +2327,9 @@ const LANG = {
       title: "Your analysis is ready.",
       activityName: "Activity",
       verdict: "Verdict",
-      recommended: "âœ… Go for it",
-      risky: "âš ï¸ Risky",
-      skip: "ðŸ›‘ Skip",
+      recommended: "✅ Go for it",
+      risky: "⚠️ Risky",
+      skip: "🛑 Skip",
       opportunityCost: "Opportunity Cost",
       gpaRisk: "GPA Risk",
       energyBudget: "Energy Budget",
@@ -2338,16 +2338,16 @@ const LANG = {
       pros: "Pros",
       cons: "Cons",
       commit: "COMMIT",
-      skipBtn: "SKIP â€” Refocus",
+      skipBtn: "SKIP — Refocus",
       commitConfirm: "Once committed, this goes on your calendar.",
       skipMsg: "Refocused. Your study session is waiting.",
-      goalMatch: "ðŸŽ¯ Goal",
-      energyCost: "ðŸ”‹ Energy",
-      timeFeasibility: "ðŸ• Time",
-      prosConsBalance: "âš–ï¸ Balance",
-      longTermValue: "ðŸŒ± Value",
+      goalMatch: "🎯 Goal",
+      energyCost: "🔋 Energy",
+      timeFeasibility: "🕐 Time",
+      prosConsBalance: "⚖️ Balance",
+      longTermValue: "🌱 Value",
       scoreOutOf: "/ 10",
-      hoursEquiv: "hours â‰ˆ",
+      hoursEquiv: "hours ≈",
       deepStudy: "focused study session(s) for",
       studyTimeReduction: "Available study time drops by",
       thisWeek: "this week",
@@ -2361,7 +2361,7 @@ const LANG = {
       homeworkWarning: "unfinished assignments due this week",
     },
 
-    // â”€â”€â”€ Mentor â”€â”€â”€
+    // ─── Mentor ───
     mentor: {
       title: "Ask a Mentor",
       subtitle: "Pick a perspective. Get tailored advice.",
@@ -2374,12 +2374,12 @@ const LANG = {
       promptLabel: "Describe your situation",
       promptPlaceholder: "e.g. Everyone is going to this event and I feel left out, but I have an exam next week...",
       askBtn: "Ask for advice",
-      back: "â† Pick a different mentor",
+      back: "← Pick a different mentor",
       responseLabel: "Advice",
-      disclaimer: "âš ï¸ This feature is in beta. You are talking to an AI system based on predefined data. Please verify any information provided.",
+      disclaimer: "⚠️ This feature is in beta. You are talking to an AI system based on predefined data. Please verify any information provided.",
     },
 
-    // â”€â”€â”€ AI Friend â”€â”€â”€
+    // ─── AI Friend ───
     aiFriend: {
       title: "AI Friend",
       subtitle: "No judgment. Just data and honest feedback.",
@@ -2395,7 +2395,7 @@ const LANG = {
       suggestLabel: "Common concerns:",
     },
 
-    // â”€â”€â”€ Academic Checklist â”€â”€â”€
+    // ─── Academic Checklist ───
     academic: {
       addExamTitle: "Add Exam / Deadline",
       addTaskTitle: "Add Homework / Project",
@@ -2404,7 +2404,7 @@ const LANG = {
       dateLabel: "Date",
       typeLabel: "Type",
       descLabel: "Description",
-      descPlaceholder: "e.g. Chapter 5â€“8 midterm",
+      descPlaceholder: "e.g. Chapter 5–8 midterm",
       estHoursLabel: "Estimated study/work hours",
       save: "Save",
       cancel: "Cancel",
@@ -2413,11 +2413,11 @@ const LANG = {
       typeProject: "Project",
       typePresentation: "Presentation",
       pasteLabel: "Or paste your schedule text",
-      pastePlaceholder: "Paste exam schedule here â€” we'll try to extract dates and subjects...",
+      pastePlaceholder: "Paste exam schedule here — we'll try to extract dates and subjects...",
       parseBtn: "Parse schedule",
     },
 
-    // â”€â”€â”€ Motivation â”€â”€â”€
+    // ─── Motivation ───
     motivation: {
       title: "Motivation Board",
       subtitle: "Track your progress and celebrate your personal victories.",
@@ -2429,7 +2429,7 @@ const LANG = {
       noItems: "No achievements yet. You are doing great, log something!",
     },
 
-    // â”€â”€â”€ GPA â”€â”€â”€
+    // ─── GPA ───
     gpa: {
       title: "GPA & Honors Calculator",
       semesterLbl: "Semester GPA",
@@ -2454,293 +2454,293 @@ const LANG = {
       ckGrade: "CK Grade (0-10)",
     },
 
-    // â”€â”€â”€ Common â”€â”€â”€
+    // ─── Common ───
     common: {
-      back: "â† Back",
+      back: "← Back",
       appName: "FilterSys",
       langToggle: "VN",
     }
   },
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  // ═══════════════════════════════════════════════
   // VIETNAMESE
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  // ═══════════════════════════════════════════════
   vi: {
     landing: {
-      tagline: "KhÃ´ng pháº£i cÆ¡ há»™i nÃ o cÅ©ng lÃ  cÆ¡ há»™i cá»§a báº¡n.",
-      desc: "FOMO khÃ´ng chá»‰ áº£nh hÆ°á»Ÿng tÃ¢m tráº¡ng. NÃ³ phÃ¢n máº£nh sá»± táº­p trung, áº£nh hÆ°á»Ÿng giáº¥c ngá»§ vÃ  Ã¢m tháº§m kÃ©o tá»¥t Ä‘iá»ƒm GPA. CÃ´ng cá»¥ nÃ y khÃ´ng nÃ³i ráº±ng má»i thá»© sáº½ á»•n. NÃ³ giÃºp báº¡n nhÃ¬n rÃµ cÃ¡c Ä‘Ã¡nh Ä‘á»•i â€” Ä‘á»ƒ báº¡n quyáº¿t Ä‘á»‹nh vá»›i Ä‘áº§y Ä‘á»§ thÃ´ng tin.",
-      cta: "Báº¯t Ä‘áº§u lá»c",
+      tagline: "Không phải cơ hội nào cũng là cơ hội của bạn.",
+      desc: "FOMO không chỉ ảnh hưởng tâm trạng. Nó phân mảnh sự tập trung, ảnh hưởng giấc ngủ và âm thầm kéo tụt điểm GPA. Công cụ này không nói rằng mọi thứ sẽ ổn. Nó giúp bạn nhìn rõ các đánh đổi — để bạn quyết định với đầy đủ thông tin.",
+      cta: "Bắt đầu lọc",
       stat1val: "58%",
-      stat1: "sinh viÃªn cÃ³ má»©c FOMO tá»« trung bÃ¬nh Ä‘áº¿n cao",
-      stat2val: "38â€“60%",
-      stat2: "sinh viÃªn Ä‘áº¡i há»c tráº£i qua triá»‡u chá»©ng kiá»‡t sá»©c",
+      stat1: "sinh viên có mức FOMO từ trung bình đến cao",
+      stat2val: "38–60%",
+      stat2: "sinh viên đại học trải qua triệu chứng kiệt sức",
       stat3val: "80%",
-      stat3: "cáº£m tháº¥y quÃ¡ táº£i Ã­t nháº¥t má»™t láº§n trong suá»‘t Ä‘áº¡i há»c",
-      stat4val: "2.3Ã—",
-      stat4: "nguy cÆ¡ giáº£m sÃºt há»c táº­p khi tham gia quÃ¡ nhiá»u hoáº¡t Ä‘á»™ng",
-      ref1: "Â¹ Táº¡p chÃ­ Y há»c Dá»± phÃ²ng Viá»‡t Nam, 2025",
-      ref2: "Â² Preprints.org phÃ¢n tÃ­ch tá»•ng há»£p, 2024",
-      ref3: "Â³ Hiá»‡p há»™i ASCLS, 2024",
-      ref4: "â´ NghiÃªn cá»©u Taylor University, 2024",
-      refLabel: "Tham kháº£o",
+      stat3: "cảm thấy quá tải ít nhất một lần trong suốt đại học",
+      stat4val: "2.3×",
+      stat4: "nguy cơ giảm sút học tập khi tham gia quá nhiều hoạt động",
+      ref1: "¹ Tạp chí Y học Dự phòng Việt Nam, 2025",
+      ref2: "² Preprints.org phân tích tổng hợp, 2024",
+      ref3: "³ Hiệp hội ASCLS, 2024",
+      ref4: "⁴ Nghiên cứu Taylor University, 2024",
+      refLabel: "Tham khảo",
     },
 
-    // â”€â”€â”€ Quiz â”€â”€â”€
+    // ─── Quiz ───
     quiz: {
-      title: "Má»¥c tiÃªu tá»‘i thÆ°á»£ng cá»§a báº¡n lÃ  gÃ¬?",
-      subtitle: "HÃ£y tÃ¬m ra Ä‘iá»u báº¡n nÃªn táº­p trung nháº¥t trong há»c ká»³ nÃ y.",
-      q1: "Khi tá»‘t nghiá»‡p, báº¡n sáº½ há»‘i tiáº¿c nháº¥t náº¿u khÃ´ng cÃ³ Ä‘iá»u gÃ¬?",
-      q1_academics: "Äiá»ƒm GPA cao vÃ  báº±ng giá»i/xuáº¥t sáº¯c.",
-      q1_career: "Kinh nghiá»‡m thá»±c táº­p vÃ  ká»¹ nÄƒng lÃ m viá»‡c vá»¯ng cháº¯c.",
-      q1_income: "Sá»± Ä‘á»™c láº­p tÃ i chÃ­nh hoáº·c tiá»n tiáº¿t kiá»‡m.",
-      q1_growth: "Máº¡ng lÆ°á»›i quan há»‡ rá»™ng vÃ  nhiá»u ká»· niá»‡m vui.",
-      q1_balance: "Má»™t tÃ¢m trÃ­ bÃ¬nh yÃªn vÃ  sá»©c khá»e tá»‘t.",
-      q2: "Äiá»u gÃ¬ khiáº¿n báº¡n máº¥t ngá»§ nhiá»u nháº¥t?",
-      q2_academics: "Rá»›t mÃ´n hoáº·c Ä‘iá»ƒm tháº¥p.",
-      q2_career: "KhÃ´ng xin Ä‘Æ°á»£c viá»‡c sau khi ra trÆ°á»ng.",
-      q2_income: "Váº¥n Ä‘á» tiá»n báº¡c vÃ  ná»£ náº§n.",
-      q2_growth: "Bá» lá»¡ tuá»•i thanh xuÃ¢n cá»§a mÃ¬nh.",
-      q2_balance: "Bá»‹ kiá»‡t sá»©c vÃ  quÃ¡ táº£i.",
-      q3: "Náº¿u báº¡n cÃ³ 10 giá» ráº£nh rá»—i ngay bÃ¢y giá», báº¡n sáº½ lÃ m gÃ¬?",
-      q3_academics: "Há»c bÃ i trÆ°á»›c hoáº·c Ã´n táº­p.",
-      q3_career: "Há»c má»™t ká»¹ nÄƒng má»›i hoáº·c lÃ m Ä‘áº¹p CV.",
-      q3_income: "LÃ m thÃªm giá» hoáº·c nháº­n viá»‡c tá»± do.",
-      q3_growth: "Äi chÆ¡i vá»›i báº¡n bÃ¨ hoáº·c tham gia CLB.",
-      q3_balance: "Ngá»§, thÆ° giÃ£n, hoáº·c khÃ´ng lÃ m gÃ¬ cáº£.",
-      nextBtn: "CÃ¢u tiáº¿p theo",
-      finishBtn: "HoÃ n thÃ nh"
+      title: "Mục tiêu tối thượng của bạn là gì?",
+      subtitle: "Hãy tìm ra điều bạn nên tập trung nhất trong học kỳ này.",
+      q1: "Khi tốt nghiệp, bạn sẽ hối tiếc nhất nếu không có điều gì?",
+      q1_academics: "Điểm GPA cao và bằng giỏi/xuất sắc.",
+      q1_career: "Kinh nghiệm thực tập và kỹ năng làm việc vững chắc.",
+      q1_income: "Sự độc lập tài chính hoặc tiền tiết kiệm.",
+      q1_growth: "Mạng lưới quan hệ rộng và nhiều kỷ niệm vui.",
+      q1_balance: "Một tâm trí bình yên và sức khỏe tốt.",
+      q2: "Điều gì khiến bạn mất ngủ nhiều nhất?",
+      q2_academics: "Rớt môn hoặc điểm thấp.",
+      q2_career: "Không xin được việc sau khi ra trường.",
+      q2_income: "Vấn đề tiền bạc và nợ nần.",
+      q2_growth: "Bỏ lỡ tuổi thanh xuân của mình.",
+      q2_balance: "Bị kiệt sức và quá tải.",
+      q3: "Nếu bạn có 10 giờ rảnh rỗi ngay bây giờ, bạn sẽ làm gì?",
+      q3_academics: "Học bài trước hoặc ôn tập.",
+      q3_career: "Học một kỹ năng mới hoặc làm đẹp CV.",
+      q3_income: "Làm thêm giờ hoặc nhận việc tự do.",
+      q3_growth: "Đi chơi với bạn bè hoặc tham gia CLB.",
+      q3_balance: "Ngủ, thư giãn, hoặc không làm gì cả.",
+      nextBtn: "Câu tiếp theo",
+      finishBtn: "Hoàn thành"
     },
 
     onboarding: {
-      title: "Thiáº¿t láº­p há»“ sÆ¡",
-      subtitle: "áº¨n danh. KhÃ´ng theo dÃµi. Dá»¯ liá»‡u chá»‰ lÆ°u trÃªn thiáº¿t bá»‹ cá»§a báº¡n.",
-      aliasLabel: "BÃ­ danh",
-      aliasPlaceholder: "VD: Chim Æ¯ng Láº·ng",
-      generateAlias: "Táº¡o bÃ­ danh ngáº«u nhiÃªn",
-      semesterLabel: "Há»c ká»³ hiá»‡n táº¡i",
-      studyHoursLabel: "Sá»‘ giá» tá»± há»c má»—i tuáº§n (má»¥c tiÃªu)",
-      currentGPALabel: "GPA hiá»‡n táº¡i",
-      targetGPALabel: "GPA má»¥c tiÃªu",
-      energyLabel: "Má»©c nÄƒng lÆ°á»£ng thÆ°á»ng ngÃ y",
-      energyLow: "Kiá»‡t sá»©c",
-      energyHigh: "Äáº§y Ä‘á»§",
-      primaryLabel: "Äiá»u quan trá»ng nháº¥t vá»›i báº¡n hiá»‡n táº¡i?",
-      priorityAcademics: "Táº­p trung vÃ o há»c táº­p",
-      priorityCareer: "PhÃ¡t triá»ƒn ká»¹ nÄƒng nghá» nghiá»‡p",
-      priorityIncome: "Kiáº¿m thu nháº­p há»— trá»£ gia Ä‘Ã¬nh",
-      priorityGrowth: "KhÃ¡m phÃ¡ sá»Ÿ thÃ­ch & phÃ¡t triá»ƒn báº£n thÃ¢n",
-      priorityBalance: "CÃ¢n báº±ng má»i thá»©",
-      secondaryLabel: "Má»¥c tiÃªu phá»¥ (chá»n tá»‘i Ä‘a 2)",
-      maxHoursLabel: "Sá»‘ giá» tá»‘i Ä‘a cho hoáº¡t Ä‘á»™ng ngoáº¡i khÃ³a má»—i tuáº§n",
-      subjectsLabel: "MÃ´n há»c chÃ­nh há»c ká»³ nÃ y",
-      subjectsPlaceholder: "Nháº­p tÃªn mÃ´n vÃ  nháº¥n Enter",
-      submit: "VÃ o FilterSys â†’",
+      title: "Thiết lập hồ sơ",
+      subtitle: "Ẩn danh. Không theo dõi. Dữ liệu chỉ lưu trên thiết bị của bạn.",
+      aliasLabel: "Bí danh",
+      aliasPlaceholder: "VD: Chim Ưng Lặng",
+      generateAlias: "Tạo bí danh ngẫu nhiên",
+      semesterLabel: "Học kỳ hiện tại",
+      studyHoursLabel: "Số giờ tự học mỗi tuần (mục tiêu)",
+      currentGPALabel: "GPA hiện tại",
+      targetGPALabel: "GPA mục tiêu",
+      energyLabel: "Mức năng lượng thường ngày",
+      energyLow: "Kiệt sức",
+      energyHigh: "Đầy đủ",
+      primaryLabel: "Điều quan trọng nhất với bạn hiện tại?",
+      priorityAcademics: "Tập trung vào học tập",
+      priorityCareer: "Phát triển kỹ năng nghề nghiệp",
+      priorityIncome: "Kiếm thu nhập hỗ trợ gia đình",
+      priorityGrowth: "Khám phá sở thích & phát triển bản thân",
+      priorityBalance: "Cân bằng mọi thứ",
+      secondaryLabel: "Mục tiêu phụ (chọn tối đa 2)",
+      maxHoursLabel: "Số giờ tối đa cho hoạt động ngoại khóa mỗi tuần",
+      subjectsLabel: "Môn học chính học kỳ này",
+      subjectsPlaceholder: "Nhập tên môn và nhấn Enter",
+      submit: "Vào FilterSys →",
     },
 
     dashboard: {
-      greeting: "ChÃ o buá»•i tá»‘i",
-      greetingMorning: "ChÃ o buá»•i sÃ¡ng",
-      greetingAfternoon: "ChÃ o buá»•i chiá»u",
-      search: "TÃ¬m hoáº¡t Ä‘á»™ng...",
-      checkActivity: "Xem hoáº¡t Ä‘á»™ng",
-      aiFriend: "Trá»£ lÃ½ AI",
-      findMentor: "TÃ¬m Mentor",
-      addActivity: "ThÃªm hoáº¡t Ä‘á»™ng",
-      energyLabel: "NÄƒng lÆ°á»£ng",
-      hoursLabel: "Giá» Ä‘Ã£ dÃ¹ng",
-      hoursUnit: "tuáº§n nÃ y",
-      committedLabel: "ÄÃ£ cam káº¿t",
-      calendarTitle: "Tuáº§n nÃ y",
-      committedTitle: "Hoáº¡t Ä‘á»™ng Ä‘Ã£ cam káº¿t",
-      academicTitle: "Danh sÃ¡ch há»c táº­p",
-      noActivities: "ChÆ°a cÃ³ hoáº¡t Ä‘á»™ng nÃ o. ThÃªm hoáº¡t Ä‘á»™ng Ä‘á»ƒ báº¯t Ä‘áº§u.",
-      noTasks: "ChÆ°a cÃ³ nhiá»‡m vá»¥ há»c táº­p.",
-      addExam: "ThÃªm lá»‹ch thi",
-      addTask: "ThÃªm bÃ i táº­p / Äá»“ Ã¡n",
-      status_committed: "ÄÃƒ CAM Káº¾T",
-      status_dropped: "ÄÃƒ Há»¦Y",
-      settings: "Chá»‰nh sá»­a há»“ sÆ¡",
+      greeting: "Chào buổi tối",
+      greetingMorning: "Chào buổi sáng",
+      greetingAfternoon: "Chào buổi chiều",
+      search: "Tìm hoạt động...",
+      checkActivity: "Xem hoạt động",
+      aiFriend: "Trợ lý AI",
+      findMentor: "Tìm Mentor",
+      addActivity: "Thêm hoạt động",
+      energyLabel: "Năng lượng",
+      hoursLabel: "Giờ đã dùng",
+      hoursUnit: "tuần này",
+      committedLabel: "Đã cam kết",
+      calendarTitle: "Tuần này",
+      committedTitle: "Hoạt động đã cam kết",
+      academicTitle: "Danh sách học tập",
+      noActivities: "Chưa có hoạt động nào. Thêm hoạt động để bắt đầu.",
+      noTasks: "Chưa có nhiệm vụ học tập.",
+      addExam: "Thêm lịch thi",
+      addTask: "Thêm bài tập / Đồ án",
+      status_committed: "ĐÃ CAM KẾT",
+      status_dropped: "ĐÃ HỦY",
+      settings: "Chỉnh sửa hồ sơ",
       mon: "T2", tue: "T3", wed: "T4", thu: "T5", fri: "T6", sat: "T7", sun: "CN",
       examLabel: "Thi",
-      assignmentLabel: "BÃ i táº­p",
-      projectLabel: "Äá»“ Ã¡n",
-      presentationLabel: "Thuyáº¿t trÃ¬nh",
-      dueLabel: "Háº¡n",
-      estHours: "giá» Æ°á»›c tÃ­nh",
-      removeConfirm: "Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xÃ³a hoáº¡t Ä‘á»™ng nÃ y?",
-      removeOk: "XÃ³a",
-      removeCancel: "Há»§y",
+      assignmentLabel: "Bài tập",
+      projectLabel: "Đồ án",
+      presentationLabel: "Thuyết trình",
+      dueLabel: "Hạn",
+      estHours: "giờ ước tính",
+      removeConfirm: "Bạn có chắc chắn muốn xóa hoạt động này?",
+      removeOk: "Xóa",
+      removeCancel: "Hủy",
     },
 
     addActivity: {
-      title: "ThÃªm hoáº¡t Ä‘á»™ng má»›i",
-      eventSection: "ThÃ´ng tin sá»± kiá»‡n",
-      personalSection: "Bá»‘i cáº£nh cÃ¡ nhÃ¢n",
-      nameLabel: "TÃªn hoáº¡t Ä‘á»™ng",
+      title: "Thêm hoạt động mới",
+      eventSection: "Thông tin sự kiện",
+      personalSection: "Bối cảnh cá nhân",
+      nameLabel: "Tên hoạt động",
       namePlaceholder: "VD: FPC Noise 2026",
-      categoryLabel: "PhÃ¢n loáº¡i",
-      catNetworking: "Giao lÆ°u, má»Ÿ rá»™ng má»‘i quan há»‡",
-      catWorkshop: "Há»™i tháº£o ká»¹ nÄƒng má»m",
-      catClub: "Sá»± kiá»‡n cÃ¢u láº¡c bá»™",
-      catVolunteer: "TÃ¬nh nguyá»‡n",
-      catCompetition: "Cuá»™c thi",
-      catHobby: "Sá»Ÿ thÃ­ch cÃ¡ nhÃ¢n",
-      catOther: "KhÃ¡c",
-      dateLabel: "NgÃ y",
-      timeLabel: "Giá»",
-      durationLabel: "Thá»i lÆ°á»£ng (giá»)",
-      locationLabel: "Äá»‹a Ä‘iá»ƒm",
+      categoryLabel: "Phân loại",
+      catNetworking: "Giao lưu, mở rộng mối quan hệ",
+      catWorkshop: "Hội thảo kỹ năng mềm",
+      catClub: "Sự kiện câu lạc bộ",
+      catVolunteer: "Tình nguyện",
+      catCompetition: "Cuộc thi",
+      catHobby: "Sở thích cá nhân",
+      catOther: "Khác",
+      dateLabel: "Ngày",
+      timeLabel: "Giờ",
+      durationLabel: "Thời lượng (giờ)",
+      locationLabel: "Địa điểm",
       locationPlaceholder: "VD: The Green Land",
-      organizerLabel: "ÄÆ¡n vá»‹ tá»• chá»©c",
-      orgPlaceholder: "Chá»n Ä‘Æ¡n vá»‹ tá»• chá»©c...",
-      orgFTU: "TrÆ°á»ng ÄH Ngoáº¡i thÆ°Æ¡ng",
-      orgExtCert: "Tá»• chá»©c bÃªn ngoÃ i cÃ³ giáº¥y chá»©ng nháº­n",
-      orgExtNoCert: "Tá»• chá»©c bÃªn ngoÃ i khÃ´ng cáº¥p giáº¥y chá»©ng nháº­n",
-      orgOther: "KhÃ¡c",
-      descriptionLabel: "MÃ´ táº£ ngáº¯n",
-      descriptionPlaceholder: "Sá»± kiá»‡n nÃ y vá» gÃ¬?",
-      costLabel: "Chi phÃ­ (VND)",
+      organizerLabel: "Đơn vị tổ chức",
+      orgPlaceholder: "Chọn đơn vị tổ chức...",
+      orgFTU: "Trường ĐH Ngoại thương",
+      orgExtCert: "Tổ chức bên ngoài có giấy chứng nhận",
+      orgExtNoCert: "Tổ chức bên ngoài không cấp giấy chứng nhận",
+      orgOther: "Khác",
+      descriptionLabel: "Mô tả ngắn",
+      descriptionPlaceholder: "Sự kiện này về gì?",
+      costLabel: "Chi phí (VND)",
       costPlaceholder: "0",
-      whyLabel: "Táº¡i sao báº¡n muá»‘n tham gia?",
-      whyPlaceholder: "HÃ£y thÃ nh tháº­t vá»›i báº£n thÃ¢n.",
-      gainLabel: "Báº¡n sáº½ nháº­n Ä‘Æ°á»£c gÃ¬ cá»¥ thá»ƒ?",
-      gainPlaceholder: "Ká»¹ nÄƒng, má»‘i quan há»‡, kinh nghiá»‡mâ€¦",
-      gpaStatus: "GPA hiá»‡n táº¡i",
-      deadlinesLabel: "Háº¡n chÃ³t sáº¯p tá»›i trong tuáº§n",
-      deadlinesAuto: "Tá»± Ä‘á»™ng láº¥y tá»« Danh sÃ¡ch há»c táº­p",
-      noDeadlines: "KhÃ´ng cÃ³ háº¡n chÃ³t sáº¯p tá»›i.",
-      analyze: "PhÃ¢n tÃ­ch hoáº¡t Ä‘á»™ng nÃ y",
+      whyLabel: "Tại sao bạn muốn tham gia?",
+      whyPlaceholder: "Hãy thành thật với bản thân.",
+      gainLabel: "Bạn sẽ nhận được gì cụ thể?",
+      gainPlaceholder: "Kỹ năng, mối quan hệ, kinh nghiệm…",
+      gpaStatus: "GPA hiện tại",
+      deadlinesLabel: "Hạn chót sắp tới trong tuần",
+      deadlinesAuto: "Tự động lấy từ Danh sách học tập",
+      noDeadlines: "Không có hạn chót sắp tới.",
+      analyze: "Phân tích hoạt động này",
     },
 
     result: {
-      title: "PhÃ¢n tÃ­ch Ä‘Ã£ sáºµn sÃ ng.",
-      activityName: "Hoáº¡t Ä‘á»™ng",
-      verdict: "Káº¿t luáº­n",
-      recommended: "âœ… NÃªn tham gia",
-      risky: "âš ï¸ CÃ³ rá»§i ro",
-      skip: "ðŸ›‘ Bá» qua",
-      opportunityCost: "Chi phÃ­ cÆ¡ há»™i",
-      gpaRisk: "Rá»§i ro GPA",
-      energyBudget: "Quá»¹ nÄƒng lÆ°á»£ng",
-      goalAlignment: "Má»©c phÃ¹ há»£p má»¥c tiÃªu",
-      prosCons: "Æ¯u & NhÆ°á»£c Ä‘iá»ƒm",
-      pros: "Æ¯u Ä‘iá»ƒm",
-      cons: "NhÆ°á»£c Ä‘iá»ƒm",
-      commit: "CAM Káº¾T",
-      skipBtn: "Bá»Ž QUA â€” Táº­p trung láº¡i",
-      commitConfirm: "Má»™t khi cam káº¿t, hoáº¡t Ä‘á»™ng sáº½ Ä‘Æ°á»£c thÃªm vÃ o lá»‹ch.",
-      skipMsg: "ÄÃ£ táº­p trung láº¡i. Buá»•i tá»± há»c Ä‘ang chá» báº¡n.",
-      goalMatch: "ðŸŽ¯ Má»¥c tiÃªu",
-      energyCost: "ðŸ”‹ NÄƒng lÆ°á»£ng",
-      timeFeasibility: "ðŸ• Thá»i gian",
-      prosConsBalance: "âš–ï¸ CÃ¢n Ä‘á»‘i",
-      longTermValue: "ðŸŒ± DÃ i háº¡n",
+      title: "Phân tích đã sẵn sàng.",
+      activityName: "Hoạt động",
+      verdict: "Kết luận",
+      recommended: "✅ Nên tham gia",
+      risky: "⚠️ Có rủi ro",
+      skip: "🛑 Bỏ qua",
+      opportunityCost: "Chi phí cơ hội",
+      gpaRisk: "Rủi ro GPA",
+      energyBudget: "Quỹ năng lượng",
+      goalAlignment: "Mức phù hợp mục tiêu",
+      prosCons: "Ưu & Nhược điểm",
+      pros: "Ưu điểm",
+      cons: "Nhược điểm",
+      commit: "CAM KẾT",
+      skipBtn: "BỎ QUA — Tập trung lại",
+      commitConfirm: "Một khi cam kết, hoạt động sẽ được thêm vào lịch.",
+      skipMsg: "Đã tập trung lại. Buổi tự học đang chờ bạn.",
+      goalMatch: "🎯 Mục tiêu",
+      energyCost: "🔋 Năng lượng",
+      timeFeasibility: "🕐 Thời gian",
+      prosConsBalance: "⚖️ Cân đối",
+      longTermValue: "🌱 Dài hạn",
       scoreOutOf: "/ 10",
-      hoursEquiv: "giá» â‰ˆ",
-      deepStudy: "buá»•i tá»± há»c chuyÃªn sÃ¢u cho",
-      studyTimeReduction: "Thá»i gian tá»± há»c giáº£m khoáº£ng",
-      thisWeek: "tuáº§n nÃ y",
-      currentEnergy: "NÄƒng lÆ°á»£ng hiá»‡n táº¡i",
-      afterEvent: "Sau sá»± kiá»‡n",
-      primaryPriority: "Æ¯u tiÃªn chÃ­nh cá»§a báº¡n",
-      alignmentLow: "Äá»™ phÃ¹ há»£p THáº¤P",
-      alignmentMed: "Äá»™ phÃ¹ há»£p TRUNG BÃŒNH",
-      alignmentHigh: "Äá»™ phÃ¹ há»£p CAO",
-      examWarning: "Báº¡n cÃ³ bÃ i thi trong vÃ²ng 3 ngÃ y",
-      homeworkWarning: "bÃ i táº­p chÆ°a hoÃ n thÃ nh trong tuáº§n",
+      hoursEquiv: "giờ ≈",
+      deepStudy: "buổi tự học chuyên sâu cho",
+      studyTimeReduction: "Thời gian tự học giảm khoảng",
+      thisWeek: "tuần này",
+      currentEnergy: "Năng lượng hiện tại",
+      afterEvent: "Sau sự kiện",
+      primaryPriority: "Ưu tiên chính của bạn",
+      alignmentLow: "Độ phù hợp THẤP",
+      alignmentMed: "Độ phù hợp TRUNG BÌNH",
+      alignmentHigh: "Độ phù hợp CAO",
+      examWarning: "Bạn có bài thi trong vòng 3 ngày",
+      homeworkWarning: "bài tập chưa hoàn thành trong tuần",
     },
 
     mentor: {
-      title: "Há»i Cá»‘ Váº¥n",
-      subtitle: "Chá»n má»™t gÃ³c nhÃ¬n Ä‘á»ƒ nháº­n lá»i khuyÃªn phÃ¹ há»£p.",
+      title: "Hỏi Cố Vấn",
+      subtitle: "Chọn một góc nhìn để nhận lời khuyên phù hợp.",
       academic: "Dr. Nguyen",
-      academicDesc: "Cá»‘ váº¥n Há»c thuáº­t | dr.nguyen.edu@gmail.com | Æ¯u tiÃªn GPA trÃªn háº¿t. Má»—i giá» Ä‘á»u cÃ³ giÃ¡ trá»‹.",
+      academicDesc: "Cố vấn Học thuật | dr.nguyen.edu@gmail.com | Ưu tiên GPA trên hết. Mỗi giờ đều có giá trị.",
       career: "Ms. Tran",
-      careerDesc: "Cá»‘ váº¥n Nghá» nghiá»‡p | tran.career@gmail.com | Lá»±a chá»n cÆ¡ há»™i thá»±c táº¿, táº­p trung vÃ o giÃ¡ trá»‹ dÃ i háº¡n.",
+      careerDesc: "Cố vấn Nghề nghiệp | tran.career@gmail.com | Lựa chọn cơ hội thực tế, tập trung vào giá trị dài hạn.",
       realist: "Mr. Le",
-      realistDesc: "ChuyÃªn gia CÃ¢n báº±ng | le.balance@gmail.com | Tá»‘i Æ°u nÄƒng lÆ°á»£ng vÃ  sá»©c bá»n. NhÃ¬n xa trÃ´ng rá»™ng.",
-      promptLabel: "MÃ´ táº£ tÃ¬nh huá»‘ng cá»§a báº¡n",
-      promptPlaceholder: "VD: Má»i ngÆ°á»i Ä‘á»u tham gia sá»± kiá»‡n nÃ y, mÃ¬nh cáº£m tháº¥y bá» lá»¡, nhÆ°ng tuáº§n sau cÃ³ thi...",
-      askBtn: "Xin lá»i khuyÃªn",
-      back: "â† Chá»n mentor khÃ¡c",
-      responseLabel: "Lá»i khuyÃªn",
-      disclaimer: "âš ï¸ TÃ­nh nÄƒng Ä‘ang trong thá»­ nghiá»‡m, hiá»‡n táº¡i, báº¡n Ä‘ang nÃ³i chuyá»‡n vá»›i AI. ÄÃ¢y lÃ  há»‡ thá»‘ng AI Ä‘Æ°a ra dá»±a trÃªn dá»¯ kiá»‡n Ä‘Ã£ thiáº¿t láº­p sáºµn. Vui lÃ²ng kiá»ƒm tra láº¡i thÃ´ng tin.",
+      realistDesc: "Chuyên gia Cân bằng | le.balance@gmail.com | Tối ưu năng lượng và sức bền. Nhìn xa trông rộng.",
+      promptLabel: "Mô tả tình huống của bạn",
+      promptPlaceholder: "VD: Mọi người đều tham gia sự kiện này, mình cảm thấy bỏ lỡ, nhưng tuần sau có thi...",
+      askBtn: "Xin lời khuyên",
+      back: "← Chọn mentor khác",
+      responseLabel: "Lời khuyên",
+      disclaimer: "⚠️ Tính năng đang trong thử nghiệm, hiện tại, bạn đang nói chuyện với AI. Đây là hệ thống AI đưa ra dựa trên dữ kiện đã thiết lập sẵn. Vui lòng kiểm tra lại thông tin.",
     },
 
     aiFriend: {
-      title: "Trá»£ lÃ½ AI",
-      subtitle: "KhÃ´ng phÃ¡n xÃ©t. Chá»‰ dá»¯ liá»‡u vÃ  pháº£n há»“i tháº³ng tháº¯n.",
-      inputPlaceholder: "MÃ´ táº£ Ä‘iá»u báº¡n Ä‘ang suy nghÄ©...",
-      send: "Gá»­i",
+      title: "Trợ lý AI",
+      subtitle: "Không phán xét. Chỉ dữ liệu và phản hồi thẳng thắn.",
+      inputPlaceholder: "Mô tả điều bạn đang suy nghĩ...",
+      send: "Gửi",
       suggestions: [
-        "Má»i ngÆ°á»i Ä‘á»u Ä‘i sá»± kiá»‡n nÃ y, mÃ¬nh cáº£m tháº¥y bá»‹ bá» láº¡i",
-        "MÃ¬nh Ä‘Ã£ cam káº¿t quÃ¡ nhiá»u hoáº¡t Ä‘á»™ng tuáº§n nÃ y",
-        "MÃ¬nh cÃ³ nÃªn rá»i cÃ¢u láº¡c bá»™ khÃ´ng?",
-        "MÃ¬nh cáº£m tháº¥y cÃ³ lá»—i khi tá»« chá»‘i",
-        "MÃ¬nh khÃ´ng biáº¿t Ä‘iá»u gÃ¬ Ä‘Ã¡ng Ä‘á»ƒ dÃ nh thá»i gian ná»¯a"
+        "Mọi người đều đi sự kiện này, mình cảm thấy bị bỏ lại",
+        "Mình đã cam kết quá nhiều hoạt động tuần này",
+        "Mình có nên rời câu lạc bộ không?",
+        "Mình cảm thấy có lỗi khi từ chối",
+        "Mình không biết điều gì đáng để dành thời gian nữa"
       ],
-      suggestLabel: "Nhá»¯ng váº¥n Ä‘á» thÆ°á»ng gáº·p:",
+      suggestLabel: "Những vấn đề thường gặp:",
     },
 
     academic: {
-      addExamTitle: "ThÃªm lá»‹ch thi / Háº¡n chÃ³t",
-      addTaskTitle: "ThÃªm bÃ i táº­p / Äá»“ Ã¡n",
-      subjectLabel: "MÃ´n há»c",
-      subjectPlaceholder: "VD: Kinh táº¿ vi mÃ´",
-      dateLabel: "NgÃ y",
-      typeLabel: "Loáº¡i",
-      descLabel: "MÃ´ táº£",
-      descPlaceholder: "VD: Thi giá»¯a ká»³ chÆ°Æ¡ng 5â€“8",
-      estHoursLabel: "Sá»‘ giá» Ã´n táº­p / lÃ m bÃ i Æ°á»›c tÃ­nh",
-      save: "LÆ°u",
-      cancel: "Há»§y",
+      addExamTitle: "Thêm lịch thi / Hạn chót",
+      addTaskTitle: "Thêm bài tập / Đồ án",
+      subjectLabel: "Môn học",
+      subjectPlaceholder: "VD: Kinh tế vi mô",
+      dateLabel: "Ngày",
+      typeLabel: "Loại",
+      descLabel: "Mô tả",
+      descPlaceholder: "VD: Thi giữa kỳ chương 5–8",
+      estHoursLabel: "Số giờ ôn tập / làm bài ước tính",
+      save: "Lưu",
+      cancel: "Hủy",
       typeExam: "Thi",
-      typeAssignment: "BÃ i táº­p",
-      typeProject: "Äá»“ Ã¡n",
-      typePresentation: "Thuyáº¿t trÃ¬nh",
-      pasteLabel: "Hoáº·c dÃ¡n lá»‹ch thi cá»§a báº¡n",
-      pastePlaceholder: "DÃ¡n lá»‹ch thi vÃ o Ä‘Ã¢y â€” há»‡ thá»‘ng sáº½ thá»­ trÃ­ch xuáº¥t ngÃ y vÃ  mÃ´n há»c...",
-      parseBtn: "PhÃ¢n tÃ­ch lá»‹ch",
+      typeAssignment: "Bài tập",
+      typeProject: "Đồ án",
+      typePresentation: "Thuyết trình",
+      pasteLabel: "Hoặc dán lịch thi của bạn",
+      pastePlaceholder: "Dán lịch thi vào đây — hệ thống sẽ thử trích xuất ngày và môn học...",
+      parseBtn: "Phân tích lịch",
     },
 
-    // â”€â”€â”€ Motivation â”€â”€â”€
+    // ─── Motivation ───
     motivation: {
-      title: "Báº£ng Äá»™ng Lá»±c",
-      subtitle: "Ghi nháº­n má»i ná»— lá»±c vÃ  tá»± hÃ o vá» thÃ nh tá»±u cá»§a báº¡n.",
-      addBtn: "ThÃªm ThÃ nh Tá»±u",
-      placeholder: "VD: VÆ°á»£t qua bÃ i kiá»ƒm tra giá»¯a ká»³, giÃºp Ä‘á»¡ má»™t ngÆ°á»i báº¡n...",
-      save: "LÆ°u",
-      cancel: "Há»§y",
-      modalTitle: "ThÃªm ThÃ nh Tá»±u",
-      noItems: "ChÆ°a cÃ³ thÃ nh tá»±u nÃ o. Báº¡n Ä‘ang lÃ m ráº¥t tá»‘t, hÃ£y ghi láº¡i nhÃ©!",
+      title: "Bảng Động Lực",
+      subtitle: "Ghi nhận mọi nỗ lực và tự hào về thành tựu của bạn.",
+      addBtn: "Thêm Thành Tựu",
+      placeholder: "VD: Vượt qua bài kiểm tra giữa kỳ, giúp đỡ một người bạn...",
+      save: "Lưu",
+      cancel: "Hủy",
+      modalTitle: "Thêm Thành Tựu",
+      noItems: "Chưa có thành tựu nào. Bạn đang làm rất tốt, hãy ghi lại nhé!",
     },
 
     gpa: {
-      title: "TÃ­nh GPA & Háº¡ng Tá»‘t Nghiá»‡p",
-      semesterLbl: "GPA Há»c ká»³",
-      cpaLbl: "CPA TÃ­ch lÅ©y",
-      honorsLbl: "Dá»± kiáº¿n Xáº¿p loáº¡i",
-      retakeLbl: "TÃ­n chá»‰ há»c láº¡i ká»³ nÃ y:",
-      coursesTitle: "CÃ¡c mÃ´n há»c ká»³ nÃ y",
-      addCourse: "ThÃªm MÃ´n",
-      endSem: "Káº¿t thÃºc Há»c ká»³",
-      noCourses: "ChÆ°a cÃ³ mÃ´n há»c nÃ o Ä‘Æ°á»£c thÃªm trong há»c ká»³ nÃ y.",
-      unnamed: "MÃ´n chÆ°a Ä‘áº·t tÃªn",
-      confirmEndSem: "Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n káº¿t thÃºc há»c ká»³ nÃ y? GPA sáº½ Ä‘Æ°á»£c lÆ°u vÃ o CPA vÃ  danh sÃ¡ch mÃ´n há»c, hoáº¡t Ä‘á»™ng hiá»‡n táº¡i sáº½ bá»‹ xÃ³a.",
-      semEndedMsg: "ÄÃ£ káº¿t thÃºc há»c ká»³! Dá»¯ liá»‡u Ä‘Ã£ Ä‘Æ°á»£c lÆ°u vÃ o CPA.",
-      modalTitle: "ThÃªm MÃ´n Há»c",
-      courseName: "TÃªn mÃ´n há»c",
-      credits: "Sá»‘ tÃ­n chá»‰",
-      ccWeight: "Trá»ng sá»‘ CC (%)",
-      gkWeight: "Trá»ng sá»‘ GK (%)",
-      ckWeight: "Trá»ng sá»‘ CK (%)",
-      ccGrade: "Äiá»ƒm CC (0-10)",
-      gkGrade: "Äiá»ƒm GK (0-10)",
-      ckGrade: "Äiá»ƒm CK (0-10)",
+      title: "Tính GPA & Hạng Tốt Nghiệp",
+      semesterLbl: "GPA Học kỳ",
+      cpaLbl: "CPA Tích lũy",
+      honorsLbl: "Dự kiến Xếp loại",
+      retakeLbl: "Tín chỉ học lại kỳ này:",
+      coursesTitle: "Các môn học kỳ này",
+      addCourse: "Thêm Môn",
+      endSem: "Kết thúc Học kỳ",
+      noCourses: "Chưa có môn học nào được thêm trong học kỳ này.",
+      unnamed: "Môn chưa đặt tên",
+      confirmEndSem: "Bạn có chắc chắn muốn kết thúc học kỳ này? GPA sẽ được lưu vào CPA và danh sách môn học, hoạt động hiện tại sẽ bị xóa.",
+      semEndedMsg: "Đã kết thúc học kỳ! Dữ liệu đã được lưu vào CPA.",
+      modalTitle: "Thêm Môn Học",
+      courseName: "Tên môn học",
+      credits: "Số tín chỉ",
+      ccWeight: "Trọng số CC (%)",
+      gkWeight: "Trọng số GK (%)",
+      ckWeight: "Trọng số CK (%)",
+      ccGrade: "Điểm CC (0-10)",
+      gkGrade: "Điểm GK (0-10)",
+      ckGrade: "Điểm CK (0-10)",
     },
 
     common: {
-      back: "â† Quay láº¡i",
+      back: "← Quay lại",
       appName: "FilterSys",
       langToggle: "EN",
     }
@@ -2771,9 +2771,9 @@ function t(path) {
 
 </script>
   <script>
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// FilterSys â€” localStorage helpers
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════
+// FilterSys — localStorage helpers
+// ═══════════════════════════════════════════════
 
 const STORAGE_KEYS = {
   user: 'fs_user',
@@ -2784,7 +2784,7 @@ const STORAGE_KEYS = {
   currentAnalysis: 'fs_current_analysis',
 };
 
-// â”€â”€â”€ Generic helpers â”€â”€â”€
+// ─── Generic helpers ───
 
 function saveData(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
@@ -2797,7 +2797,7 @@ function loadData(key, fallback = null) {
   catch { return fallback; }
 }
 
-// â”€â”€â”€ User Profile â”€â”€â”€
+// ─── User Profile ───
 
 function saveUser(user) {
   saveData(STORAGE_KEYS.user, user);
@@ -2811,7 +2811,7 @@ function hasUser() {
   return loadUser() !== null;
 }
 
-// â”€â”€â”€ Activities â”€â”€â”€
+// ─── Activities ───
 
 function saveActivities(activities) {
   saveData(STORAGE_KEYS.activities, activities);
@@ -2861,7 +2861,7 @@ function getActivitiesForWeek(weekStart) {
   });
 }
 
-// â”€â”€â”€ Academic Tasks â”€â”€â”€
+// ─── Academic Tasks ───
 
 function saveAcademicTasks(tasks) {
   saveData(STORAGE_KEYS.academicTasks, tasks);
@@ -2930,7 +2930,7 @@ function getIncompleteTasksThisWeek() {
   });
 }
 
-// â”€â”€â”€ Weekly Log â”€â”€â”€
+// ─── Weekly Log ───
 
 function getWeekKey(date = new Date()) {
   const d = new Date(date);
@@ -2977,7 +2977,7 @@ function getWeekStart(date = new Date()) {
   return d.toISOString().split('T')[0];
 }
 
-// â”€â”€â”€ Current Analysis (temp storage) â”€â”€â”€
+// ─── Current Analysis (temp storage) ───
 
 function saveCurrentAnalysis(data) {
   saveData(STORAGE_KEYS.currentAnalysis, data);
@@ -2987,7 +2987,7 @@ function loadCurrentAnalysis() {
   return loadData(STORAGE_KEYS.currentAnalysis, null);
 }
 
-// â”€â”€â”€ Alias Generator â”€â”€â”€
+// ─── Alias Generator ───
 
 const ALIAS_ADJ = [
   'Silent', 'Quiet', 'Swift', 'Steady', 'Sharp', 'Calm', 'Bold', 'Keen',
@@ -3006,7 +3006,7 @@ function generateAlias() {
   return `${adj} ${noun}`;
 }
 
-// â”€â”€â”€ Motivation â”€â”€â”€
+// ─── Motivation ───
 
 function saveAchievements(achievements) {
   saveData('fs_achievements', achievements);
@@ -3034,7 +3034,7 @@ function removeAchievement(id) {
   return achs;
 }
 
-// â”€â”€â”€ Courses & GPA â”€â”€â”€
+// ─── Courses & GPA ───
 
 function saveCourses(courses) {
   saveData('fs_courses', courses);
@@ -3054,9 +3054,9 @@ function loadCPAData() {
 
 </script>
   <script>
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// FilterSys â€” Add Activity Page + Analysis Engine
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════
+// FilterSys — Add Activity Page + Analysis Engine
+// ═══════════════════════════════════════════════
 
 function initAddActivity() {
   const form = document.getElementById('add-activity-form');
@@ -3065,7 +3065,7 @@ function initAddActivity() {
   // Pre-fill GPA
   if (user) {
     document.getElementById('add-gpa-display').textContent =
-      `${Number(user.currentGPA).toFixed(2)} â†’ ${t('onboarding.targetGPALabel')}: ${Number(user.targetGPA).toFixed(2)}`;
+      `${Number(user.currentGPA).toFixed(2)} → ${t('onboarding.targetGPALabel')}: ${Number(user.targetGPA).toFixed(2)}`;
   }
 
 
@@ -3096,7 +3096,7 @@ function initAddActivity() {
     };
 
     if (!activity.name || !activity.date || !activity.duration || !activity.whyJoin) {
-      showToast(getLang() === 'vi' ? 'Äiá»n Ä‘áº§y Ä‘á»§ cÃ¡c trÆ°á»ng báº¯t buá»™c' : 'Fill in all required fields');
+      showToast(getLang() === 'vi' ? 'Điền đầy đủ các trường bắt buộc' : 'Fill in all required fields');
       return;
     }
 
@@ -3142,33 +3142,33 @@ function renderDeadlinesInForm() {
   }).join('');
 }
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════
 // ANALYSIS ENGINE
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════
 // Methodology: Weighted multi-criteria decision analysis (MCDA)
 // based on the Analytic Hierarchy Process (Saaty, 1980).
-// Each dimension is scored 0â€“10, then combined via domain-
+// Each dimension is scored 0–10, then combined via domain-
 // informed weights. Verdict thresholds are calibrated so that
 // a "balanced" activity with no red flags scores ~6.5.
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════
 
 function analyzeActivity(activity, user) {
   const scores = {};
 
-  // 1. Goal Match (0â€“10) â€” MCDA alignment matrix
+  // 1. Goal Match (0–10) — MCDA alignment matrix
   scores.goalMatch = calcGoalMatch(activity, user);
 
-  // 2. Energy Cost (0â€“10) â€” Spoon Theory + cognitive load
+  // 2. Energy Cost (0–10) — Spoon Theory + cognitive load
   scores.energyCost = calcEnergyCost(activity, user);
 
-  // 3. Time Feasibility (0â€“10) â€” Budget utilization model
+  // 3. Time Feasibility (0–10) — Budget utilization model
   scores.timeFeasibility = calcTimeFeasibility(activity, user);
 
-  // 4. Pros vs Cons Balance (0â€“10) â€” Heuristic tally
+  // 4. Pros vs Cons Balance (0–10) — Heuristic tally
   const prosConsList = generateProsCons(activity, user);
   scores.prosCons = prosConsList.score;
 
-  // 5. Long-term Value (0â€“10) â€” Category + goal heuristic
+  // 5. Long-term Value (0–10) — Category + goal heuristic
   scores.longTermValue = calcLongTermValue(activity, user);
 
   // Weighted composite score (AHP-style weights)
@@ -3213,7 +3213,7 @@ function analyzeActivity(activity, user) {
   };
 }
 
-// â”€â”€â”€ 1. Goal Match â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── 1. Goal Match ─────────────────────────────
 // Methodology: Multi-criteria alignment matrix (MCDA).
 // Each cell represents domain-expert judgment of how well
 // an activity category serves a given priority. This is a
@@ -3240,10 +3240,10 @@ function calcGoalMatch(activity, user) {
   return Math.min(10, base + boost);
 }
 
-// â”€â”€â”€ 2. Energy Cost â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── 2. Energy Cost ────────────────────────────
 // Methodology: Adapted from Spoon Theory (Miserandino, 2003)
 // and Kahneman's attention/cognitive load theory (2011).
-// Energy is treated as a finite daily resource (1â€“10 scale).
+// Energy is treated as a finite daily resource (1–10 scale).
 // Drain rates are normalized to a 2-hour reference event at
 // intensity 1.0. Category drain rates reflect the cognitive,
 // physical, and emotional demands of each activity type.
@@ -3277,23 +3277,23 @@ function calcEnergyCost(activity, user) {
   const current = weekly.energyCurrent !== null ? weekly.energyCurrent : baseline;
   const remaining = Math.max(0, current - energyDrain);
 
-  // Score: remaining energy mapped to 0â€“10
+  // Score: remaining energy mapped to 0–10
   return Math.min(10, Math.round(remaining));
 }
 
-// â”€â”€â”€ 3. Time Feasibility â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── 3. Time Feasibility ───────────────────────
 // Methodology: Linear budget utilization model.
 // Score = how much of your weekly extracurricular budget
 // remains after this event.
 //
 // Formula: utilizationAfter = (usedHours + duration) / maxHours
-// Score = max(1, round(10 Ã— (1 - utilizationAfter)))
+// Score = max(1, round(10 × (1 - utilizationAfter)))
 //
 // Interpretation:
-//   0% utilized â†’ 10 (plenty of room)
-//   50% utilized â†’ 5
-//   100% utilized â†’ 1
-//   >100% â†’ 1 (over budget)
+//   0% utilized → 10 (plenty of room)
+//   50% utilized → 5
+//   100% utilized → 1
+//   >100% → 1 (over budget)
 function calcTimeFeasibility(activity, user) {
   const weekly = getWeeklyLog();
   const maxHours = user.maxExtracurricularHours || 10;
@@ -3308,7 +3308,7 @@ function calcTimeFeasibility(activity, user) {
   return Math.max(1, Math.min(10, score));
 }
 
-// â”€â”€â”€ 4. Long-term Value â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── 4. Long-term Value ────────────────────────
 // Methodology: Category-based heuristic with secondary
 // goal boosting. Reflects general career/development value
 // of activity types based on employer surveys (NACE, 2023)
@@ -3338,7 +3338,7 @@ function calcLongTermValue(activity, user) {
   return Math.min(10, base);
 }
 
-// â”€â”€â”€ 5. Pros & Cons â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── 5. Pros & Cons ────────────────────────────
 function generateProsCons(activity, user) {
   const pros = [];
   const cons = [];
@@ -3351,72 +3351,72 @@ function generateProsCons(activity, user) {
 
   // Pros
   if (['networking', 'workshop'].includes(activity.category)) {
-    pros.push(lang === 'vi' ? 'Má»Ÿ rá»™ng máº¡ng lÆ°á»›i chuyÃªn nghiá»‡p' : 'Expand professional network');
+    pros.push(lang === 'vi' ? 'Mở rộng mạng lưới chuyên nghiệp' : 'Expand professional network');
   }
   if (['workshop', 'competition'].includes(activity.category)) {
-    pros.push(lang === 'vi' ? 'PhÃ¡t triá»ƒn ká»¹ nÄƒng thiáº¿t thá»±c' : 'Build practical skills');
+    pros.push(lang === 'vi' ? 'Phát triển kỹ năng thiết thực' : 'Build practical skills');
   }
   if (activity.category === 'volunteer') {
-    pros.push(lang === 'vi' ? 'ÄÃ³ng gÃ³p xÃ£ há»™i & phÃ¡t triá»ƒn nhÃ¢n cÃ¡ch' : 'Social contribution & character building');
+    pros.push(lang === 'vi' ? 'Đóng góp xã hội & phát triển nhân cách' : 'Social contribution & character building');
   }
   if (activity.category === 'hobby') {
-    pros.push(lang === 'vi' ? 'ThÆ° giÃ£n, phá»¥c há»“i nÄƒng lÆ°á»£ng' : 'Rest & energy recovery');
+    pros.push(lang === 'vi' ? 'Thư giãn, phục hồi năng lượng' : 'Rest & energy recovery');
   }
   if (activity.category === 'competition') {
-    pros.push(lang === 'vi' ? 'Ná»•i báº­t trong CV' : 'Stands out on resume');
+    pros.push(lang === 'vi' ? 'Nổi bật trong CV' : 'Stands out on resume');
   }
   if (activity.cost === 0) {
-    pros.push(lang === 'vi' ? 'Miá»…n phÃ­ tham gia' : 'Free to attend');
+    pros.push(lang === 'vi' ? 'Miễn phí tham gia' : 'Free to attend');
   }
   if (activity.whatGain && activity.whatGain.length > 20) {
-    pros.push(lang === 'vi' ? 'Báº¡n xÃ¡c Ä‘á»‹nh rÃµ lá»£i Ã­ch cá»¥ thá»ƒ' : 'You identified specific benefits');
+    pros.push(lang === 'vi' ? 'Bạn xác định rõ lợi ích cụ thể' : 'You identified specific benefits');
   }
 
   // Cons
   if (duration >= 3) {
-    cons.push(lang === 'vi' ? `Chiáº¿m ${duration} giá» liÃªn tá»¥c` : `Takes ${duration} consecutive hours`);
+    cons.push(lang === 'vi' ? `Chiếm ${duration} giờ liên tục` : `Takes ${duration} consecutive hours`);
   }
   if (used + duration > maxHours) {
-    cons.push(lang === 'vi' ? 'VÆ°á»£t ngÃ¢n sÃ¡ch giá» ngoáº¡i khÃ³a tuáº§n nÃ y' : 'Exceeds weekly extracurricular budget');
+    cons.push(lang === 'vi' ? 'Vượt ngân sách giờ ngoại khóa tuần này' : 'Exceeds weekly extracurricular budget');
   }
 
   const exams = getExamsWithinDays(3);
   if (exams.length > 0) {
     const examNames = exams.map(e => e.subject).join(', ');
-    cons.push(lang === 'vi' ? `Gáº§n ká»³ thi: ${examNames}` : `Near exam: ${examNames}`);
+    cons.push(lang === 'vi' ? `Gần kỳ thi: ${examNames}` : `Near exam: ${examNames}`);
   }
 
   const incomplete = getIncompleteTasksThisWeek();
   if (incomplete.length >= 2) {
-    cons.push(lang === 'vi' ? `${incomplete.length} bÃ i táº­p chÆ°a hoÃ n thÃ nh` : `${incomplete.length} unfinished assignments`);
+    cons.push(lang === 'vi' ? `${incomplete.length} bài tập chưa hoàn thành` : `${incomplete.length} unfinished assignments`);
   }
 
   if (activity.cost > 0) {
-    cons.push(lang === 'vi' ? `Chi phÃ­: ${activity.cost.toLocaleString()} VND` : `Cost: ${activity.cost.toLocaleString()} VND`);
+    cons.push(lang === 'vi' ? `Chi phí: ${activity.cost.toLocaleString()} VND` : `Cost: ${activity.cost.toLocaleString()} VND`);
   }
 
   const goalScore = calcGoalMatch(activity, user);
   if (goalScore <= 4) {
     const priLabels = {
-      academics: lang === 'vi' ? 'táº­p trung há»c táº­p' : 'academic focus',
-      career: lang === 'vi' ? 'phÃ¡t triá»ƒn nghá» nghiá»‡p' : 'career building',
-      income: lang === 'vi' ? 'kiáº¿m thu nháº­p' : 'earning income',
-      growth: lang === 'vi' ? 'phÃ¡t triá»ƒn báº£n thÃ¢n' : 'personal growth',
-      balance: lang === 'vi' ? 'cÃ¢n báº±ng' : 'balanced lifestyle',
+      academics: lang === 'vi' ? 'tập trung học tập' : 'academic focus',
+      career: lang === 'vi' ? 'phát triển nghề nghiệp' : 'career building',
+      income: lang === 'vi' ? 'kiếm thu nhập' : 'earning income',
+      growth: lang === 'vi' ? 'phát triển bản thân' : 'personal growth',
+      balance: lang === 'vi' ? 'cân bằng' : 'balanced lifestyle',
     };
     cons.push(lang === 'vi'
-      ? `Ãt phÃ¹ há»£p vá»›i má»¥c tiÃªu: ${priLabels[user.primaryPriority]}`
+      ? `Ít phù hợp với mục tiêu: ${priLabels[user.primaryPriority]}`
       : `Low alignment with priority: ${priLabels[user.primaryPriority]}`
     );
   }
 
   // Detect FOMO in reason
-  const fomoKeywords = ['everyone', 'má»i ngÆ°á»i', 'ai cÅ©ng', 'bá» lá»¡', 'missing out', 'left out', 'fomo', 'peer'];
+  const fomoKeywords = ['everyone', 'mọi người', 'ai cũng', 'bỏ lỡ', 'missing out', 'left out', 'fomo', 'peer'];
   const whyLower = (activity.whyJoin || '').toLowerCase();
   if (fomoKeywords.some(kw => whyLower.includes(kw))) {
     cons.push(lang === 'vi'
-      ? 'âš ï¸ LÃ½ do tham gia cÃ³ dáº¥u hiá»‡u FOMO â€” hÃ£y xem xÃ©t láº¡i'
-      : 'âš ï¸ Your reason shows signs of FOMO â€” reconsider carefully'
+      ? '⚠️ Lý do tham gia có dấu hiệu FOMO — hãy xem xét lại'
+      : '⚠️ Your reason shows signs of FOMO — reconsider carefully'
     );
   }
 
@@ -3424,10 +3424,10 @@ function generateProsCons(activity, user) {
   return { pros, cons, score };
 }
 
-// â”€â”€â”€ Display: Opportunity Cost â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Display: Opportunity Cost ─────────────────
 // Methodology: Direct time substitution (Economics 101).
 // 1 hour spent at an event = 1 hour you cannot study.
-// This is definitionally true â€” the "next best alternative
+// This is definitionally true — the "next best alternative
 // forgone" (Mankiw, Principles of Economics).
 //
 // Pomodoro conversion: Cirillo (2006) The Pomodoro Technique.
@@ -3442,36 +3442,36 @@ function calcOpportunityCost(activity, user) {
   const lostStudyHours = duration;
 
   // Convert to Pomodoro-equivalent productive cycles
-  // 1 Pomodoro cycle â‰ˆ 45 min (0.75 hours) of wall-clock time
+  // 1 Pomodoro cycle ≈ 45 min (0.75 hours) of wall-clock time
   const pomodoroSessions = Math.round((lostStudyHours / 0.75) * 10) / 10;
 
   const lang = getLang();
-  const subjectExample = subjects[0] || (lang === 'vi' ? 'mÃ´n há»c chÃ­nh' : 'your key subject');
+  const subjectExample = subjects[0] || (lang === 'vi' ? 'môn học chính' : 'your key subject');
 
   return {
     duration,
     pomodoroSessions,
     subjectExample,
     text: lang === 'vi'
-      ? `${duration} giá» sá»± kiá»‡n = ${duration} giá» khÃ´ng thá»ƒ há»c. TÆ°Æ¡ng Ä‘Æ°Æ¡ng ~${pomodoroSessions} chu ká»³ Pomodoro (45 phÃºt/chu ká»³) cho ${subjectExample}.`
+      ? `${duration} giờ sự kiện = ${duration} giờ không thể học. Tương đương ~${pomodoroSessions} chu kỳ Pomodoro (45 phút/chu kỳ) cho ${subjectExample}.`
       : `${duration}h at this event = ${duration}h you can't study. That's ~${pomodoroSessions} Pomodoro cycles (45 min each) for ${subjectExample}.`,
   };
 }
 
-// â”€â”€â”€ Display: GPA Risk â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Display: GPA Risk ─────────────────────────
 // Methodology: Percentage-of-budget model.
-// Study time reduction = duration / weeklyStudyHours Ã— 100
+// Study time reduction = duration / weeklyStudyHours × 100
 // (straightforward: what % of your study plan does this consume?)
 //
 // Risk thresholds informed by:
-// - CredÃ© et al. (2010) meta-analysis: study habits explain
+// - Credé et al. (2010) meta-analysis: study habits explain
 //   ~16% of GPA variance; consistent time reduction compounds.
 // - Auburn University: "over-involved" = 11+ hrs/week of
 //   extracurriculars correlates with burnout.
 //
 // Risk levels:
-//   LOW:      reduction < 10% AND gapGPA â‰¤ 0.3
-//   MODERATE: reduction 10â€“20% OR gapGPA > 0.3
+//   LOW:      reduction < 10% AND gapGPA ≤ 0.3
+//   MODERATE: reduction 10–20% OR gapGPA > 0.3
 //   HIGH:     reduction > 20% AND gapGPA > 0.3, OR reduction > 30%
 // Exam proximity: if exam within 3 days, risk escalates one level.
 function calcGPARisk(activity, user) {
@@ -3505,8 +3505,8 @@ function calcGPARisk(activity, user) {
     else if (riskLevel === 'moderate') riskLevel = 'high';
 
     examWarning = lang === 'vi'
-      ? ` âš ï¸ ${t('result.examWarning')}: ${exams.map(e => e.subject).join(', ')}.`
-      : ` âš ï¸ ${t('result.examWarning')}: ${exams.map(e => e.subject).join(', ')}.`;
+      ? ` ⚠️ ${t('result.examWarning')}: ${exams.map(e => e.subject).join(', ')}.`
+      : ` ⚠️ ${t('result.examWarning')}: ${exams.map(e => e.subject).join(', ')}.`;
   }
 
   const incomplete = getIncompleteTasksThisWeek();
@@ -3521,12 +3521,12 @@ function calcGPARisk(activity, user) {
     reductionPct,
     riskLevel,
     text: lang === 'vi'
-      ? `Sá»± kiá»‡n ${duration}h chiáº¿m ${reductionPct}% thá»i gian tá»± há»c hÃ ng tuáº§n (${studyHours}h). Vá»›i GPA ${Number(user.currentGPA).toFixed(2)} â†’ má»¥c tiÃªu ${Number(user.targetGPA).toFixed(2)}, rá»§i ro á»Ÿ má»©c ${riskLevel === 'high' ? 'CAO' : riskLevel === 'moderate' ? 'TRUNG BÃŒNH' : 'THáº¤P'}.${examWarning}${taskWarning}`
-      : `This ${duration}h event uses ${reductionPct}% of your ${studyHours}h weekly study budget. With GPA ${Number(user.currentGPA).toFixed(2)} â†’ target ${Number(user.targetGPA).toFixed(2)}, the risk is ${riskLevel.toUpperCase()}.${examWarning}${taskWarning}`,
+      ? `Sự kiện ${duration}h chiếm ${reductionPct}% thời gian tự học hàng tuần (${studyHours}h). Với GPA ${Number(user.currentGPA).toFixed(2)} → mục tiêu ${Number(user.targetGPA).toFixed(2)}, rủi ro ở mức ${riskLevel === 'high' ? 'CAO' : riskLevel === 'moderate' ? 'TRUNG BÌNH' : 'THẤP'}.${examWarning}${taskWarning}`
+      : `This ${duration}h event uses ${reductionPct}% of your ${studyHours}h weekly study budget. With GPA ${Number(user.currentGPA).toFixed(2)} → target ${Number(user.targetGPA).toFixed(2)}, the risk is ${riskLevel.toUpperCase()}.${examWarning}${taskWarning}`,
   };
 }
 
-// â”€â”€â”€ Display: Energy Budget â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Display: Energy Budget ────────────────────
 // Uses the same drain model as calcEnergyCost above.
 function calcEnergyBudget(activity, user) {
   const baseline = user.energyBaseline || 7;
@@ -3543,13 +3543,13 @@ function calcEnergyBudget(activity, user) {
   const remaining = Math.round(Math.max(0, current - energyDrain) * 10) / 10;
 
   const catDescriptions = {
-    competition: { en: 'high cognitive load', vi: 'táº£i nháº­n thá»©c cao' },
-    volunteer: { en: 'physical + emotional effort', vi: 'thá»ƒ cháº¥t + cáº£m xÃºc' },
-    workshop: { en: 'active learning', vi: 'há»c táº­p chá»§ Ä‘á»™ng' },
-    networking: { en: 'social energy', vi: 'nÄƒng lÆ°á»£ng xÃ£ há»™i' },
-    club: { en: 'social gathering', vi: 'giao lÆ°u nhÃ³m' },
-    hobby: { en: 'restorative activity', vi: 'hoáº¡t Ä‘á»™ng phá»¥c há»“i' },
-    other: { en: 'general activity', vi: 'hoáº¡t Ä‘á»™ng chung' },
+    competition: { en: 'high cognitive load', vi: 'tải nhận thức cao' },
+    volunteer: { en: 'physical + emotional effort', vi: 'thể chất + cảm xúc' },
+    workshop: { en: 'active learning', vi: 'học tập chủ động' },
+    networking: { en: 'social energy', vi: 'năng lượng xã hội' },
+    club: { en: 'social gathering', vi: 'giao lưu nhóm' },
+    hobby: { en: 'restorative activity', vi: 'hoạt động phục hồi' },
+    other: { en: 'general activity', vi: 'hoạt động chung' },
   };
   const desc = catDescriptions[activity.category] || catDescriptions.other;
 
@@ -3559,20 +3559,20 @@ function calcEnergyBudget(activity, user) {
     energyDrain,
     remaining,
     text: lang === 'vi'
-      ? `NÄƒng lÆ°á»£ng: ${current}/10. Sá»± kiá»‡n ${duration}h (${desc.vi}) tiÃªu tá»‘n ~${energyDrain} Ä‘iá»ƒm. CÃ²n láº¡i: ~${remaining}/10.`
+      ? `Năng lượng: ${current}/10. Sự kiện ${duration}h (${desc.vi}) tiêu tốn ~${energyDrain} điểm. Còn lại: ~${remaining}/10.`
       : `Energy: ${current}/10. This ${duration}h event (${desc.en}) drains ~${energyDrain} pts. Remaining: ~${remaining}/10.`,
   };
 }
 
-// â”€â”€â”€ Display: Goal Alignment â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Display: Goal Alignment ───────────────────
 function calcGoalAlignmentText(activity, user, score) {
   const lang = getLang();
   const priLabels = {
-    academics: lang === 'vi' ? 'Táº­p trung vÃ o há»c táº­p' : 'Focus on academics',
-    career: lang === 'vi' ? 'PhÃ¡t triá»ƒn ká»¹ nÄƒng nghá» nghiá»‡p' : 'Build career skills',
-    income: lang === 'vi' ? 'Kiáº¿m thu nháº­p há»— trá»£ gia Ä‘Ã¬nh' : 'Earn income to support family',
-    growth: lang === 'vi' ? 'KhÃ¡m phÃ¡ sá»Ÿ thÃ­ch & phÃ¡t triá»ƒn báº£n thÃ¢n' : 'Explore interests & personal growth',
-    balance: lang === 'vi' ? 'CÃ¢n báº±ng má»i thá»©' : 'Balance everything equally',
+    academics: lang === 'vi' ? 'Tập trung vào học tập' : 'Focus on academics',
+    career: lang === 'vi' ? 'Phát triển kỹ năng nghề nghiệp' : 'Build career skills',
+    income: lang === 'vi' ? 'Kiếm thu nhập hỗ trợ gia đình' : 'Earn income to support family',
+    growth: lang === 'vi' ? 'Khám phá sở thích & phát triển bản thân' : 'Explore interests & personal growth',
+    balance: lang === 'vi' ? 'Cân bằng mọi thứ' : 'Balance everything equally',
   };
 
   let alignment;
@@ -3581,17 +3581,17 @@ function calcGoalAlignmentText(activity, user, score) {
   else alignment = t('result.alignmentLow');
 
   const catLabels = {
-    networking: lang === 'vi' ? 'giao lÆ°u, má»Ÿ rá»™ng má»‘i quan há»‡' : 'networking',
-    workshop: lang === 'vi' ? 'há»™i tháº£o ká»¹ nÄƒng' : 'skills workshop',
-    club: lang === 'vi' ? 'sá»± kiá»‡n cÃ¢u láº¡c bá»™' : 'club event',
-    volunteer: lang === 'vi' ? 'tÃ¬nh nguyá»‡n' : 'volunteering',
-    competition: lang === 'vi' ? 'cuá»™c thi' : 'competition',
-    hobby: lang === 'vi' ? 'sá»Ÿ thÃ­ch' : 'hobby',
-    other: lang === 'vi' ? 'khÃ¡c' : 'other',
+    networking: lang === 'vi' ? 'giao lưu, mở rộng mối quan hệ' : 'networking',
+    workshop: lang === 'vi' ? 'hội thảo kỹ năng' : 'skills workshop',
+    club: lang === 'vi' ? 'sự kiện câu lạc bộ' : 'club event',
+    volunteer: lang === 'vi' ? 'tình nguyện' : 'volunteering',
+    competition: lang === 'vi' ? 'cuộc thi' : 'competition',
+    hobby: lang === 'vi' ? 'sở thích' : 'hobby',
+    other: lang === 'vi' ? 'khác' : 'other',
   };
 
   return lang === 'vi'
-    ? `${t('result.primaryPriority')}: ${priLabels[user.primaryPriority]}. Hoáº¡t Ä‘á»™ng "${catLabels[activity.category]}" cÃ³ ${alignment} vá»›i má»¥c tiÃªu nÃ y.`
+    ? `${t('result.primaryPriority')}: ${priLabels[user.primaryPriority]}. Hoạt động "${catLabels[activity.category]}" có ${alignment} với mục tiêu này.`
     : `${t('result.primaryPriority')}: ${priLabels[user.primaryPriority]}. This "${catLabels[activity.category]}" event has ${alignment} with that goal.`;
 }
 
@@ -3638,9 +3638,9 @@ function renderAddActivityText() {
 
 </script>
   <script>
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// FilterSys â€” Analysis Result Page
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════
+// FilterSys — Analysis Result Page
+// ═══════════════════════════════════════════════
 
 let radarChartInstance = null;
 
@@ -3665,29 +3665,29 @@ function initResult() {
   badge.className = `verdict-badge verdict-${verdictKey}`;
 
   // Sections
-  document.getElementById('result-opp-title').innerHTML = `ðŸ“‰ ${t('result.opportunityCost')}`;
+  document.getElementById('result-opp-title').innerHTML = `📉 ${t('result.opportunityCost')}`;
   document.getElementById('result-opp-text').textContent = analysis.opportunityCost.text;
 
-  document.getElementById('result-gpa-title').innerHTML = `ðŸ“Š ${t('result.gpaRisk')}`;
+  document.getElementById('result-gpa-title').innerHTML = `📊 ${t('result.gpaRisk')}`;
   document.getElementById('result-gpa-text').textContent = analysis.gpaRisk.text;
 
-  document.getElementById('result-energy-title').innerHTML = `ðŸ”‹ ${t('result.energyBudget')}`;
+  document.getElementById('result-energy-title').innerHTML = `🔋 ${t('result.energyBudget')}`;
   document.getElementById('result-energy-text').textContent = analysis.energyBudget.text;
 
-  document.getElementById('result-goal-title').innerHTML = `ðŸŽ¯ ${t('result.goalAlignment')}`;
+  document.getElementById('result-goal-title').innerHTML = `🎯 ${t('result.goalAlignment')}`;
   document.getElementById('result-goal-text').textContent = analysis.goalAlignmentText;
 
   // Pros & Cons
-  document.getElementById('result-pros-title').innerHTML = `âœ… ${t('result.pros')}`;
-  document.getElementById('result-cons-title').innerHTML = `âŒ ${t('result.cons')}`;
+  document.getElementById('result-pros-title').innerHTML = `✅ ${t('result.pros')}`;
+  document.getElementById('result-cons-title').innerHTML = `❌ ${t('result.cons')}`;
 
   document.getElementById('result-pros-list').innerHTML =
     analysis.pros.map(p => `<div class="pros-item">${p}</div>`).join('') ||
-    `<p class="text-muted text-sm">â€”</p>`;
+    `<p class="text-muted text-sm">—</p>`;
 
   document.getElementById('result-cons-list').innerHTML =
     analysis.cons.map(c => `<div class="cons-item">${c}</div>`).join('') ||
-    `<p class="text-muted text-sm">â€”</p>`;
+    `<p class="text-muted text-sm">—</p>`;
 
   // Buttons
   document.getElementById('btn-commit').onclick = () => commitActivity(data.activityId);
@@ -3790,7 +3790,7 @@ function commitActivity(activityId) {
   const hoursUsed = weekActs.reduce((sum, a) => sum + (parseFloat(a.duration) || 0), 0);
   updateWeeklyLog({ hoursUsed, activitiesCount: weekActs.length });
 
-  showToast(getLang() === 'vi' ? 'ÄÃ£ cam káº¿t! Hoáº¡t Ä‘á»™ng Ä‘Ã£ thÃªm vÃ o lá»‹ch.' : 'Committed! Activity added to your calendar.');
+  showToast(getLang() === 'vi' ? 'Đã cam kết! Hoạt động đã thêm vào lịch.' : 'Committed! Activity added to your calendar.');
   navigateTo('dashboard');
 }
 
@@ -3805,16 +3805,16 @@ function renderResultText() {
   document.getElementById('result-title').textContent = t('result.title');
   document.getElementById('result-act-label').textContent = t('result.activityName') + ':';
   document.getElementById('result-verdict-label').textContent = t('result.verdict') + ':';
-  document.getElementById('btn-commit').textContent = 'âœ“ ' + t('result.commit');
+  document.getElementById('btn-commit').textContent = '✓ ' + t('result.commit');
   document.getElementById('btn-skip').textContent = t('result.skipBtn');
   document.getElementById('result-commit-note').textContent = t('result.commitConfirm');
 }
 
 </script>
   <script>
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// FilterSys â€” Dashboard Page
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════
+// FilterSys — Dashboard Page
+// ═══════════════════════════════════════════════
 
 function initDashboard() {
   const user = loadUser();
@@ -3927,18 +3927,18 @@ function renderCommittedActivities() {
     const statusText = act.status === 'committed' ? t('dashboard.status_committed') : t('dashboard.status_dropped');
     const timeStr = act.time ? formatTime(act.time) : '';
     const meta = [
-      act.location ? `ðŸ“ ${act.location}` : '',
+      act.location ? `📍 ${act.location}` : '',
       act.date ? formatDate(act.date) : '',
-      timeStr ? `ðŸ• ${timeStr}` : '',
+      timeStr ? `🕐 ${timeStr}` : '',
       act.duration ? `${act.duration}h` : '',
-    ].filter(Boolean).join(' Â· ');
+    ].filter(Boolean).join(' · ');
 
     return `
       <div class="activity-card">
         <div class="activity-card-header">
           <div class="activity-card-name">${act.name}</div>
           <div class="activity-card-actions">
-            <button class="activity-card-remove" data-id="${act.id}" title="Remove">Ã—</button>
+            <button class="activity-card-remove" data-id="${act.id}" title="Remove">×</button>
           </div>
         </div>
         <div class="activity-card-meta">${meta}</div>
@@ -3990,14 +3990,14 @@ function renderAcademicChecklist() {
       <div class="academic-item ${task.completed ? 'completed' : ''}" data-id="${task.id}">
         <input type="checkbox" class="academic-checkbox" ${task.completed ? 'checked' : ''} data-task-id="${task.id}">
         <div class="academic-item-content">
-          <div class="academic-item-title">${task.subject}${task.description ? ' â€” ' + task.description : ''}</div>
+          <div class="academic-item-title">${task.subject}${task.description ? ' — ' + task.description : ''}</div>
           <div class="academic-item-meta">
             <span class="academic-type-badge ${typeClass}">${typeLabels[task.type] || task.type}</span>
             <span>${t('dashboard.dueLabel')}: ${formatDate(task.date)}</span>
             ${task.estHours ? `<span>${task.estHours} ${t('dashboard.estHours')}</span>` : ''}
           </div>
         </div>
-        <button class="academic-item-delete" data-task-id="${task.id}" title="Delete">Ã—</button>
+        <button class="academic-item-delete" data-task-id="${task.id}" title="Delete">×</button>
       </div>
     `;
   }).join('');
@@ -4035,9 +4035,9 @@ function renderMotivationBoard() {
   container.innerHTML = sorted.map(ach => `
     <div class="activity-card" style="border-left: 4px solid var(--accent);">
       <div class="activity-card-header">
-        <div class="activity-card-name" style="font-weight: 500;">ðŸ† ${ach.text}</div>
+        <div class="activity-card-name" style="font-weight: 500;">🏆 ${ach.text}</div>
         <div class="activity-card-actions">
-          <button class="activity-card-remove mot-remove" data-id="${ach.id}" title="Remove">Ã—</button>
+          <button class="activity-card-remove mot-remove" data-id="${ach.id}" title="Remove">×</button>
         </div>
       </div>
       <div class="activity-card-meta">${formatDate(ach.createdAt)}</div>
@@ -4125,7 +4125,7 @@ function bindAcademicModal() {
     };
 
     if (!task.subject || !task.date) {
-      showToast(getLang() === 'vi' ? 'Äiá»n Ä‘áº§y Ä‘á»§ thÃ´ng tin' : 'Fill in all required fields');
+      showToast(getLang() === 'vi' ? 'Điền đầy đủ thông tin' : 'Fill in all required fields');
       return;
     }
 
@@ -4133,7 +4133,7 @@ function bindAcademicModal() {
     closeModal();
     renderAcademicChecklist();
     renderWeekCalendar();
-    showToast(getLang() === 'vi' ? 'ÄÃ£ thÃªm!' : 'Added!');
+    showToast(getLang() === 'vi' ? 'Đã thêm!' : 'Added!');
   });
 
   // Parse schedule text
@@ -4170,7 +4170,7 @@ function bindAcademicModal() {
         }
 
         // Remove the date from the line to get the subject
-        const subject = line.replace(match[0], '').replace(/[-â€“â€”:,]/g, ' ').trim();
+        const subject = line.replace(match[0], '').replace(/[-–—:,]/g, ' ').trim();
         
         if (subject) {
           addAcademicTask({
@@ -4190,9 +4190,9 @@ function bindAcademicModal() {
       document.getElementById('modal-academic').classList.add('hidden');
       renderAcademicChecklist();
       renderWeekCalendar();
-      showToast(getLang() === 'vi' ? `ÄÃ£ thÃªm ${found} má»¥c` : `Added ${found} items`);
+      showToast(getLang() === 'vi' ? `Đã thêm ${found} mục` : `Added ${found} items`);
     } else {
-      showToast(getLang() === 'vi' ? 'KhÃ´ng tÃ¬m tháº¥y ngÃ y há»£p lá»‡' : 'No valid dates found');
+      showToast(getLang() === 'vi' ? 'Không tìm thấy ngày hợp lệ' : 'No valid dates found');
     }
   });
 }
@@ -4214,7 +4214,7 @@ function initMotivationModal() {
       addAchievement(text);
       closeModal();
       renderMotivationBoard();
-      showToast(getLang() === 'vi' ? 'ÄÃ£ lÆ°u thÃ nh tá»±u!' : 'Achievement saved!');
+      showToast(getLang() === 'vi' ? 'Đã lưu thành tựu!' : 'Achievement saved!');
     }
   });
 }
@@ -4294,9 +4294,9 @@ function formatTime(timeStr) {
 
 </script>
   <script>
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// FilterSys â€” GPA & Honors Calculator
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════
+// FilterSys — GPA & Honors Calculator
+// ═══════════════════════════════════════════════
 
 function calculateCourseFinal(ccWeight, ccGrade, gkWeight, gkGrade, ckWeight, ckGrade) {
   return (ccWeight * ccGrade + gkWeight * gkGrade + ckWeight * ckGrade) / 100;
@@ -4345,7 +4345,7 @@ function getHonorsClass(cpa, totalCredits, retakeCredits) {
   }
 
   const tiersEn = ['Poor', 'Average', 'Above Average', 'Good', 'Very Good', 'Excellent'];
-  const tiersVi = ['Yáº¿u', 'Trung bÃ¬nh', 'Trung bÃ¬nh khÃ¡', 'KhÃ¡', 'Giá»i', 'Xuáº¥t sáº¯c'];
+  const tiersVi = ['Yếu', 'Trung bình', 'Trung bình khá', 'Khá', 'Giỏi', 'Xuất sắc'];
   
   const lang = getLang();
   const name = lang === 'vi' ? tiersVi[tier] : tiersEn[tier];
@@ -4353,7 +4353,7 @@ function getHonorsClass(cpa, totalCredits, retakeCredits) {
   return { tier, name, downgrade };
 }
 
-// â”€â”€â”€ UI Controllers â”€â”€â”€
+// ─── UI Controllers ───
 
 function initGPA() {
   renderGPACourses();
@@ -4380,12 +4380,12 @@ function renderGPACourses() {
         <div class="activity-card-header">
           <div class="activity-card-name">${c.name || t('gpa.unnamed')} (${c.credits} cr)</div>
           <div class="activity-card-actions">
-            <button class="activity-card-remove gpa-remove" data-index="${i}" title="Remove">Ã—</button>
+            <button class="activity-card-remove gpa-remove" data-index="${i}" title="Remove">×</button>
           </div>
         </div>
         <div class="activity-card-meta">
-          <span>CC: ${c.ccG} (${c.ccW}%)</span> Â· 
-          <span>GK: ${c.gkG} (${c.gkW}%)</span> Â· 
+          <span>CC: ${c.ccG} (${c.ccW}%)</span> · 
+          <span>GK: ${c.gkG} (${c.gkW}%)</span> · 
           <span>CK: ${c.ckG} (${c.ckW}%)</span>
         </div>
         <div style="margin-top: 0.5rem; display: flex; gap: 0.5rem; align-items: center;">
@@ -4432,7 +4432,7 @@ function calculateAllGPA() {
   
   document.getElementById('gpa-honors-val').textContent = honors.name;
   if (honors.downgrade) {
-    document.getElementById('gpa-honors-val').innerHTML += ` <span title="Downgraded due to >5% retake credits" style="color: var(--danger);">âš ï¸</span>`;
+    document.getElementById('gpa-honors-val').innerHTML += ` <span title="Downgraded due to >5% retake credits" style="color: var(--danger);">⚠️</span>`;
   }
 }
 
@@ -4469,7 +4469,7 @@ function bindGPAActions() {
     };
     
     if (course.ccW + course.gkW + course.ckW !== 100) {
-      showToast(getLang() === 'vi' ? 'Tá»•ng trá»ng sá»‘ pháº£i báº±ng 100%' : 'Total weights must equal 100%');
+      showToast(getLang() === 'vi' ? 'Tổng trọng số phải bằng 100%' : 'Total weights must equal 100%');
       return;
     }
     
@@ -4541,9 +4541,16 @@ function renderGPAText() {
 
 </script>
   <script>
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// FilterSys â€” Quiz & Onboarding Page
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════
+// FilterSys — Quiz & Onboarding Page
+// ═══════════════════════════════════════════════
+
+function formatGpa(input) {
+  let val = parseFloat(input.value);
+  if (isNaN(val)) val = 0;
+  val = Math.max(0, Math.min(4, val));
+  input.value = val.toFixed(2);
+}
 
 let currentQuizQ = 1;
 let quizAnswers = [];
@@ -4618,13 +4625,13 @@ function finishQuiz() {
 
 function getIconForGoal(goal) {
   const map = {
-    academics: 'ðŸ“š',
-    career: 'ðŸ’¼',
-    income: 'ðŸ’°',
-    growth: 'ðŸŒ±',
-    balance: 'âš–ï¸'
+    academics: '📚',
+    career: '💼',
+    income: '💰',
+    growth: '🌱',
+    balance: '⚖️'
   };
-  return map[goal] || 'ðŸŽ¯';
+  return map[goal] || '🎯';
 }
 
 function renderQuizText() {
@@ -4686,9 +4693,14 @@ function initOnboarding() {
 
 
   // Submit
+  const secCheckboxes = form.querySelectorAll('input[name="secondary"]');
+  const priRadios = form.querySelectorAll('input[name="primary"]');
+  const currentGpaInput = document.getElementById('inp-current-gpa');
+  const targetGpaInput = document.getElementById('inp-target-gpa');
+
   studySlider.addEventListener('input', () => { studyVal.textContent = studySlider.value + 'h'; });
-    energySlider.addEventListener('input', () => { energyVal.textContent = energySlider.value; });
-    maxHoursSlider.addEventListener('input', () => { maxHoursVal.textContent = maxHoursSlider.value + 'h'; });
+  energySlider.addEventListener('input', () => { energyVal.textContent = energySlider.value; });
+  maxHoursSlider.addEventListener('input', () => { maxHoursVal.textContent = maxHoursSlider.value + 'h'; });
 
     genBtn.addEventListener('click', () => {
       aliasInput.value = generateAlias();
@@ -4723,7 +4735,7 @@ function initOnboarding() {
 
       const primary = form.querySelector('input[name="primary"]:checked');
       if (!primary) {
-        showToast(getLang() === 'vi' ? 'Chá»n Æ°u tiÃªn chÃ­nh' : 'Select a primary priority');
+        showToast(getLang() === 'vi' ? 'Chọn ưu tiên chính' : 'Select a primary priority');
         return;
       }
 
@@ -4779,9 +4791,9 @@ function renderOnboardingText() {
 
 </script>
   <script>
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// FilterSys â€” Mentor Page (Interactive Flow)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════
+// FilterSys — Mentor Page (Interactive Flow)
+// ═══════════════════════════════════════════════
 
 let selectedMentor = null;
 
@@ -4860,16 +4872,16 @@ function getMentorIntros(type, lang, user) {
   
   const intros = {
     academic: {
-      en: `Hello${alias ? ', ' + alias : ''}. I'm The Academic. I prioritize GPA above everything else â€” because in the end, your transcript follows you longer than any club memory.<br><br>Tell me what's bothering you. Be specific: what event or situation is creating FOMO for you right now?`,
-      vi: `Xin chÃ o${alias ? ', ' + alias : ''}. TÃ´i lÃ  NgÆ°á»i Há»c Thuáº­t. TÃ´i Æ°u tiÃªn GPA trÃªn táº¥t cáº£ â€” vÃ¬ báº£ng Ä‘iá»ƒm theo báº¡n lÃ¢u hÆ¡n báº¥t ká»³ ká»· niá»‡m cÃ¢u láº¡c bá»™ nÃ o.<br><br>HÃ£y cho tÃ´i biáº¿t Ä‘iá»u gÃ¬ Ä‘ang khiáº¿n báº¡n bÄƒn khoÄƒn. Cá»¥ thá»ƒ: sá»± kiá»‡n hay tÃ¬nh huá»‘ng nÃ o Ä‘ang táº¡o FOMO cho báº¡n?`
+      en: `Hello${alias ? ', ' + alias : ''}. I'm The Academic. I prioritize GPA above everything else — because in the end, your transcript follows you longer than any club memory.<br><br>Tell me what's bothering you. Be specific: what event or situation is creating FOMO for you right now?`,
+      vi: `Xin chào${alias ? ', ' + alias : ''}. Tôi là Người Học Thuật. Tôi ưu tiên GPA trên tất cả — vì bảng điểm theo bạn lâu hơn bất kỳ kỷ niệm câu lạc bộ nào.<br><br>Hãy cho tôi biết điều gì đang khiến bạn băn khoăn. Cụ thể: sự kiện hay tình huống nào đang tạo FOMO cho bạn?`
     },
     career: {
-      en: `Hey${alias ? ', ' + alias : ''}. I'm The Career Builder. Every hour is an investment â€” the question is whether the ROI is worth it.<br><br>What opportunity are you considering? Let's evaluate its real career value.`,
-      vi: `ChÃ o${alias ? ', ' + alias : ''}. TÃ´i lÃ  NgÆ°á»i XÃ¢y Dá»±ng Sá»± Nghiá»‡p. Má»—i giá» lÃ  má»™t khoáº£n Ä‘áº§u tÆ° â€” váº¥n Ä‘á» lÃ  lá»£i Ã­ch cÃ³ xá»©ng Ä‘Ã¡ng khÃ´ng.<br><br>Báº¡n Ä‘ang xem xÃ©t cÆ¡ há»™i nÃ o? HÃ£y Ä‘Ã¡nh giÃ¡ giÃ¡ trá»‹ thá»±c táº¿ cho sá»± nghiá»‡p.`
+      en: `Hey${alias ? ', ' + alias : ''}. I'm The Career Builder. Every hour is an investment — the question is whether the ROI is worth it.<br><br>What opportunity are you considering? Let's evaluate its real career value.`,
+      vi: `Chào${alias ? ', ' + alias : ''}. Tôi là Người Xây Dựng Sự Nghiệp. Mỗi giờ là một khoản đầu tư — vấn đề là lợi ích có xứng đáng không.<br><br>Bạn đang xem xét cơ hội nào? Hãy đánh giá giá trị thực tế cho sự nghiệp.`
     },
     realist: {
-      en: `Hi${alias ? ', ' + alias : ''}. I'm The Realist. I don't optimize for perfection â€” I optimize for sustainability. Burning out helps nobody.<br><br>What's the situation? Tell me what you're feeling pulled toward, and I'll help you see if it's worth the energy.`,
-      vi: `Xin chÃ o${alias ? ', ' + alias : ''}. TÃ´i lÃ  NgÆ°á»i Thá»±c Táº¿. TÃ´i khÃ´ng tá»‘i Æ°u cho sá»± hoÃ n háº£o â€” tÃ´i tá»‘i Æ°u cho sá»± bá»n vá»¯ng. Kiá»‡t sá»©c khÃ´ng giÃºp Ã­ch gÃ¬ cho ai.<br><br>TÃ¬nh huá»‘ng tháº¿ nÃ o? HÃ£y cho tÃ´i biáº¿t Ä‘iá»u gÃ¬ Ä‘ang kÃ©o báº¡n, vÃ  tÃ´i sáº½ giÃºp báº¡n xem nÃ³ cÃ³ Ä‘Ã¡ng Ä‘á»ƒ dÃ nh nÄƒng lÆ°á»£ng khÃ´ng.`
+      en: `Hi${alias ? ', ' + alias : ''}. I'm The Realist. I don't optimize for perfection — I optimize for sustainability. Burning out helps nobody.<br><br>What's the situation? Tell me what you're feeling pulled toward, and I'll help you see if it's worth the energy.`,
+      vi: `Xin chào${alias ? ', ' + alias : ''}. Tôi là Người Thực Tế. Tôi không tối ưu cho sự hoàn hảo — tôi tối ưu cho sự bền vững. Kiệt sức không giúp ích gì cho ai.<br><br>Tình huống thế nào? Hãy cho tôi biết điều gì đang kéo bạn, và tôi sẽ giúp bạn xem nó có đáng để dành năng lượng không.`
     }
   };
 
@@ -4888,54 +4900,54 @@ function generateMentorResponse(mentorType, userText, user, lang) {
 
   // Context data string
   const contextData = lang === 'vi'
-    ? `[Dá»¯ liá»‡u: ${hoursUsed}/${maxHours}h ngoáº¡i khÃ³a tuáº§n nÃ y, nÄƒng lÆ°á»£ng ${energy}/10, ${committed.length} hoáº¡t Ä‘á»™ng Ä‘Ã£ cam káº¿t, ${exams.length} ká»³ thi sáº¯p tá»›i, ${incomplete.length} bÃ i táº­p chÆ°a xong]`
+    ? `[Dữ liệu: ${hoursUsed}/${maxHours}h ngoại khóa tuần này, năng lượng ${energy}/10, ${committed.length} hoạt động đã cam kết, ${exams.length} kỳ thi sắp tới, ${incomplete.length} bài tập chưa xong]`
     : `[Data: ${hoursUsed}/${maxHours}h extracurriculars this week, energy ${energy}/10, ${committed.length} committed activities, ${exams.length} upcoming exams, ${incomplete.length} incomplete tasks]`;
 
   // Detect themes
-  const isFOMO = /fomo|bá» lá»¡|missing|left out|má»i ngÆ°á»i|everyone|ai cÅ©ng/i.test(textLower);
-  const isOvercommit = /too many|quÃ¡ nhiá»u|overwhelm|nhiá»u quÃ¡|commit|cam káº¿t/i.test(textLower);
-  const isQuit = /quit|rá»i|leave|bá»|drop|nghá»‰/i.test(textLower);
-  const isGuilty = /guilt|tá»™i lá»—i|cÃ³ lá»—i|sorry|feel bad|Ã¡y nÃ¡y/i.test(textLower);
-  const isConfused = /don't know|khÃ´ng biáº¿t|confused|phÃ¢n vÃ¢n|uncertain|lÆ°á»¡ng lá»±/i.test(textLower);
+  const isFOMO = /fomo|bỏ lỡ|missing|left out|mọi người|everyone|ai cũng/i.test(textLower);
+  const isOvercommit = /too many|quá nhiều|overwhelm|nhiều quá|commit|cam kết/i.test(textLower);
+  const isQuit = /quit|rời|leave|bỏ|drop|nghỉ/i.test(textLower);
+  const isGuilty = /guilt|tội lỗi|có lỗi|sorry|feel bad|áy náy/i.test(textLower);
+  const isConfused = /don't know|không biết|confused|phân vân|uncertain|lưỡng lự/i.test(textLower);
 
   // Mentor-specific responses
   const responses = {
     academic: {
       fomo: {
         en: `${contextData}<br><br>Let's be direct: FOMO doesn't add points to your GPA. Every event you attend "because everyone else is going" is time subtracted from your academic performance.<br><br>You have ${hoursUsed}h committed this week out of ${maxHours}h budget.${exams.length > 0 ? ` And you have ${exams.length} exam(s) coming up.` : ''} Every hour matters.<br><br><strong>My advice:</strong> Before saying yes, ask yourself: "Will this help my grades?" If the answer is no, it's a no. Your peers will forget this event in a week. Your transcript is permanent.`,
-        vi: `${contextData}<br><br>NÃ³i tháº³ng: FOMO khÃ´ng cá»™ng Ä‘iá»ƒm vÃ o GPA. Má»—i sá»± kiá»‡n báº¡n tham gia "vÃ¬ má»i ngÆ°á»i Ä‘á»u Ä‘i" lÃ  thá»i gian trá»« Ä‘i tá»« káº¿t quáº£ há»c táº­p.<br><br>Báº¡n Ä‘Ã£ cam káº¿t ${hoursUsed}h tuáº§n nÃ y trong ngÃ¢n sÃ¡ch ${maxHours}h.${exams.length > 0 ? ` VÃ  báº¡n cÃ³ ${exams.length} ká»³ thi sáº¯p tá»›i.` : ''} Má»—i giá» Ä‘á»u quan trá»ng.<br><br><strong>Lá»i khuyÃªn:</strong> TrÆ°á»›c khi Ä‘á»“ng Ã½, hÃ£y tá»± há»i: "Äiá»u nÃ y cÃ³ giÃºp Ä‘iá»ƒm sá»‘ khÃ´ng?" Náº¿u cÃ¢u tráº£ lá»i lÃ  khÃ´ng, thÃ¬ Ä‘Ã³ lÃ  khÃ´ng. Báº¡n bÃ¨ sáº½ quÃªn sá»± kiá»‡n nÃ y trong má»™t tuáº§n. Báº£ng Ä‘iá»ƒm thÃ¬ vÄ©nh viá»…n.`
+        vi: `${contextData}<br><br>Nói thẳng: FOMO không cộng điểm vào GPA. Mỗi sự kiện bạn tham gia "vì mọi người đều đi" là thời gian trừ đi từ kết quả học tập.<br><br>Bạn đã cam kết ${hoursUsed}h tuần này trong ngân sách ${maxHours}h.${exams.length > 0 ? ` Và bạn có ${exams.length} kỳ thi sắp tới.` : ''} Mỗi giờ đều quan trọng.<br><br><strong>Lời khuyên:</strong> Trước khi đồng ý, hãy tự hỏi: "Điều này có giúp điểm số không?" Nếu câu trả lời là không, thì đó là không. Bạn bè sẽ quên sự kiện này trong một tuần. Bảng điểm thì vĩnh viễn.`
       },
       overcommit: {
         en: `${contextData}<br><br>You're at ${hoursUsed}h out of ${maxHours}h. ${hoursUsed > maxHours ? "That's already over your budget." : "Getting close to the limit."}<br><br>${incomplete.length > 0 ? `You also have ${incomplete.length} unfinished academic tasks. ` : ''}Every additional commitment directly competes with study time.<br><br><strong>Recommendation:</strong> Rank all your current commitments by academic relevance. Drop the bottom one. No negotiation.`,
-        vi: `${contextData}<br><br>Báº¡n Ä‘ang á»Ÿ má»©c ${hoursUsed}h trong tá»•ng ${maxHours}h. ${hoursUsed > maxHours ? "ÄÃ£ vÆ°á»£t ngÃ¢n sÃ¡ch rá»“i." : "Sáº¯p cháº¡m giá»›i háº¡n."}<br><br>${incomplete.length > 0 ? `Báº¡n cÃ²n ${incomplete.length} bÃ i táº­p chÆ°a hoÃ n thÃ nh. ` : ''}Má»—i cam káº¿t thÃªm trá»±c tiáº¿p cáº¡nh tranh vá»›i thá»i gian há»c.<br><br><strong>Äá» xuáº¥t:</strong> Xáº¿p háº¡ng táº¥t cáº£ cam káº¿t hiá»‡n táº¡i theo má»©c Ä‘á»™ liÃªn quan Ä‘áº¿n há»c táº­p. Bá» cÃ¡i cuá»‘i cÃ¹ng. KhÃ´ng thÆ°Æ¡ng lÆ°á»£ng.`
+        vi: `${contextData}<br><br>Bạn đang ở mức ${hoursUsed}h trong tổng ${maxHours}h. ${hoursUsed > maxHours ? "Đã vượt ngân sách rồi." : "Sắp chạm giới hạn."}<br><br>${incomplete.length > 0 ? `Bạn còn ${incomplete.length} bài tập chưa hoàn thành. ` : ''}Mỗi cam kết thêm trực tiếp cạnh tranh với thời gian học.<br><br><strong>Đề xuất:</strong> Xếp hạng tất cả cam kết hiện tại theo mức độ liên quan đến học tập. Bỏ cái cuối cùng. Không thương lượng.`
       },
       default: {
         en: `${contextData}<br><br>Here's what the numbers say: You've used ${hoursUsed} of ${maxHours} hours this week. Your energy is at ${energy}/10. ${exams.length > 0 ? `You have ${exams.length} exam(s) ahead.` : ''}<br><br>From a pure academic standpoint, any activity that doesn't directly contribute to your coursework is optional. And "optional" means you need a very good reason.<br><br>What specifically are you trying to decide?`,
-        vi: `${contextData}<br><br>Dá»¯ liá»‡u cho tháº¥y: Báº¡n Ä‘Ã£ dÃ¹ng ${hoursUsed} trong ${maxHours} giá» tuáº§n nÃ y. NÄƒng lÆ°á»£ng á»Ÿ má»©c ${energy}/10. ${exams.length > 0 ? `Báº¡n cÃ³ ${exams.length} ká»³ thi phÃ­a trÆ°á»›c.` : ''}<br><br>Tá»« gÃ³c nhÃ¬n thuáº§n há»c thuáº­t, báº¥t ká»³ hoáº¡t Ä‘á»™ng nÃ o khÃ´ng trá»±c tiáº¿p Ä‘Ã³ng gÃ³p vÃ o mÃ´n há»c Ä‘á»u lÃ  tÃ¹y chá»n. VÃ  "tÃ¹y chá»n" nghÄ©a lÃ  báº¡n cáº§n lÃ½ do ráº¥t chÃ­nh Ä‘Ã¡ng.<br><br>Cá»¥ thá»ƒ báº¡n Ä‘ang cáº§n quyáº¿t Ä‘á»‹nh Ä‘iá»u gÃ¬?`
+        vi: `${contextData}<br><br>Dữ liệu cho thấy: Bạn đã dùng ${hoursUsed} trong ${maxHours} giờ tuần này. Năng lượng ở mức ${energy}/10. ${exams.length > 0 ? `Bạn có ${exams.length} kỳ thi phía trước.` : ''}<br><br>Từ góc nhìn thuần học thuật, bất kỳ hoạt động nào không trực tiếp đóng góp vào môn học đều là tùy chọn. Và "tùy chọn" nghĩa là bạn cần lý do rất chính đáng.<br><br>Cụ thể bạn đang cần quyết định điều gì?`
       }
     },
     career: {
       fomo: {
-        en: `${contextData}<br><br>FOMO is a terrible career advisor. The best professionals I know got there by being strategic, not by attending every event.<br><br>Ask yourself: "Can I name 3 specific people at this event who could advance my career?" If not, it's socializing â€” not networking. There's a difference.<br><br><strong>Career calculation:</strong> One meaningful connection > 10 events attended out of obligation. Invest your ${maxHours - hoursUsed}h remaining wisely.`,
-        vi: `${contextData}<br><br>FOMO lÃ  má»™t cá»‘ váº¥n nghá» nghiá»‡p tá»“i. Nhá»¯ng ngÆ°á»i thÃ nh cÃ´ng tÃ´i biáº¿t Ä‘á»u Ä‘áº¿n Ä‘Ã³ báº±ng chiáº¿n lÆ°á»£c, khÃ´ng pháº£i báº±ng cÃ¡ch tham gia má»i sá»± kiá»‡n.<br><br>HÃ£y tá»± há»i: "Báº¡n cÃ³ thá»ƒ ká»ƒ tÃªn 3 ngÆ°á»i cá»¥ thá»ƒ á»Ÿ sá»± kiá»‡n nÃ y cÃ³ thá»ƒ giÃºp sá»± nghiá»‡p khÃ´ng?" Náº¿u khÃ´ng, Ä‘Ã³ lÃ  giao lÆ°u â€” khÃ´ng pháº£i xÃ¢y dá»±ng máº¡ng lÆ°á»›i. CÃ³ sá»± khÃ¡c biá»‡t.<br><br><strong>TÃ­nh toÃ¡n nghá» nghiá»‡p:</strong> Má»™t má»‘i quan há»‡ cÃ³ Ã½ nghÄ©a > 10 sá»± kiá»‡n tham gia vÃ¬ nghÄ©a vá»¥. HÃ£y Ä‘áº§u tÆ° ${maxHours - hoursUsed}h cÃ²n láº¡i má»™t cÃ¡ch khÃ´n ngoan.`
+        en: `${contextData}<br><br>FOMO is a terrible career advisor. The best professionals I know got there by being strategic, not by attending every event.<br><br>Ask yourself: "Can I name 3 specific people at this event who could advance my career?" If not, it's socializing — not networking. There's a difference.<br><br><strong>Career calculation:</strong> One meaningful connection > 10 events attended out of obligation. Invest your ${maxHours - hoursUsed}h remaining wisely.`,
+        vi: `${contextData}<br><br>FOMO là một cố vấn nghề nghiệp tồi. Những người thành công tôi biết đều đến đó bằng chiến lược, không phải bằng cách tham gia mọi sự kiện.<br><br>Hãy tự hỏi: "Bạn có thể kể tên 3 người cụ thể ở sự kiện này có thể giúp sự nghiệp không?" Nếu không, đó là giao lưu — không phải xây dựng mạng lưới. Có sự khác biệt.<br><br><strong>Tính toán nghề nghiệp:</strong> Một mối quan hệ có ý nghĩa > 10 sự kiện tham gia vì nghĩa vụ. Hãy đầu tư ${maxHours - hoursUsed}h còn lại một cách khôn ngoan.`
       },
       default: {
-        en: `${contextData}<br><br>Let's think about ROI. You have ${maxHours - hoursUsed}h left in your weekly budget. Energy at ${energy}/10.<br><br>The career question isn't "Is this event good?" â€” it's "Is this the BEST use of my limited time for career growth?"<br><br>If you can get the same benefit from a 30-minute LinkedIn conversation instead of a 3-hour event, choose efficiency. What's the specific opportunity you're weighing?`,
-        vi: `${contextData}<br><br>HÃ£y nghÄ© vá» lá»£i Ã­ch Ä‘áº§u tÆ°. Báº¡n cÃ²n ${maxHours - hoursUsed}h trong ngÃ¢n sÃ¡ch tuáº§n. NÄƒng lÆ°á»£ng á»Ÿ ${energy}/10.<br><br>CÃ¢u há»i nghá» nghiá»‡p khÃ´ng pháº£i "Sá»± kiá»‡n nÃ y tá»‘t khÃ´ng?" â€” mÃ  lÃ  "ÄÃ¢y cÃ³ pháº£i cÃ¡ch Sá»¬ Dá»¤NG Tá»T NHáº¤T thá»i gian háº¡n cháº¿ cho phÃ¡t triá»ƒn nghá» nghiá»‡p khÃ´ng?"<br><br>Náº¿u báº¡n cÃ³ thá»ƒ nháº­n cÃ¹ng lá»£i Ã­ch tá»« cuá»™c trÃ² chuyá»‡n 30 phÃºt trÃªn LinkedIn thay vÃ¬ sá»± kiá»‡n 3 giá», hÃ£y chá»n hiá»‡u quáº£. CÆ¡ há»™i cá»¥ thá»ƒ báº¡n Ä‘ang cÃ¢n nháº¯c lÃ  gÃ¬?`
+        en: `${contextData}<br><br>Let's think about ROI. You have ${maxHours - hoursUsed}h left in your weekly budget. Energy at ${energy}/10.<br><br>The career question isn't "Is this event good?" — it's "Is this the BEST use of my limited time for career growth?"<br><br>If you can get the same benefit from a 30-minute LinkedIn conversation instead of a 3-hour event, choose efficiency. What's the specific opportunity you're weighing?`,
+        vi: `${contextData}<br><br>Hãy nghĩ về lợi ích đầu tư. Bạn còn ${maxHours - hoursUsed}h trong ngân sách tuần. Năng lượng ở ${energy}/10.<br><br>Câu hỏi nghề nghiệp không phải "Sự kiện này tốt không?" — mà là "Đây có phải cách SỬ DỤNG TỐT NHẤT thời gian hạn chế cho phát triển nghề nghiệp không?"<br><br>Nếu bạn có thể nhận cùng lợi ích từ cuộc trò chuyện 30 phút trên LinkedIn thay vì sự kiện 3 giờ, hãy chọn hiệu quả. Cơ hội cụ thể bạn đang cân nhắc là gì?`
       }
     },
     realist: {
       fomo: {
         en: `${contextData}<br><br>Here's the thing about FOMO: it's your brain telling you a story that isn't true. The story says "if you don't go, you'll miss something life-changing." Reality says most events are forgettable.<br><br>Your energy is ${energy}/10. Your hours are ${hoursUsed}/${maxHours}. ${energy <= 4 ? "You're running on fumes. " : ""}${incomplete.length > 0 ? `You have ${incomplete.length} things to finish first. ` : ""}<br><br><strong>The sustainable choice:</strong> Skip this one. Rest, finish your work, and show up fully present for the next thing that actually matters. One well-attended event beats three where you're mentally checked out.`,
-        vi: `${contextData}<br><br>FOMO lÃ  cÃ¢u chuyá»‡n nÃ£o báº¡n tá»± ká»ƒ â€” nhÆ°ng khÃ´ng Ä‘Ãºng sá»± tháº­t. CÃ¢u chuyá»‡n nÃ³i "náº¿u khÃ´ng Ä‘i, báº¡n sáº½ bá» lá»¡ Ä‘iá»u gÃ¬ Ä‘Ã³ thay Ä‘á»•i cuá»™c Ä‘á»i." Thá»±c táº¿ thÃ¬ háº§u háº¿t sá»± kiá»‡n Ä‘á»u sáº½ bá»‹ lÃ£ng quÃªn.<br><br>NÄƒng lÆ°á»£ng: ${energy}/10. Giá»: ${hoursUsed}/${maxHours}. ${energy <= 4 ? "Báº¡n Ä‘ang cáº¡n kiá»‡t. " : ""}${incomplete.length > 0 ? `Báº¡n cÃ²n ${incomplete.length} viá»‡c chÆ°a xong. ` : ""}<br><br><strong>Lá»±a chá»n bá»n vá»¯ng:</strong> Bá» qua láº§n nÃ y. Nghá»‰ ngÆ¡i, hoÃ n thÃ nh cÃ´ng viá»‡c, vÃ  xuáº¥t hiá»‡n toÃ n tÃ¢m á»Ÿ sá»± kiá»‡n tiáº¿p theo thá»±c sá»± quan trá»ng. Má»™t sá»± kiá»‡n tham gia trá»n váº¹n hÆ¡n ba sá»± kiá»‡n mÃ  tÃ¢m trÃ­ báº¡n khÃ´ng cÃ³ máº·t.`
+        vi: `${contextData}<br><br>FOMO là câu chuyện não bạn tự kể — nhưng không đúng sự thật. Câu chuyện nói "nếu không đi, bạn sẽ bỏ lỡ điều gì đó thay đổi cuộc đời." Thực tế thì hầu hết sự kiện đều sẽ bị lãng quên.<br><br>Năng lượng: ${energy}/10. Giờ: ${hoursUsed}/${maxHours}. ${energy <= 4 ? "Bạn đang cạn kiệt. " : ""}${incomplete.length > 0 ? `Bạn còn ${incomplete.length} việc chưa xong. ` : ""}<br><br><strong>Lựa chọn bền vững:</strong> Bỏ qua lần này. Nghỉ ngơi, hoàn thành công việc, và xuất hiện toàn tâm ở sự kiện tiếp theo thực sự quan trọng. Một sự kiện tham gia trọn vẹn hơn ba sự kiện mà tâm trí bạn không có mặt.`
       },
       overcommit: {
-        en: `${contextData}<br><br>Real talk: ${hoursUsed}h out of ${maxHours}h used, energy at ${energy}/10. ${hoursUsed >= maxHours ? "You're already over capacity." : "You're getting close to burnout territory."}<br><br>Overcommitting isn't dedication â€” it's self-sabotage in disguise. You end up doing 5 things at 60% instead of 3 things at 100%.<br><br><strong>Action plan:</strong> List everything you've committed to. For each item, honestly rate: "Would I sign up for this today, knowing what I know now?" Drop anything that scores below a 7/10.`,
-        vi: `${contextData}<br><br>NÃ³i tháº­t: ${hoursUsed}h trong ${maxHours}h Ä‘Ã£ dÃ¹ng, nÄƒng lÆ°á»£ng ${energy}/10. ${hoursUsed >= maxHours ? "Báº¡n Ä‘Ã£ vÆ°á»£t quÃ¡ sá»©c." : "Báº¡n Ä‘ang gáº§n ngÆ°á»¡ng kiá»‡t sá»©c."}<br><br>Tham gia quÃ¡ nhiá»u khÃ´ng pháº£i lÃ  cá»‘ng hiáº¿n â€” Ä‘Ã³ lÃ  tá»± phÃ¡ hoáº¡i báº£n thÃ¢n. Báº¡n sáº½ lÃ m 5 viá»‡c á»Ÿ má»©c 60% thay vÃ¬ 3 viá»‡c á»Ÿ má»©c 100%.<br><br><strong>Káº¿ hoáº¡ch:</strong> Liá»‡t kÃª má»i thá»© báº¡n Ä‘Ã£ cam káº¿t. Vá»›i má»—i má»¥c, tá»± há»i thÃ nh tháº­t: "Náº¿u biáº¿t nhá»¯ng gÃ¬ biáº¿t bÃ¢y giá», mÃ¬nh cÃ³ Ä‘Äƒng kÃ½ láº¡i khÃ´ng?" Bá» báº¥t cá»© thá»© gÃ¬ dÆ°á»›i 7/10.`
+        en: `${contextData}<br><br>Real talk: ${hoursUsed}h out of ${maxHours}h used, energy at ${energy}/10. ${hoursUsed >= maxHours ? "You're already over capacity." : "You're getting close to burnout territory."}<br><br>Overcommitting isn't dedication — it's self-sabotage in disguise. You end up doing 5 things at 60% instead of 3 things at 100%.<br><br><strong>Action plan:</strong> List everything you've committed to. For each item, honestly rate: "Would I sign up for this today, knowing what I know now?" Drop anything that scores below a 7/10.`,
+        vi: `${contextData}<br><br>Nói thật: ${hoursUsed}h trong ${maxHours}h đã dùng, năng lượng ${energy}/10. ${hoursUsed >= maxHours ? "Bạn đã vượt quá sức." : "Bạn đang gần ngưỡng kiệt sức."}<br><br>Tham gia quá nhiều không phải là cống hiến — đó là tự phá hoại bản thân. Bạn sẽ làm 5 việc ở mức 60% thay vì 3 việc ở mức 100%.<br><br><strong>Kế hoạch:</strong> Liệt kê mọi thứ bạn đã cam kết. Với mỗi mục, tự hỏi thành thật: "Nếu biết những gì biết bây giờ, mình có đăng ký lại không?" Bỏ bất cứ thứ gì dưới 7/10.`
       },
       default: {
         en: `${contextData}<br><br>Let me give you the big picture: ${hoursUsed}h used, ${maxHours - hoursUsed}h remaining, energy ${energy}/10. ${committed.length} activities on your plate.<br><br>I don't do "should I or shouldn't I." I do "what can you sustain without burning out?" Because the semester is a marathon, not a sprint.<br><br>Tell me more about what you're wrestling with, and I'll help you find the balance point.`,
-        vi: `${contextData}<br><br>NhÃ¬n tá»•ng thá»ƒ: ${hoursUsed}h Ä‘Ã£ dÃ¹ng, ${maxHours - hoursUsed}h cÃ²n láº¡i, nÄƒng lÆ°á»£ng ${energy}/10. ${committed.length} hoáº¡t Ä‘á»™ng trÃªn vai.<br><br>TÃ´i khÃ´ng há»i "cÃ³ nÃªn hay khÃ´ng." TÃ´i há»i "báº¡n cÃ³ thá»ƒ duy trÃ¬ mÃ  khÃ´ng kiá»‡t sá»©c khÃ´ng?" VÃ¬ há»c ká»³ lÃ  cuá»™c marathon, khÃ´ng pháº£i cháº¡y nÆ°á»›c rÃºt.<br><br>HÃ£y ká»ƒ thÃªm vá» Ä‘iá»u báº¡n Ä‘ang bÄƒn khoÄƒn, tÃ´i sáº½ giÃºp báº¡n tÃ¬m Ä‘iá»ƒm cÃ¢n báº±ng.`
+        vi: `${contextData}<br><br>Nhìn tổng thể: ${hoursUsed}h đã dùng, ${maxHours - hoursUsed}h còn lại, năng lượng ${energy}/10. ${committed.length} hoạt động trên vai.<br><br>Tôi không hỏi "có nên hay không." Tôi hỏi "bạn có thể duy trì mà không kiệt sức không?" Vì học kỳ là cuộc marathon, không phải chạy nước rút.<br><br>Hãy kể thêm về điều bạn đang băn khoăn, tôi sẽ giúp bạn tìm điểm cân bằng.`
       }
     }
   };
@@ -4974,9 +4986,9 @@ function escapeHtml(text) {
 
 </script>
   <script>
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// FilterSys â€” AI Friend Chat
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════
+// FilterSys — AI Friend Chat
+// ═══════════════════════════════════════════════
 
 function initAIFriend() {
   const chat = document.getElementById('ai-chat');
@@ -4992,8 +5004,8 @@ function initAIFriend() {
   const user = loadUser();
   const alias = user ? user.alias : '';
   const welcome = lang === 'vi'
-    ? `ChÃ o${alias ? ' ' + alias : ''}. TÃ´i khÃ´ng phÃ¡n xÃ©t â€” tÃ´i chá»‰ dá»±a trÃªn dá»¯ liá»‡u vÃ  pháº£n há»“i tháº³ng tháº¯n. Báº¡n Ä‘ang suy nghÄ© vá» Ä‘iá»u gÃ¬?`
-    : `Hey${alias ? ' ' + alias : ''}. No judgment here â€” just data and honest feedback. What's on your mind?`;
+    ? `Chào${alias ? ' ' + alias : ''}. Tôi không phán xét — tôi chỉ dựa trên dữ liệu và phản hồi thẳng thắn. Bạn đang suy nghĩ về điều gì?`
+    : `Hey${alias ? ' ' + alias : ''}. No judgment here — just data and honest feedback. What's on your mind?`;
 
   chat.innerHTML = `<div class="chat-bubble chat-bubble--ai">${welcome}</div>`;
 
@@ -5060,63 +5072,63 @@ function generateAIResponse(userText, user, lang) {
   const remaining = maxHours - hoursUsed;
 
   // Detect intent
-  const isFOMO = /fomo|bá» lá»¡|missing|left out|má»i ngÆ°á»i|everyone|ai cÅ©ng Ä‘i|táº¥t cáº£/i.test(textLower);
-  const isOvercommit = /too many|quÃ¡ nhiá»u|overwhelm|nhiá»u quÃ¡|busy|báº­n/i.test(textLower);
-  const isQuit = /quit|rá»i|leave|bá»|drop|nghá»‰|thÃ´i/i.test(textLower);
-  const isGuilty = /guilt|tá»™i|cÃ³ lá»—i|feel bad|Ã¡y nÃ¡y|xáº¥u há»•/i.test(textLower);
-  const isConfused = /don't know|khÃ´ng biáº¿t|confused|phÃ¢n vÃ¢n|uncertain|lÆ°á»¡ng lá»±|khÃ´ng cháº¯c/i.test(textLower);
-  const isTime = /time|thá»i gian|giá»|hour|schedule|lá»‹ch/i.test(textLower);
+  const isFOMO = /fomo|bỏ lỡ|missing|left out|mọi người|everyone|ai cũng đi|tất cả/i.test(textLower);
+  const isOvercommit = /too many|quá nhiều|overwhelm|nhiều quá|busy|bận/i.test(textLower);
+  const isQuit = /quit|rời|leave|bỏ|drop|nghỉ|thôi/i.test(textLower);
+  const isGuilty = /guilt|tội|có lỗi|feel bad|áy náy|xấu hổ/i.test(textLower);
+  const isConfused = /don't know|không biết|confused|phân vân|uncertain|lưỡng lự|không chắc/i.test(textLower);
+  const isTime = /time|thời gian|giờ|hour|schedule|lịch/i.test(textLower);
 
   // Build data context
   const dataBlock = lang === 'vi'
-    ? `\n\nðŸ“Š <em>Dá»¯ liá»‡u tuáº§n nÃ y: ${hoursUsed}/${maxHours}h ngoáº¡i khÃ³a, nÄƒng lÆ°á»£ng ${energy}/10, ${committed.length} hoáº¡t Ä‘á»™ng, ${exams.length} ká»³ thi sáº¯p tá»›i, ${incomplete.length} bÃ i chÆ°a xong.</em>`
-    : `\n\nðŸ“Š <em>This week: ${hoursUsed}/${maxHours}h extracurriculars, energy ${energy}/10, ${committed.length} activities, ${exams.length} exams ahead, ${incomplete.length} tasks pending.</em>`;
+    ? `\n\n📊 <em>Dữ liệu tuần này: ${hoursUsed}/${maxHours}h ngoại khóa, năng lượng ${energy}/10, ${committed.length} hoạt động, ${exams.length} kỳ thi sắp tới, ${incomplete.length} bài chưa xong.</em>`
+    : `\n\n📊 <em>This week: ${hoursUsed}/${maxHours}h extracurriculars, energy ${energy}/10, ${committed.length} activities, ${exams.length} exams ahead, ${incomplete.length} tasks pending.</em>`;
 
   if (isFOMO) {
     return lang === 'vi'
-      ? `Cáº£m giÃ¡c bá» lá»¡ lÃ  pháº£n á»©ng tá»± nhiÃªn â€” nhÆ°ng Ä‘Ã³ khÃ´ng pháº£i lÃ½ do Ä‘á»§ tá»‘t Ä‘á»ƒ cam káº¿t thá»i gian.<br><br>HÃ£y tá»± há»i:<br>â€¢ Náº¿u khÃ´ng ai Ä‘Äƒng bÃ i vá» sá»± kiá»‡n nÃ y, báº¡n cÃ³ váº«n muá»‘n Ä‘i?<br>â€¢ Báº¡n sáº½ nhá»› gÃ¬ vá» sá»± kiá»‡n nÃ y sau 1 thÃ¡ng?<br>â€¢ Thá»i gian Ä‘Ã³ cÃ³ thá»ƒ dÃ¹ng cho má»¥c tiÃªu Æ°u tiÃªn (${getPriorityLabel(user, lang)}) khÃ´ng?<br><br>58% sinh viÃªn tráº£i qua FOMO má»©c trung bÃ¬nh-cao. Báº¡n khÃ´ng Ä‘Æ¡n Ä‘á»™c â€” nhÆ°ng báº¡n cÅ©ng khÃ´ng báº¯t buá»™c pháº£i theo Ä‘Ã¡m Ä‘Ã´ng.${dataBlock}`
-      : `Feeling left out is a natural reaction â€” but it's not a good enough reason to commit your time.<br><br>Ask yourself:<br>â€¢ If nobody posted about this event, would you still want to go?<br>â€¢ What will you remember about this event in a month?<br>â€¢ Could that time go toward your priority (${getPriorityLabel(user, lang)})?<br><br>58% of students experience moderate-to-high FOMO. You're not alone â€” but you're also not obligated to follow the crowd.${dataBlock}`;
+      ? `Cảm giác bỏ lỡ là phản ứng tự nhiên — nhưng đó không phải lý do đủ tốt để cam kết thời gian.<br><br>Hãy tự hỏi:<br>• Nếu không ai đăng bài về sự kiện này, bạn có vẫn muốn đi?<br>• Bạn sẽ nhớ gì về sự kiện này sau 1 tháng?<br>• Thời gian đó có thể dùng cho mục tiêu ưu tiên (${getPriorityLabel(user, lang)}) không?<br><br>58% sinh viên trải qua FOMO mức trung bình-cao. Bạn không đơn độc — nhưng bạn cũng không bắt buộc phải theo đám đông.${dataBlock}`
+      : `Feeling left out is a natural reaction — but it's not a good enough reason to commit your time.<br><br>Ask yourself:<br>• If nobody posted about this event, would you still want to go?<br>• What will you remember about this event in a month?<br>• Could that time go toward your priority (${getPriorityLabel(user, lang)})?<br><br>58% of students experience moderate-to-high FOMO. You're not alone — but you're also not obligated to follow the crowd.${dataBlock}`;
   }
 
   if (isOvercommit) {
     const overBy = hoursUsed - maxHours;
     return lang === 'vi'
-      ? `Dá»¯ liá»‡u nÃ³i rÃµ: báº¡n Ä‘Ã£ dÃ¹ng ${hoursUsed}h trong ngÃ¢n sÃ¡ch ${maxHours}h.${overBy > 0 ? ` VÆ°á»£t ${overBy}h â€” tá»©c ${Math.round(overBy / maxHours * 100)}% quÃ¡ táº£i.` : ''}<br><br>${committed.length > 0 ? `Báº¡n cÃ³ ${committed.length} hoáº¡t Ä‘á»™ng Ä‘Ã£ cam káº¿t. ` : ''}${incomplete.length > 0 ? `CÃ²n ${incomplete.length} bÃ i táº­p chÆ°a xong. ` : ''}<br><br><strong>Gá»£i Ã½ cá»¥ thá»ƒ:</strong> Xáº¿p háº¡ng cÃ¡c cam káº¿t theo má»©c Æ°u tiÃªn. CÃ¢n nháº¯c bá» hoáº¡t Ä‘á»™ng cÃ³ Æ°u tiÃªn tháº¥p nháº¥t. Báº¡n Ä‘Ã£ tá»± Ä‘áº·t giá»›i háº¡n ${maxHours}h â€” hÃ£y tÃ´n trá»ng giá»›i háº¡n cá»§a chÃ­nh mÃ¬nh.${dataBlock}`
-      : `The data is clear: you've used ${hoursUsed}h of your ${maxHours}h budget.${overBy > 0 ? ` That's ${overBy}h over â€” ${Math.round(overBy / maxHours * 100)}% overloaded.` : ''}<br><br>${committed.length > 0 ? `You have ${committed.length} committed activities. ` : ''}${incomplete.length > 0 ? `${incomplete.length} tasks still pending. ` : ''}<br><br><strong>Concrete suggestion:</strong> Rank your commitments by priority. Consider dropping the lowest one. You set a ${maxHours}h limit for a reason â€” respect your own boundaries.${dataBlock}`;
+      ? `Dữ liệu nói rõ: bạn đã dùng ${hoursUsed}h trong ngân sách ${maxHours}h.${overBy > 0 ? ` Vượt ${overBy}h — tức ${Math.round(overBy / maxHours * 100)}% quá tải.` : ''}<br><br>${committed.length > 0 ? `Bạn có ${committed.length} hoạt động đã cam kết. ` : ''}${incomplete.length > 0 ? `Còn ${incomplete.length} bài tập chưa xong. ` : ''}<br><br><strong>Gợi ý cụ thể:</strong> Xếp hạng các cam kết theo mức ưu tiên. Cân nhắc bỏ hoạt động có ưu tiên thấp nhất. Bạn đã tự đặt giới hạn ${maxHours}h — hãy tôn trọng giới hạn của chính mình.${dataBlock}`
+      : `The data is clear: you've used ${hoursUsed}h of your ${maxHours}h budget.${overBy > 0 ? ` That's ${overBy}h over — ${Math.round(overBy / maxHours * 100)}% overloaded.` : ''}<br><br>${committed.length > 0 ? `You have ${committed.length} committed activities. ` : ''}${incomplete.length > 0 ? `${incomplete.length} tasks still pending. ` : ''}<br><br><strong>Concrete suggestion:</strong> Rank your commitments by priority. Consider dropping the lowest one. You set a ${maxHours}h limit for a reason — respect your own boundaries.${dataBlock}`;
   }
 
   if (isQuit) {
     return lang === 'vi'
-      ? `Bá» má»™t hoáº¡t Ä‘á»™ng khÃ´ng pháº£i tháº¥t báº¡i â€” Ä‘Ã³ lÃ  phÃ¢n bá»• láº¡i nguá»“n lá»±c.<br><br>TrÆ°á»›c khi quyáº¿t Ä‘á»‹nh, hÃ£y xem:<br>â€¢ Hoáº¡t Ä‘á»™ng nÃ y cÃ³ phÃ¹ há»£p vá»›i má»¥c tiÃªu chÃ­nh (${getPriorityLabel(user, lang)}) khÃ´ng?<br>â€¢ Báº¡n cÃ³ há»c/nháº­n Ä‘Æ°á»£c gÃ¬ cÃ³ giÃ¡ trá»‹ trong 3 tuáº§n gáº§n nháº¥t khÃ´ng?<br>â€¢ Náº¿u bá», báº¡n sáº½ dÃ¹ng thá»i gian Ä‘Ã³ cho viá»‡c gÃ¬ cá»¥ thá»ƒ?<br><br>Náº¿u cÃ¢u tráº£ lá»i cho 2 cÃ¢u Ä‘áº§u lÃ  "khÃ´ng" vÃ  báº¡n cÃ³ káº¿ hoáº¡ch rÃµ cho cÃ¢u 3, thÃ¬ bá» lÃ  quyáº¿t Ä‘á»‹nh Ä‘Ãºng.${dataBlock}`
-      : `Quitting isn't failure â€” it's resource reallocation.<br><br>Before you decide, consider:<br>â€¢ Does this activity align with your primary goal (${getPriorityLabel(user, lang)})?<br>â€¢ Have you learned anything valuable in the last 3 weeks?<br>â€¢ If you quit, what specifically will you do with that time?<br><br>If the answer to the first two is "no" and you have a clear plan for the third, quitting is the right call.${dataBlock}`;
+      ? `Bỏ một hoạt động không phải thất bại — đó là phân bổ lại nguồn lực.<br><br>Trước khi quyết định, hãy xem:<br>• Hoạt động này có phù hợp với mục tiêu chính (${getPriorityLabel(user, lang)}) không?<br>• Bạn có học/nhận được gì có giá trị trong 3 tuần gần nhất không?<br>• Nếu bỏ, bạn sẽ dùng thời gian đó cho việc gì cụ thể?<br><br>Nếu câu trả lời cho 2 câu đầu là "không" và bạn có kế hoạch rõ cho câu 3, thì bỏ là quyết định đúng.${dataBlock}`
+      : `Quitting isn't failure — it's resource reallocation.<br><br>Before you decide, consider:<br>• Does this activity align with your primary goal (${getPriorityLabel(user, lang)})?<br>• Have you learned anything valuable in the last 3 weeks?<br>• If you quit, what specifically will you do with that time?<br><br>If the answer to the first two is "no" and you have a clear plan for the third, quitting is the right call.${dataBlock}`;
   }
 
   if (isGuilty) {
     return lang === 'vi'
-      ? `Cáº£m giÃ¡c cÃ³ lá»—i khi tá»« chá»‘i lÃ  phá»• biáº¿n â€” nhÆ°ng khÃ´ng cÃ³ nghÄ©a lÃ  báº¡n sai.<br><br>Sá»± tháº­t: má»—i láº§n nÃ³i "cÃ³" vá»›i má»™t thá»© lÃ  nÃ³i "khÃ´ng" vá»›i thá»© khÃ¡c. Khi báº¡n nÃ³i "cÃ³" vá»›i sá»± kiá»‡n 3 giá», báº¡n Ä‘ang nÃ³i "khÃ´ng" vá»›i 3 giá» tá»± há»c, nghá»‰ ngÆ¡i, hoáº·c má»¥c tiÃªu cÃ¡ nhÃ¢n.<br><br>Báº¡n cÃ³ ${remaining}h cÃ²n láº¡i tuáº§n nÃ y. ${energy <= 4 ? 'VÃ  nÄƒng lÆ°á»£ng Ä‘ang á»Ÿ má»©c tháº¥p. ' : ''}Æ¯u tiÃªn báº£n thÃ¢n khÃ´ng pháº£i Ã­ch ká»· â€” Ä‘Ã³ lÃ  quáº£n lÃ½ nguá»“n lá»±c.${dataBlock}`
-      : `Feeling guilty about saying no is common â€” but it doesn't mean you're wrong.<br><br>The truth: every "yes" is a "no" to something else. When you say "yes" to a 3-hour event, you're saying "no" to 3 hours of studying, resting, or pursuing your personal goals.<br><br>You have ${remaining}h left this week. ${energy <= 4 ? 'And your energy is running low. ' : ''}Prioritizing yourself isn't selfish â€” it's resource management.${dataBlock}`;
+      ? `Cảm giác có lỗi khi từ chối là phổ biến — nhưng không có nghĩa là bạn sai.<br><br>Sự thật: mỗi lần nói "có" với một thứ là nói "không" với thứ khác. Khi bạn nói "có" với sự kiện 3 giờ, bạn đang nói "không" với 3 giờ tự học, nghỉ ngơi, hoặc mục tiêu cá nhân.<br><br>Bạn có ${remaining}h còn lại tuần này. ${energy <= 4 ? 'Và năng lượng đang ở mức thấp. ' : ''}Ưu tiên bản thân không phải ích kỷ — đó là quản lý nguồn lực.${dataBlock}`
+      : `Feeling guilty about saying no is common — but it doesn't mean you're wrong.<br><br>The truth: every "yes" is a "no" to something else. When you say "yes" to a 3-hour event, you're saying "no" to 3 hours of studying, resting, or pursuing your personal goals.<br><br>You have ${remaining}h left this week. ${energy <= 4 ? 'And your energy is running low. ' : ''}Prioritizing yourself isn't selfish — it's resource management.${dataBlock}`;
   }
 
   if (isConfused) {
     return lang === 'vi'
-      ? `Khi khÃ´ng cháº¯c cháº¯n, hÃ£y dÃ¹ng dá»¯ liá»‡u thay vÃ¬ cáº£m xÃºc.<br><br>ÄÃ¢y lÃ  tÃ¬nh tráº¡ng hiá»‡n táº¡i cá»§a báº¡n:<br>â€¢ NgÃ¢n sÃ¡ch: ${hoursUsed}/${maxHours}h (cÃ²n ${remaining}h)<br>â€¢ NÄƒng lÆ°á»£ng: ${energy}/10<br>â€¢ Æ¯u tiÃªn chÃ­nh: ${getPriorityLabel(user, lang)}<br>${exams.length > 0 ? `â€¢ Ká»³ thi sáº¯p tá»›i: ${exams.map(e => e.subject).join(', ')}\n` : ''}${incomplete.length > 0 ? `â€¢ BÃ i táº­p chÆ°a xong: ${incomplete.length}\n` : ''}<br><br>HÃ£y thá»­ thÃªm hoáº¡t Ä‘á»™ng cá»¥ thá»ƒ vÃ o má»¥c "ThÃªm hoáº¡t Ä‘á»™ng" â€” há»‡ thá»‘ng sáº½ phÃ¢n tÃ­ch chi tiáº¿t dá»±a trÃªn tÃ¬nh tráº¡ng thá»±c táº¿ cá»§a báº¡n.`
-      : `When you're unsure, use data instead of feelings.<br><br>Here's your current status:<br>â€¢ Budget: ${hoursUsed}/${maxHours}h (${remaining}h remaining)<br>â€¢ Energy: ${energy}/10<br>â€¢ Primary priority: ${getPriorityLabel(user, lang)}<br>${exams.length > 0 ? `â€¢ Upcoming exams: ${exams.map(e => e.subject).join(', ')}\n` : ''}${incomplete.length > 0 ? `â€¢ Pending tasks: ${incomplete.length}\n` : ''}<br><br>Try adding the specific activity in "Add Activity" â€” the system will analyze it based on your actual situation.`;
+      ? `Khi không chắc chắn, hãy dùng dữ liệu thay vì cảm xúc.<br><br>Đây là tình trạng hiện tại của bạn:<br>• Ngân sách: ${hoursUsed}/${maxHours}h (còn ${remaining}h)<br>• Năng lượng: ${energy}/10<br>• Ưu tiên chính: ${getPriorityLabel(user, lang)}<br>${exams.length > 0 ? `• Kỳ thi sắp tới: ${exams.map(e => e.subject).join(', ')}\n` : ''}${incomplete.length > 0 ? `• Bài tập chưa xong: ${incomplete.length}\n` : ''}<br><br>Hãy thử thêm hoạt động cụ thể vào mục "Thêm hoạt động" — hệ thống sẽ phân tích chi tiết dựa trên tình trạng thực tế của bạn.`
+      : `When you're unsure, use data instead of feelings.<br><br>Here's your current status:<br>• Budget: ${hoursUsed}/${maxHours}h (${remaining}h remaining)<br>• Energy: ${energy}/10<br>• Primary priority: ${getPriorityLabel(user, lang)}<br>${exams.length > 0 ? `• Upcoming exams: ${exams.map(e => e.subject).join(', ')}\n` : ''}${incomplete.length > 0 ? `• Pending tasks: ${incomplete.length}\n` : ''}<br><br>Try adding the specific activity in "Add Activity" — the system will analyze it based on your actual situation.`;
   }
 
   // Default / general response
   return lang === 'vi'
-    ? `Cáº£m Æ¡n báº¡n Ä‘Ã£ chia sáº». Dá»±a trÃªn dá»¯ liá»‡u hiá»‡n táº¡i:<br><br>â€¢ Báº¡n Ä‘Ã£ dÃ¹ng ${hoursUsed} trong ${maxHours}h ngoáº¡i khÃ³a tuáº§n nÃ y<br>â€¢ NÄƒng lÆ°á»£ng: ${energy}/10<br>${exams.length > 0 ? `â€¢ ${exams.length} ká»³ thi sáº¯p tá»›i<br>` : ''}${incomplete.length > 0 ? `â€¢ ${incomplete.length} bÃ i táº­p chÆ°a hoÃ n thÃ nh<br>` : ''}<br>Náº¿u báº¡n Ä‘ang cÃ¢n nháº¯c má»™t hoáº¡t Ä‘á»™ng cá»¥ thá»ƒ, hÃ£y thá»­ thÃªm nÃ³ vÃ o "ThÃªm hoáº¡t Ä‘á»™ng" Ä‘á»ƒ nháº­n phÃ¢n tÃ­ch chi tiáº¿t. Hoáº·c mÃ´ táº£ cá»¥ thá»ƒ hÆ¡n tÃ¬nh huá»‘ng cá»§a báº¡n â€” tÃ´i sáº½ Ä‘Æ°a ra pháº£n há»“i dá»±a trÃªn dá»¯ liá»‡u.${dataBlock}`
-    : `Thanks for sharing. Based on your current data:<br><br>â€¢ ${hoursUsed} of ${maxHours}h extracurricular budget used this week<br>â€¢ Energy: ${energy}/10<br>${exams.length > 0 ? `â€¢ ${exams.length} exam(s) coming up<br>` : ''}${incomplete.length > 0 ? `â€¢ ${incomplete.length} pending task(s)<br>` : ''}<br>If you're weighing a specific activity, try adding it in "Add Activity" for a detailed breakdown. Or describe your situation more specifically â€” I'll give you a data-backed response.${dataBlock}`;
+    ? `Cảm ơn bạn đã chia sẻ. Dựa trên dữ liệu hiện tại:<br><br>• Bạn đã dùng ${hoursUsed} trong ${maxHours}h ngoại khóa tuần này<br>• Năng lượng: ${energy}/10<br>${exams.length > 0 ? `• ${exams.length} kỳ thi sắp tới<br>` : ''}${incomplete.length > 0 ? `• ${incomplete.length} bài tập chưa hoàn thành<br>` : ''}<br>Nếu bạn đang cân nhắc một hoạt động cụ thể, hãy thử thêm nó vào "Thêm hoạt động" để nhận phân tích chi tiết. Hoặc mô tả cụ thể hơn tình huống của bạn — tôi sẽ đưa ra phản hồi dựa trên dữ liệu.${dataBlock}`
+    : `Thanks for sharing. Based on your current data:<br><br>• ${hoursUsed} of ${maxHours}h extracurricular budget used this week<br>• Energy: ${energy}/10<br>${exams.length > 0 ? `• ${exams.length} exam(s) coming up<br>` : ''}${incomplete.length > 0 ? `• ${incomplete.length} pending task(s)<br>` : ''}<br>If you're weighing a specific activity, try adding it in "Add Activity" for a detailed breakdown. Or describe your situation more specifically — I'll give you a data-backed response.${dataBlock}`;
 }
 
 function getPriorityLabel(user, lang) {
   if (!user) return '';
   const labels = {
-    academics: lang === 'vi' ? 'táº­p trung há»c táº­p' : 'academic focus',
-    career: lang === 'vi' ? 'phÃ¡t triá»ƒn nghá» nghiá»‡p' : 'career building',
-    income: lang === 'vi' ? 'kiáº¿m thu nháº­p há»— trá»£ gia Ä‘Ã¬nh' : 'earning income to support family',
-    growth: lang === 'vi' ? 'phÃ¡t triá»ƒn báº£n thÃ¢n' : 'personal growth',
-    balance: lang === 'vi' ? 'cÃ¢n báº±ng má»i thá»©' : 'balanced lifestyle',
+    academics: lang === 'vi' ? 'tập trung học tập' : 'academic focus',
+    career: lang === 'vi' ? 'phát triển nghề nghiệp' : 'career building',
+    income: lang === 'vi' ? 'kiếm thu nhập hỗ trợ gia đình' : 'earning income to support family',
+    growth: lang === 'vi' ? 'phát triển bản thân' : 'personal growth',
+    balance: lang === 'vi' ? 'cân bằng mọi thứ' : 'balanced lifestyle',
   };
   return labels[user.primaryPriority] || '';
 }
@@ -5131,14 +5143,14 @@ function renderAIFriendText() {
 
 </script>
   <script>
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// FilterSys â€” Main App (Router + Init)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════
+// FilterSys — Main App (Router + Init)
+// ═══════════════════════════════════════════════
 
 const PAGES = ['landing', 'quiz', 'onboarding', 'dashboard', 'add-activity', 'result', 'mentor', 'ai-friend', 'gpa'];
 let currentPage = 'landing';
 
-// â”€â”€â”€ Navigation â”€â”€â”€
+// ─── Navigation ───
 
 function navigateTo(page) {
   // Hide all pages
@@ -5207,7 +5219,7 @@ function navigateTo(page) {
   window.scrollTo(0, 0);
 }
 
-// â”€â”€â”€ Back navigation â”€â”€â”€
+// ─── Back navigation ───
 
 function getBackPage() {
   const backMap = {
@@ -5222,7 +5234,7 @@ function getBackPage() {
   return backMap[currentPage] || 'dashboard';
 }
 
-// â”€â”€â”€ Language â”€â”€â”€
+// ─── Language ───
 
 function toggleLanguage() {
   const current = getLang();
@@ -5264,7 +5276,7 @@ function updatePageText() {
   updateAllText();
 }
 
-// â”€â”€â”€ Landing Page â”€â”€â”€
+// ─── Landing Page ───
 
 function renderLandingText() {
   document.getElementById('landing-tagline').textContent = t('landing.tagline');
@@ -5287,7 +5299,7 @@ function renderLandingText() {
   document.getElementById('ref4').textContent = t('landing.ref4');
 }
 
-// â”€â”€â”€ Stat card animations â”€â”€â”€
+// ─── Stat card animations ───
 
 function animateStatCards() {
   const cards = document.querySelectorAll('.stat-card');
@@ -5306,7 +5318,7 @@ function animateStatCards() {
   cards.forEach(card => observer.observe(card));
 }
 
-// â”€â”€â”€ Toast â”€â”€â”€
+// ─── Toast ───
 
 function showToast(message, duration = 3000) {
   const toast = document.getElementById('toast');
@@ -5322,7 +5334,7 @@ function showToast(message, duration = 3000) {
   }, duration);
 }
 
-// â”€â”€â”€ Confirm Dialog â”€â”€â”€
+// ─── Confirm Dialog ───
 
 function showConfirmDialog(message, onConfirm) {
   const dialog = document.getElementById('dialog-confirm');
@@ -5352,7 +5364,7 @@ function showConfirmDialog(message, onConfirm) {
   okBtn.addEventListener('click', handleOk);
 }
 
-// â”€â”€â”€ Init â”€â”€â”€
+// ─── Init ───
 
 document.addEventListener('DOMContentLoaded', () => {
   // Set initial language
@@ -5367,7 +5379,7 @@ document.addEventListener('DOMContentLoaded', () => {
   animateStatCards();
 
   // Init academic modal
-  initAcademicModal();
+  bindAcademicModal();
 
   document.getElementById('landing-cta').addEventListener('click', () => {
     if (hasUser()) {
@@ -5395,4 +5407,3 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
