@@ -3651,7 +3651,7 @@ function populateTimeDropdown() {
     if (lang === 'vi') {
       label = `${hour12}:00 ${i < 12 ? 'SA' : 'CH'}`;
     } else {
-      label = `${hour12}:00 ${i < 12 ? 'AM' : 'PM'}`;
+      label = `${hour12}:00 ${i < 12 ? 'a.m.' : 'p.m.'}`;
     }
     const option = document.createElement('option');
     option.value = val;
@@ -4248,7 +4248,7 @@ function initMotivationModal() {
       renderMotivationBoard();
       showToast(getLang() === 'vi' ? 'Đã lưu thành tựu!' : 'Achievement saved!');
     }
-  });
+  };
 }
 
 function renderDashboardText() {
@@ -4512,7 +4512,7 @@ function bindGPAActions() {
     closeModal();
     renderGPACourses();
     calculateAllGPA();
-  });
+  };
   
   document.getElementById('gpa-sem-retake').addEventListener('input', calculateAllGPA);
 
@@ -5289,9 +5289,9 @@ function updateAllText() {
   // Result
   renderResultText();
   // Mentor
-  renderMentorText();
+  if (typeof renderMentorText === 'function') renderMentorText();
   // AI Friend
-  renderAIFriendText();
+  if (typeof renderAIFriendText === 'function') renderAIFriendText();
   // GPA
   if (typeof renderGPAText === 'function') renderGPAText();
 
@@ -5409,6 +5409,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Landing page stat animations
   animateStatCards();
+
+  // Auto-navigate if user exists
+  if (hasUser()) {
+    navigateTo('dashboard');
+  }
 
   // Init academic modal
   bindAcademicModal();
