@@ -213,6 +213,13 @@ h4 { font-size: 1rem; }
   position: relative;
   overflow: hidden;
 }
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none !important;
+  transform: none !important;
+}
 
 .btn-primary {
   background: linear-gradient(135deg, #E8A817, var(--primary));
@@ -4304,16 +4311,16 @@ function renderQuizQuestion() {
   nextBtn.disabled = true;
   nextBtn.textContent = (currentQuizQ === TOTAL_QUIZ_Q) ? t('quiz.finishBtn') : t('quiz.nextBtn');
   
-  // Listen for selection
-  document.querySelectorAll('input[name="quiz-opt"]').forEach(radio => {
-    radio.addEventListener('change', () => {
-      nextBtn.disabled = false;
-    });
-  });
-
-  // Re-attach event listener
+  // Re-attach event listener by cloning to clear previous click listeners
   const newNextBtn = nextBtn.cloneNode(true);
   nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+  
+  // Listen for selection on the active DOM button
+  document.querySelectorAll('input[name="quiz-opt"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      newNextBtn.disabled = false;
+    });
+  });
   
   newNextBtn.addEventListener('click', () => {
     const selected = document.querySelector('input[name="quiz-opt"]:checked');
