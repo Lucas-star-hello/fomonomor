@@ -1802,7 +1802,13 @@ select.input {
 
         <div class="form-group">
           <label id="add-lbl-organizer" for="add-organizer"></label>
-          <input type="text" id="add-organizer" class="input">
+          <select id="add-organizer" class="input" required>
+            <option value="" disabled selected id="add-org-placeholder"></option>
+            <option value="ftu" id="add-org-ftu"></option>
+            <option value="ext_cert" id="add-org-ext-cert"></option>
+            <option value="ext_nocert" id="add-org-ext-nocert"></option>
+            <option value="other" id="add-org-other"></option>
+          </select>
         </div>
 
         <div class="form-group">
@@ -2296,8 +2302,12 @@ const LANG = {
       durationLabel: "Duration (hours)",
       locationLabel: "Location",
       locationPlaceholder: "e.g. The Green Land",
-      organizerLabel: "Organizer / Club",
-      organizerPlaceholder: "e.g. FPC Club",
+      organizerLabel: "Organizer / Host",
+      orgPlaceholder: "Select organizer type...",
+      orgFTU: "FTU (Foreign Trade University)",
+      orgExtCert: "External (with certificate)",
+      orgExtNoCert: "External (no certificate)",
+      orgOther: "Other",
       descriptionLabel: "Brief description",
       descriptionPlaceholder: "What is this event about?",
       costLabel: "Any cost involved? (VND)",
@@ -2355,12 +2365,12 @@ const LANG = {
     mentor: {
       title: "Ask a Mentor",
       subtitle: "Pick a perspective. Get tailored advice.",
-      academic: "The Academic",
-      academicDesc: "Prioritizes GPA above all else. Every hour has a cost.",
-      career: "The Career Builder",
-      careerDesc: "Sees everything as resume material. ROI-focused.",
-      realist: "The Realist",
-      realistDesc: "Optimizes for energy and sustainability. Plays the long game.",
+      academic: "Dr. Nguyen",
+      academicDesc: "GPA Strategist | dr.nguyen.edu@gmail.com | Prioritizes GPA above all else. Every hour has a cost.",
+      career: "Ms. Tran",
+      careerDesc: "Career Coach | tran.career@gmail.com | Sees everything as resume material. ROI-focused.",
+      realist: "Mr. Le",
+      realistDesc: "Wellness & Balance | le.balance@gmail.com | Optimizes for energy and sustainability. Plays the long game.",
       promptLabel: "Describe your situation",
       promptPlaceholder: "e.g. Everyone is going to this event and I feel left out, but I have an exam next week...",
       askBtn: "Ask for advice",
@@ -2409,7 +2419,7 @@ const LANG = {
     // ─── Motivation ───
     motivation: {
       title: "Motivation Board",
-      subtitle: "Nothing is shameful or useless. Log your wins.",
+      subtitle: "Track your progress and celebrate your personal victories.",
       addBtn: "Add Achievement",
       placeholder: "e.g., I survived midterms, I helped a friend...",
       save: "Save",
@@ -2581,7 +2591,11 @@ const LANG = {
       locationLabel: "Địa điểm",
       locationPlaceholder: "VD: The Green Land",
       organizerLabel: "Đơn vị tổ chức",
-      organizerPlaceholder: "VD: CLB FPC",
+      orgPlaceholder: "Chọn đơn vị tổ chức...",
+      orgFTU: "Trường ĐH Ngoại thương",
+      orgExtCert: "Tổ chức bên ngoài có giấy chứng nhận",
+      orgExtNoCert: "Tổ chức bên ngoài không cấp giấy chứng nhận",
+      orgOther: "Khác",
       descriptionLabel: "Mô tả ngắn",
       descriptionPlaceholder: "Sự kiện này về gì?",
       costLabel: "Chi phí (VND)",
@@ -2636,14 +2650,14 @@ const LANG = {
     },
 
     mentor: {
-      title: "Hỏi Mentor",
-      subtitle: "Chọn một góc nhìn. Nhận lời khuyên phù hợp.",
-      academic: "Người Học Thuật",
-      academicDesc: "Ưu tiên GPA trên hết. Mỗi giờ đều có giá.",
-      career: "Người Xây Dựng Sự Nghiệp",
-      careerDesc: "Nhìn mọi thứ qua lăng kính CV. Tập trung vào lợi ích.",
-      realist: "Người Thực Tế",
-      realistDesc: "Tối ưu năng lượng và sức bền. Nhìn xa trông rộng.",
+      title: "Hỏi Cố Vấn",
+      subtitle: "Chọn một góc nhìn để nhận lời khuyên phù hợp.",
+      academic: "Dr. Nguyen",
+      academicDesc: "Cố vấn Học thuật | dr.nguyen.edu@gmail.com | Ưu tiên GPA trên hết. Mỗi giờ đều có giá trị.",
+      career: "Ms. Tran",
+      careerDesc: "Cố vấn Nghề nghiệp | tran.career@gmail.com | Lựa chọn cơ hội thực tế, tập trung vào giá trị dài hạn.",
+      realist: "Mr. Le",
+      realistDesc: "Chuyên gia Cân bằng | le.balance@gmail.com | Tối ưu năng lượng và sức bền. Nhìn xa trông rộng.",
       promptLabel: "Mô tả tình huống của bạn",
       promptPlaceholder: "VD: Mọi người đều tham gia sự kiện này, mình cảm thấy bỏ lỡ, nhưng tuần sau có thi...",
       askBtn: "Xin lời khuyên",
@@ -2690,9 +2704,9 @@ const LANG = {
     // ─── Motivation ───
     motivation: {
       title: "Bảng Động Lực",
-      subtitle: "Không có gì là đáng xấu hổ hay vô ích. Ghi lại chiến thắng của bạn.",
+      subtitle: "Ghi nhận mọi nỗ lực và tự hào về thành tựu của bạn.",
       addBtn: "Thêm Thành Tựu",
-      placeholder: "VD: Vượt qua kỳ thi, giúp đỡ bạn bè...",
+      placeholder: "VD: Vượt qua bài kiểm tra giữa kỳ, giúp đỡ một người bạn...",
       save: "Lưu",
       cancel: "Hủy",
       modalTitle: "Thêm Thành Tựu",
@@ -3599,7 +3613,11 @@ function renderAddActivityText() {
   document.getElementById('add-lbl-location').textContent = t('addActivity.locationLabel');
   document.getElementById('add-location').placeholder = t('addActivity.locationPlaceholder');
   document.getElementById('add-lbl-organizer').textContent = t('addActivity.organizerLabel');
-  document.getElementById('add-organizer').placeholder = t('addActivity.organizerPlaceholder');
+  document.getElementById('add-org-placeholder').textContent = t('addActivity.orgPlaceholder');
+  document.getElementById('add-org-ftu').textContent = t('addActivity.orgFTU');
+  document.getElementById('add-org-ext-cert').textContent = t('addActivity.orgExtCert');
+  document.getElementById('add-org-ext-nocert').textContent = t('addActivity.orgExtNoCert');
+  document.getElementById('add-org-other').textContent = t('addActivity.orgOther');
   document.getElementById('add-lbl-description').textContent = t('addActivity.descriptionLabel');
   document.getElementById('add-description').placeholder = t('addActivity.descriptionPlaceholder');
   document.getElementById('add-lbl-cost').textContent = t('addActivity.costLabel');
@@ -4266,7 +4284,7 @@ function formatTime(timeStr) {
   if (lang === 'vi') {
     period = h < 12 ? 'SA' : 'CH';
   } else {
-    period = h < 12 ? 'AM' : 'PM';
+    period = h < 12 ? 'a.m.' : 'p.m.';
   }
   return `${hour12}:${minStr} ${period}`;
 }
