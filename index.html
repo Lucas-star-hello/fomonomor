@@ -3076,38 +3076,41 @@ function initAddActivity() {
   renderDeadlinesInForm();
 
   // Submit
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
+  if (!window.addActivityBound) {
+    window.addActivityBound = true;
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
 
-    const activity = {
-      name: document.getElementById('add-name').value.trim(),
-      category: document.getElementById('add-category').value,
-      date: document.getElementById('add-date').value,
-      time: document.getElementById('add-time').value,
-      duration: parseFloat(document.getElementById('add-duration').value),
-      location: document.getElementById('add-location').value.trim(),
-      organizer: document.getElementById('add-organizer').value.trim(),
-      description: document.getElementById('add-description').value.trim(),
-      cost: parseInt(document.getElementById('add-cost').value) || 0,
-      whyJoin: document.getElementById('add-why').value.trim(),
-      whatGain: document.getElementById('add-gain').value.trim(),
-      status: 'pending',
-    };
+      const activity = {
+        name: document.getElementById('add-name').value.trim(),
+        category: document.getElementById('add-category').value,
+        date: document.getElementById('add-date').value,
+        time: document.getElementById('add-time').value,
+        duration: parseFloat(document.getElementById('add-duration').value),
+        location: document.getElementById('add-location').value.trim(),
+        organizer: document.getElementById('add-organizer').value.trim(),
+        description: document.getElementById('add-description').value.trim(),
+        cost: parseInt(document.getElementById('add-cost').value) || 0,
+        whyJoin: document.getElementById('add-why').value.trim(),
+        whatGain: document.getElementById('add-gain').value.trim(),
+        status: 'pending',
+      };
 
-    if (!activity.name || !activity.date || !activity.duration || !activity.whyJoin) {
-      showToast(getLang() === 'vi' ? 'Điền đầy đủ các trường bắt buộc' : 'Fill in all required fields');
-      return;
-    }
+      if (!activity.name || !activity.date || !activity.duration || !activity.whyJoin) {
+        showToast(getLang() === 'vi' ? 'Điền đầy đủ các trường bắt buộc' : 'Fill in all required fields');
+        return;
+      }
 
-    // Run analysis
-    const analysis = analyzeActivity(activity, user);
+      // Run analysis
+      const analysis = analyzeActivity(activity, user);
 
-    // Save temp
-    const saved = addActivity({ ...activity, analysis });
-    saveCurrentAnalysis({ activityId: saved.id, activity: saved, analysis });
+      // Save temp
+      const saved = addActivity({ ...activity, analysis });
+      saveCurrentAnalysis({ activityId: saved.id, activity: saved, analysis });
 
-    navigateTo('result');
-  });
+      navigateTo('result');
+    });
+  }
 }
 
 function renderDeadlinesInForm() {
@@ -4055,7 +4058,11 @@ function renderMotivationBoard() {
   });
 }
 
+let dashBound = false;
 function bindDashboardActions() {
+  if (dashBound) return;
+  dashBound = true;
+
   document.getElementById('btn-add-activity').addEventListener('click', () => navigateTo('add-activity'));
   document.getElementById('btn-ai-friend').addEventListener('click', () => navigateTo('ai-friend'));
   document.getElementById('btn-find-mentor').addEventListener('click', () => navigateTo('mentor'));
@@ -4098,7 +4105,11 @@ function openAcademicModal(type) {
   modal.classList.remove('hidden');
 }
 
+let acadBound = false;
 function initAcademicModal() {
+  if (acadBound) return;
+  acadBound = true;
+
   const modal = document.getElementById('modal-academic');
   const form = document.getElementById('academic-form');
   const cancelBtn = document.getElementById('btn-acad-cancel');
@@ -4194,7 +4205,11 @@ function initAcademicModal() {
   });
 }
 
+let motBound = false;
 function initMotivationModal() {
+  if (motBound) return;
+  motBound = true;
+
   const modal = document.getElementById('modal-motivation');
   const form = document.getElementById('motivation-form');
   const cancelBtn = document.getElementById('btn-mot-cancel');
@@ -4436,103 +4451,71 @@ function initOnboarding() {
 
 
 
-  // Slider updates
-  studySlider.addEventListener('input', () => { studyVal.textContent = studySlider.value + 'h'; });
-  studyVal.textContent = studySlider.value + 'h';
+  // Submit
+  if (!window.onboardingBound) {
+    window.onboardingBound = true;
+    
+    studySlider.addEventListener('input', () => { studyVal.textContent = studySlider.value + 'h'; });
+    energySlider.addEventListener('input', () => { energyVal.textContent = energySlider.value; });
+    maxHoursSlider.addEventListener('input', () => { maxHoursVal.textContent = maxHoursSlider.value + 'h'; });
 
-  energySlider.addEventListener('input', () => { energyVal.textContent = energySlider.value; });
-  energyVal.textContent = energySlider.value;
-
-  maxHoursSlider.addEventListener('input', () => { maxHoursVal.textContent = maxHoursSlider.value + 'h'; });
-  maxHoursVal.textContent = maxHoursSlider.value;
-
-  // Generate alias
-  genBtn.addEventListener('click', () => {
-    aliasInput.value = generateAlias();
-    aliasInput.classList.add('flash');
-    setTimeout(() => aliasInput.classList.remove('flash'), 300);
-  });
-
-  // Auto-generate if empty
-  if (!aliasInput.value) {
-    aliasInput.value = generateAlias();
-  }
-
-
-
-  // Limit secondary checkboxes to 2
-  const secCheckboxes = form.querySelectorAll('input[name="secondary"]');
-  secCheckboxes.forEach(chk => {
-    chk.addEventListener('change', () => {
-      const checked = form.querySelectorAll('input[name="secondary"]:checked');
-      if (checked.length > 2) {
-        chk.checked = false;
-      }
+    genBtn.addEventListener('click', () => {
+      aliasInput.value = generateAlias();
+      aliasInput.classList.add('flash');
+      setTimeout(() => aliasInput.classList.remove('flash'), 300);
     });
-  });
 
-  // Disable secondary option that matches primary
-  const priRadios = form.querySelectorAll('input[name="primary"]');
-  priRadios.forEach(radio => {
-    radio.addEventListener('change', () => {
-      secCheckboxes.forEach(chk => {
-        chk.disabled = chk.value === radio.value;
-        if (chk.value === radio.value) chk.checked = false;
-        chk.closest('.check-card').style.opacity = chk.disabled ? '0.4' : '1';
+    secCheckboxes.forEach(chk => {
+      chk.addEventListener('change', () => {
+        const checked = form.querySelectorAll('input[name="secondary"]:checked');
+        if (checked.length > 2) {
+          chk.checked = false;
+        }
       });
     });
-  });
-  // Trigger initial disable
-  const checkedPri = form.querySelector('input[name="primary"]:checked');
-  if (checkedPri) {
-    secCheckboxes.forEach(chk => {
-      chk.disabled = chk.value === checkedPri.value;
-      if (chk.disabled) chk.checked = false;
-      chk.closest('.check-card').style.opacity = chk.disabled ? '0.4' : '1';
+
+    priRadios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        secCheckboxes.forEach(chk => {
+          chk.disabled = chk.value === radio.value;
+          if (chk.value === radio.value) chk.checked = false;
+          chk.closest('.check-card').style.opacity = chk.disabled ? '0.4' : '1';
+        });
+      });
+    });
+
+    currentGpaInput.addEventListener('blur', () => formatGpa(currentGpaInput));
+    targetGpaInput.addEventListener('blur', () => formatGpa(targetGpaInput));
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const primary = form.querySelector('input[name="primary"]:checked');
+      if (!primary) {
+        showToast(getLang() === 'vi' ? 'Chọn ưu tiên chính' : 'Select a primary priority');
+        return;
+      }
+
+      const secondary = Array.from(form.querySelectorAll('input[name="secondary"]:checked')).map(c => c.value);
+
+      const user = {
+        alias: aliasInput.value.trim() || generateAlias(),
+        lang: getLang(),
+        semester: parseInt(document.getElementById('inp-semester').value),
+        studyHoursWeekly: parseInt(studySlider.value),
+        currentGPA: parseFloat(document.getElementById('inp-current-gpa').value),
+        targetGPA: parseFloat(document.getElementById('inp-target-gpa').value),
+        energyBaseline: parseInt(energySlider.value),
+        primaryPriority: primary.value,
+        secondaryGoals: secondary,
+        maxExtracurricularHours: parseInt(maxHoursSlider.value),
+      };
+
+      saveUser(user);
+      recalcWeeklyLog();
+      navigateTo('dashboard');
     });
   }
-
-  // GPA Decimal Formatting
-  const currentGpaInput = document.getElementById('inp-current-gpa');
-  const targetGpaInput = document.getElementById('inp-target-gpa');
-  const formatGpa = (input) => {
-    let val = parseFloat(input.value);
-    if (!isNaN(val)) {
-      input.value = val.toFixed(2);
-    }
-  };
-  currentGpaInput.addEventListener('blur', () => formatGpa(currentGpaInput));
-  targetGpaInput.addEventListener('blur', () => formatGpa(targetGpaInput));
-
-  // Submit
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const primary = form.querySelector('input[name="primary"]:checked');
-    if (!primary) {
-      showToast(getLang() === 'vi' ? 'Chọn ưu tiên chính' : 'Select a primary priority');
-      return;
-    }
-
-    const secondary = Array.from(form.querySelectorAll('input[name="secondary"]:checked')).map(c => c.value);
-
-    const user = {
-      alias: aliasInput.value.trim() || generateAlias(),
-      lang: getLang(),
-      semester: parseInt(document.getElementById('inp-semester').value),
-      studyHoursWeekly: parseInt(studySlider.value),
-      currentGPA: parseFloat(document.getElementById('inp-current-gpa').value),
-      targetGPA: parseFloat(document.getElementById('inp-target-gpa').value),
-      energyBaseline: parseInt(energySlider.value),
-      primaryPriority: primary.value,
-      secondaryGoals: secondary,
-      maxExtracurricularHours: parseInt(maxHoursSlider.value),
-    };
-
-    saveUser(user);
-    recalcWeeklyLog();
-    navigateTo('dashboard');
-  });
 }
 
 function renderOnboardingText() {
@@ -5061,7 +5044,12 @@ function calculateAllGPA() {
   }
 }
 
+let gpaBound = false;
+
 function bindGPAActions() {
+  if (gpaBound) return;
+  gpaBound = true;
+
   document.getElementById('btn-add-course').addEventListener('click', () => {
     document.getElementById('course-form').reset();
     document.getElementById('modal-course').classList.remove('hidden');
