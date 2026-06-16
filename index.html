@@ -2482,12 +2482,13 @@ const LANG = {
       modalTitle: "Add a Course",
       courseName: "Course Name",
       credits: "Credits",
-      ccWeight: "CC Weight (%)",
-      gkWeight: "GK Weight (%)",
-      ckWeight: "CK Weight (%)",
-      ccGrade: "CC Grade (0-10)",
-      gkGrade: "GK Grade (0-10)",
-      ckGrade: "CK Grade (0-10)",
+      creditsShort: "credits",
+      ccWeight: "Attendance Weight (%)",
+      gkWeight: "Midterm Weight (%)",
+      ckWeight: "Finals Weight (%)",
+      ccGrade: "Attendance Grade (0-10)",
+      gkGrade: "Midterm Grade (0-10)",
+      ckGrade: "Finals Grade (0-10)",
     },
 
     // ─── Common ───
@@ -2772,12 +2773,13 @@ const LANG = {
       modalTitle: "Thêm Môn Học",
       courseName: "Tên môn học",
       credits: "Số tín chỉ",
-      ccWeight: "Trọng số CC (%)",
-      gkWeight: "Trọng số GK (%)",
-      ckWeight: "Trọng số CK (%)",
-      ccGrade: "Điểm CC (0-10)",
-      gkGrade: "Điểm GK (0-10)",
-      ckGrade: "Điểm CK (0-10)",
+      creditsShort: "tín chỉ",
+      ccWeight: "Trọng số Chuyên cần (%)",
+      gkWeight: "Trọng số Giữa kỳ (%)",
+      ckWeight: "Trọng số Cuối kỳ (%)",
+      ccGrade: "Điểm Chuyên cần (0-10)",
+      gkGrade: "Điểm Giữa kỳ (0-10)",
+      ckGrade: "Điểm Cuối kỳ (0-10)",
     },
 
     common: {
@@ -4609,7 +4611,7 @@ function renderGPACourses() {
     return `
       <div class="activity-card" data-index="${i}">
         <div class="activity-card-header">
-          <div class="activity-card-name">${c.name || t('gpa.unnamed')} (${c.credits} cr)</div>
+          <div class="activity-card-name">${c.name || t('gpa.unnamed')} (${c.credits} ${t('gpa.creditsShort')})</div>
           <div class="activity-card-actions">
             <button class="activity-card-remove gpa-remove" data-index="${i}" title="Remove">×</button>
           </div>
