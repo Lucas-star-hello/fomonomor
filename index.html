@@ -1638,6 +1638,12 @@ select.input {
           </div>
         </div>
 
+        <!-- AI API Key (Optional) -->
+        <div class="form-group">
+          <label id="lbl-api-key" for="inp-api-key"></label>
+          <input type="password" id="inp-api-key" class="input" placeholder="AI API Key" maxlength="100">
+          <p id="desc-api-key" style="font-size:0.75rem; color:var(--text-muted); margin-top:4px;"></p>
+        </div>
 
         <button type="submit" id="btn-onboarding-submit" class="btn btn-primary btn-lg btn-full"></button>
       </form>
@@ -3073,6 +3079,31 @@ function initAddActivity() {
   // Set default date to today
   document.getElementById('add-date').value = new Date().toISOString().split('T')[0];
 
+  const editId = localStorage.getItem('fs_edit_activity_id');
+  let isEditMode = false;
+  if (editId) {
+    const act = loadActivities().find(a => a.id === editId);
+    if (act) {
+      isEditMode = true;
+      document.getElementById('add-name').value = act.name || '';
+      document.getElementById('add-category').value = act.category || 'growth';
+      document.getElementById('add-date').value = act.date || '';
+      document.getElementById('add-time').value = act.time || '';
+      document.getElementById('add-duration').value = act.duration || 1;
+      document.getElementById('add-location').value = act.location || '';
+      document.getElementById('add-organizer').value = act.organizer || '';
+      document.getElementById('add-description').value = act.description || '';
+      document.getElementById('add-cost').value = act.cost || 0;
+      document.getElementById('add-why').value = act.whyJoin || '';
+      document.getElementById('add-gain').value = act.whatGain || '';
+      
+      const submitBtn = document.getElementById('btn-add-submit');
+      if (submitBtn) {
+        submitBtn.textContent = getLang() === 'vi' ? 'Cập nhật hoạt động' : 'Update Activity';
+      }
+    }
+  }
+
   // Render upcoming deadlines
   renderDeadlinesInForm();
 
@@ -3098,6 +3129,14 @@ function initAddActivity() {
 
     if (!activity.name || !activity.date || !activity.duration || !activity.whyJoin) {
       showToast(getLang() === 'vi' ? 'Điền đầy đủ các trường bắt buộc' : 'Fill in all required fields');
+      return;
+    }
+
+    if (isEditMode) {
+      updateActivity(editId, activity);
+      localStorage.removeItem('fs_edit_activity_id');
+      navigateTo('dashboard');
+      showToast(getLang() === 'vi' ? 'Đã cập nhật hoạt động!' : 'Activity updated!');
       return;
     }
 
@@ -3970,6 +4009,7 @@ function renderCommittedActivities() {
         <div class="activity-card-header">
           <div class="activity-card-name">${act.name}</div>
           <div class="activity-card-actions">
+            <button class="activity-card-edit" data-id="${act.id}" title="Edit" style="font-size:1.2rem; background:none; border:none; cursor:pointer; color:var(--text-secondary);">⋮</button>
             <button class="activity-card-remove" data-id="${act.id}" title="Remove">×</button>
           </div>
         </div>
@@ -3990,6 +4030,15 @@ function renderCommittedActivities() {
         renderCommittedActivities();
         renderWeekCalendar();
       });
+    });
+  });
+
+  // Bind edit events
+  container.querySelectorAll('.activity-card-edit').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.id;
+      localStorage.setItem('fs_edit_activity_id', id);
+      navigateTo('add-activity');
     });
   });
 }
@@ -4707,6 +4756,9 @@ function initOnboarding() {
     document.getElementById('inp-target-gpa').value = (existing.targetGPA !== undefined ? existing.targetGPA : 3.5).toFixed(2);
     energySlider.value = existing.energyBaseline || 7;
     maxHoursSlider.value = existing.maxExtracurricularHours || 10;
+    
+    const apiKey = localStorage.getItem('fs_api_key');
+    if (apiKey) document.getElementById('inp-api-key').value = apiKey;
 
     // Primary priority
     const priRadio = form.querySelector(`input[name="primary"][value="${existing.primaryPriority}"]`);
@@ -4786,6 +4838,13 @@ function initOnboarding() {
         maxExtracurricularHours: parseInt(maxHoursSlider.value),
       };
 
+      const apiKeyInput = document.getElementById('inp-api-key').value.trim();
+      if (apiKeyInput) {
+        localStorage.setItem('fs_api_key', apiKeyInput);
+      } else {
+        localStorage.removeItem('fs_api_key');
+      }
+
       saveUser(user);
       recalcWeeklyLog();
       navigateTo('dashboard');
@@ -4819,6 +4878,8 @@ function renderOnboardingText() {
   document.getElementById('lbl-sec-balance').textContent = t('onboarding.priorityBalance');
   document.getElementById('lbl-max-hours').textContent = t('onboarding.maxHoursLabel');
   document.getElementById('btn-onboarding-submit').textContent = t('onboarding.submit');
+  document.getElementById('lbl-api-key').textContent = getLang() === 'vi' ? 'API Key AI (Tuỳ chọn)' : 'AI API Key (Optional)';
+  document.getElementById('desc-api-key').textContent = getLang() === 'vi' ? 'Nhập Google Gemini API Key để trò chuyện với AI thực thụ. Nếu để trống, sẽ dùng AI cục bộ.' : 'Enter a Google Gemini API Key for real generative AI. If empty, uses local AI.';
 }
 
 </script>
@@ -4876,7 +4937,7 @@ function selectMentor(type) {
   document.getElementById('mentor-input').focus();
 }
 
-function askMentor() {
+async function askMentor() {
   const input = document.getElementById('mentor-input');
   const text = input.value.trim();
   if (!text || !selectedMentor) return;
@@ -4889,14 +4950,72 @@ function askMentor() {
   chat.innerHTML += `<div class="chat-bubble chat-bubble--user">${escapeHtml(text)}</div>`;
   input.value = '';
 
-  // Generate mentor response
-  setTimeout(() => {
-    const response = generateMentorResponse(selectedMentor, text, user, lang);
-    chat.innerHTML += `<div class="chat-bubble chat-bubble--ai">${response}</div>`;
-    chat.scrollTop = chat.scrollHeight;
-  }, 500);
-
+  // Add loading bubble
+  const loadingId = 'loading-' + Date.now();
+  chat.innerHTML += `<div id="${loadingId}" class="chat-bubble chat-bubble--ai">...</div>`;
   chat.scrollTop = chat.scrollHeight;
+
+  const response = await generateMentorResponseAsync(selectedMentor, text, user, lang);
+  
+  const loadingBubble = document.getElementById(loadingId);
+  if (loadingBubble) {
+    loadingBubble.innerHTML = response;
+  }
+  
+  chat.scrollTop = chat.scrollHeight;
+}
+
+async function generateMentorResponseAsync(mentorType, userText, user, lang) {
+  const apiKey = localStorage.getItem('fs_api_key');
+  if (!apiKey) {
+    return generateMentorResponse(mentorType, userText, user, lang);
+  }
+
+  // Real AI integration using Gemini API
+  const weekly = getWeeklyLog();
+  const maxHours = user ? user.maxExtracurricularHours : 10;
+  const hoursUsed = weekly.hoursUsed || 0;
+  const energy = weekly.energyCurrent !== null ? weekly.energyCurrent : (user ? user.energyBaseline : 7);
+  
+  let mentorPersona = "";
+  if (mentorType === 'academic') {
+    mentorPersona = "You are 'The Academic' mentor. You prioritize GPA above everything else. You are direct, strict, and care only about academic performance. Tell the student to drop activities that don't help their grades.";
+  } else if (mentorType === 'career') {
+    mentorPersona = "You are 'The Career Builder'. You view everything as an investment and focus on ROI and networking. You dislike useless socializing and only care about activities that build resume or real connections.";
+  } else {
+    mentorPersona = "You are 'The Realist'. You optimize for sustainability and mental health to prevent burnout. You tell students to rest and drop low-priority commitments.";
+  }
+
+  const promptText = `
+${mentorPersona}
+The student's data: ${hoursUsed}/${maxHours}h extracurriculars this week, energy ${energy}/10.
+The student says: "${userText}"
+Respond in ${lang === 'vi' ? 'Vietnamese' : 'English'} in a conversational, helpful, but in-character way. Keep it under 100 words. Format with simple HTML like <strong> for emphasis.
+`;
+
+  try {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: promptText }] }],
+        generationConfig: { temperature: 0.7, maxOutputTokens: 250 }
+      })
+    });
+    
+    const data = await response.json();
+    if (data.error) {
+      console.error('Gemini API Error:', data.error);
+      return generateMentorResponse(mentorType, userText, user, lang) + `<br><br><small style="color:var(--danger)">[API Error: ${data.error.message}]</small>`;
+    }
+    
+    let answer = data.candidates[0].content.parts[0].text;
+    answer = answer.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+    return answer;
+  } catch (err) {
+    console.error(err);
+    return generateMentorResponse(mentorType, userText, user, lang);
+  }
 }
 
 function getMentorIntros(type, lang, user) {
@@ -5066,7 +5185,7 @@ function initAIFriend() {
   };
 }
 
-function sendAIMessage() {
+async function sendAIMessage() {
   const chat = document.getElementById('ai-chat');
   const input = document.getElementById('ai-input');
   const text = input.value.trim();
@@ -5082,14 +5201,64 @@ function sendAIMessage() {
   chat.innerHTML += `<div class="chat-bubble chat-bubble--user">${escapeHtml(text)}</div>`;
   input.value = '';
 
-  // AI response
-  setTimeout(() => {
-    const response = generateAIResponse(text, user, lang);
-    chat.innerHTML += `<div class="chat-bubble chat-bubble--ai">${response}</div>`;
-    chat.scrollTop = chat.scrollHeight;
-  }, 600);
-
+  // Add loading bubble
+  const loadingId = 'loading-ai-' + Date.now();
+  chat.innerHTML += `<div id="${loadingId}" class="chat-bubble chat-bubble--ai">...</div>`;
   chat.scrollTop = chat.scrollHeight;
+
+  const response = await generateAIResponseAsync(text, user, lang);
+
+  const loadingBubble = document.getElementById(loadingId);
+  if (loadingBubble) {
+    loadingBubble.innerHTML = response;
+  }
+  
+  chat.scrollTop = chat.scrollHeight;
+}
+
+async function generateAIResponseAsync(userText, user, lang) {
+  const apiKey = localStorage.getItem('fs_api_key');
+  if (!apiKey) {
+    return generateAIResponse(userText, user, lang);
+  }
+
+  // Real AI integration using Gemini API
+  const weekly = getWeeklyLog();
+  const maxHours = user ? user.maxExtracurricularHours : 10;
+  const hoursUsed = weekly.hoursUsed || 0;
+  const energy = weekly.energyCurrent !== null ? weekly.energyCurrent : (user ? user.energyBaseline : 7);
+
+  const promptText = `
+You are the FilterSys AI Friend. You are a non-judgmental, supportive AI that helps students prioritize their time. 
+You use data to give honest feedback. 
+The student's data: ${hoursUsed}/${maxHours}h extracurriculars this week, energy ${energy}/10.
+The student says: "${userText}"
+Respond in ${lang === 'vi' ? 'Vietnamese' : 'English'} in a conversational, helpful way. Keep it under 100 words. Format with simple HTML like <strong> for emphasis.
+`;
+
+  try {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: promptText }] }],
+        generationConfig: { temperature: 0.7, maxOutputTokens: 250 }
+      })
+    });
+    
+    const data = await response.json();
+    if (data.error) {
+      console.error('Gemini API Error:', data.error);
+      return generateAIResponse(userText, user, lang) + `<br><br><small style="color:var(--danger)">[API Error: ${data.error.message}]</small>`;
+    }
+    
+    let answer = data.candidates[0].content.parts[0].text;
+    answer = answer.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+    return answer;
+  } catch (err) {
+    console.error(err);
+    return generateAIResponse(userText, user, lang);
+  }
 }
 
 function generateAIResponse(userText, user, lang) {
