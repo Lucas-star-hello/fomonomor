@@ -2814,10 +2814,7 @@ function t(path) {
 
 </script>
   <script>
-// ═══════════════════════════════════════════════
-// FilterSys — localStorage helpers
-// ═══════════════════════════════════════════════
-
+// FilterSys - localStorage helpers
 const STORAGE_KEYS = {
   user: 'fs_user',
   activities: 'fs_activities',
@@ -2827,7 +2824,7 @@ const STORAGE_KEYS = {
   currentAnalysis: 'fs_current_analysis',
 };
 
-// ─── Generic helpers ───
+// â”€â”€â”€ Generic helpers â”€â”€â”€
 
 function saveData(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
@@ -2840,7 +2837,7 @@ function loadData(key, fallback = null) {
   catch { return fallback; }
 }
 
-// ─── User Profile ───
+// â”€â”€â”€ User Profile â”€â”€â”€
 
 function saveUser(user) {
   saveData(STORAGE_KEYS.user, user);
@@ -2854,7 +2851,7 @@ function hasUser() {
   return loadUser() !== null;
 }
 
-// ─── Activities ───
+// â”€â”€â”€ Activities â”€â”€â”€
 
 function saveActivities(activities) {
   saveData(STORAGE_KEYS.activities, activities);
@@ -2904,7 +2901,7 @@ function getActivitiesForWeek(weekStart) {
   });
 }
 
-// ─── Academic Tasks ───
+// â”€â”€â”€ Academic Tasks â”€â”€â”€
 
 function saveAcademicTasks(tasks) {
   saveData(STORAGE_KEYS.academicTasks, tasks);
@@ -2983,7 +2980,7 @@ function getIncompleteTasksThisWeek() {
   });
 }
 
-// ─── Weekly Log ───
+// â”€â”€â”€ Weekly Log â”€â”€â”€
 
 function getWeekKey(date = new Date()) {
   const d = new Date(date);
@@ -3013,12 +3010,28 @@ function recalcWeeklyLog() {
   const weekStart = getWeekStart();
   const acts = getActivitiesForWeek(weekStart);
   const hoursUsed = acts.reduce((sum, a) => sum + (parseFloat(a.duration) || 0), 0);
+  
+  const drainRates = {
+    competition: 1.8, volunteer: 1.4, workshop: 1.3,
+    networking: 1.2, club: 1.0, other: 1.0, hobby: 0.5,
+  };
+  
+  const totalDrain = acts.reduce((sum, a) => {
+    const duration = parseFloat(a.duration) || 1;
+    const rate = drainRates[a.category] || 1.0;
+    return sum + ((duration / 2) * rate);
+  }, 0);
+
   const user = loadUser();
+  const baseEnergy = user ? user.energyBaseline : 7;
+  const energyCurrent = Math.max(0, Math.round((baseEnergy - totalDrain) * 10) / 10);
+
   updateWeeklyLog({
     hoursUsed,
-    energyCurrent: user ? user.energyBaseline : 7,
+    energyCurrent,
     activitiesCount: acts.length,
   });
+});
 }
 
 function getWeekStart(date = new Date()) {
@@ -3030,7 +3043,7 @@ function getWeekStart(date = new Date()) {
   return d.toISOString().split('T')[0];
 }
 
-// ─── Current Analysis (temp storage) ───
+// â”€â”€â”€ Current Analysis (temp storage) â”€â”€â”€
 
 function saveCurrentAnalysis(data) {
   saveData(STORAGE_KEYS.currentAnalysis, data);
@@ -3040,7 +3053,7 @@ function loadCurrentAnalysis() {
   return loadData(STORAGE_KEYS.currentAnalysis, null);
 }
 
-// ─── Alias Generator ───
+// â”€â”€â”€ Alias Generator â”€â”€â”€
 
 const ALIAS_ADJ = [
   'Silent', 'Quiet', 'Swift', 'Steady', 'Sharp', 'Calm', 'Bold', 'Keen',
@@ -3059,7 +3072,7 @@ function generateAlias() {
   return `${adj} ${noun}`;
 }
 
-// ─── Motivation ───
+// â”€â”€â”€ Motivation â”€â”€â”€
 
 function saveAchievements(achievements) {
   saveData('fs_achievements', achievements);
@@ -3087,7 +3100,7 @@ function removeAchievement(id) {
   return achs;
 }
 
-// ─── Courses & GPA ───
+// â”€â”€â”€ Courses & GPA â”€â”€â”€
 
 function saveCourses(courses) {
   saveData('fs_courses', courses);
@@ -3104,6 +3117,8 @@ function saveCPAData(data) {
 function loadCPAData() {
   return loadData('fs_cpa_data', { cumulativePoints: 0, cumulativeCredits: 0, retakeCredits: 0 });
 }
+
+
 
 </script>
   <script>
