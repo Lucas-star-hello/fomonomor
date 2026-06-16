@@ -1642,7 +1642,10 @@ select.input {
         <div class="form-group">
           <label id="lbl-api-key" for="inp-api-key"></label>
           <input type="password" id="inp-api-key" class="input" placeholder="AI API Key" maxlength="100">
-          <p id="desc-api-key" style="font-size:0.75rem; color:var(--text-muted); margin-top:4px;"></p>
+          <p style="font-size:0.75rem; color:var(--text-muted); margin-top:4px;">
+            <span id="desc-api-key"></span>
+            <a href="#" id="link-api-tutorial" style="color:var(--primary); text-decoration:underline; margin-left:4px;"></a>
+          </p>
         </div>
 
         <button type="submit" id="btn-onboarding-submit" class="btn btn-primary btn-lg btn-full"></button>
@@ -2038,6 +2041,19 @@ select.input {
   <!-- ═══════════════════════════════════════ -->
   <!-- MODAL: Motivation                      -->
   <!-- ═══════════════════════════════════════ -->
+  <!-- API Tutorial Modal -->
+  <div id="modal-api-tutorial" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <h3 id="modal-api-title" class="modal-title"></h3>
+      <div id="modal-api-steps" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;"></div>
+      <div class="modal-actions" style="justify-content: center;">
+        <button type="button" id="btn-api-close" class="btn btn-primary"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Motivation Modal -->
   <div id="modal-motivation" class="modal hidden">
     <div class="modal-overlay"></div>
     <div class="modal-content">
@@ -4746,6 +4762,22 @@ function initOnboarding() {
   const maxHoursSlider = document.getElementById('inp-max-hours');
   const maxHoursVal = document.getElementById('val-max-hours');
 
+  // Bind API Tutorial Link
+  const apiLink = document.getElementById('link-api-tutorial');
+  const apiModal = document.getElementById('modal-api-tutorial');
+  const apiClose = document.getElementById('btn-api-close');
+  const apiOverlay = apiModal.querySelector('.modal-overlay');
+
+  if (apiLink && apiModal) {
+    apiLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      apiModal.classList.remove('hidden');
+    });
+    const closeModal = () => apiModal.classList.add('hidden');
+    apiClose.addEventListener('click', closeModal);
+    apiOverlay.addEventListener('click', closeModal);
+  }
+
   // Pre-fill if editing
   const existing = loadUser();
   if (existing) {
@@ -4880,6 +4912,13 @@ function renderOnboardingText() {
   document.getElementById('btn-onboarding-submit').textContent = t('onboarding.submit');
   document.getElementById('lbl-api-key').textContent = getLang() === 'vi' ? 'API Key AI (Tuỳ chọn)' : 'AI API Key (Optional)';
   document.getElementById('desc-api-key').textContent = getLang() === 'vi' ? 'Nhập Google Gemini API Key để trò chuyện với AI thực thụ. Nếu để trống, sẽ dùng AI cục bộ.' : 'Enter a Google Gemini API Key for real generative AI. If empty, uses local AI.';
+  document.getElementById('link-api-tutorial').textContent = getLang() === 'vi' ? 'Cách lấy API Key?' : 'How to get an API Key?';
+
+  document.getElementById('modal-api-title').textContent = getLang() === 'vi' ? 'Hướng dẫn lấy Gemini API Key' : 'How to get a Gemini API Key';
+  document.getElementById('modal-api-steps').innerHTML = getLang() === 'vi' 
+    ? '<strong>Bước 1:</strong> Đăng nhập vào <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:var(--primary); text-decoration:underline;">Google AI Studio</a> bằng tài khoản Google của bạn.<br><br><strong>Bước 2:</strong> Nhấn vào nút <strong>"Get API Key"</strong> ở menu bên trái.<br><br><strong>Bước 3:</strong> Nhấn nút <strong>"Create API key"</strong>, chọn "Create API key in new project".<br><br><strong>Bước 4:</strong> Copy đoạn mã API Key đó và dán vào ô bên dưới.<br><br><em>Lưu ý: API Key của bạn được lưu an toàn trên trình duyệt và không gửi đi đâu ngoài Google.</em>'
+    : '<strong>Step 1:</strong> Log in to <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:var(--primary); text-decoration:underline;">Google AI Studio</a> using your Google account.<br><br><strong>Step 2:</strong> Click the <strong>"Get API Key"</strong> button on the left menu.<br><br><strong>Step 3:</strong> Click <strong>"Create API key"</strong>, then select "Create API key in new project".<br><br><strong>Step 4:</strong> Copy the generated API Key and paste it in the field below.<br><br><em>Note: Your API Key is stored safely in your local browser and is not sent anywhere except directly to Google.</em>';
+  document.getElementById('btn-api-close').textContent = getLang() === 'vi' ? 'Đã hiểu' : 'Got it';
 }
 
 </script>
