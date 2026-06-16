@@ -2012,13 +2012,17 @@ select.input {
             <option value="assignment" id="acad-opt-assignment"></option>
             <option value="project" id="acad-opt-project"></option>
             <option value="presentation" id="acad-opt-presentation"></option>
+            <option value="essay" id="acad-opt-essay"></option>
+            <option value="lab" id="acad-opt-lab"></option>
+            <option value="defense" id="acad-opt-defense"></option>
+            <option value="debate" id="acad-opt-debate"></option>
           </select>
         </div>
         <div class="form-group">
           <label id="acad-lbl-desc" for="acad-desc"></label>
           <input type="text" id="acad-desc" class="input">
         </div>
-          <div class="form-group">
+          <div class="form-group" id="acad-duration-group">
             <label id="acad-lbl-duration" for="acad-duration"></label>
             <input type="number" id="acad-duration" class="input" min="0" max="24" step="0.5" value="1.5">
           </div>
@@ -2440,6 +2444,10 @@ const LANG = {
       typeAssignment: "Assignment",
       typeProject: "Project",
       typePresentation: "Presentation",
+      typeEssay: "Essay / Paper",
+      typeLab: "Lab Report",
+      typeDefense: "Thesis Defense / Q&A",
+      typeDebate: "Group Debate",
       pasteLabel: "Or paste your schedule text",
       pastePlaceholder: "Paste exam schedule here — we'll try to extract dates and subjects...",
       parseBtn: "Parse schedule",
@@ -2727,6 +2735,10 @@ const LANG = {
       typeAssignment: "Bài tập",
       typeProject: "Đồ án",
       typePresentation: "Thuyết trình",
+      typeEssay: "Tiểu luận / Bài viết",
+      typeLab: "Báo cáo thực hành",
+      typeDefense: "Bảo vệ khóa luận / Hỏi đáp",
+      typeDebate: "Tranh biện nhóm",
       pasteLabel: "Hoặc dán lịch thi của bạn",
       pastePlaceholder: "Dán lịch thi vào đây — hệ thống sẽ thử trích xuất ngày và môn học...",
       parseBtn: "Phân tích lịch",
@@ -4261,6 +4273,13 @@ function openAcademicModal(type) {
   document.getElementById('academic-form').reset();
   document.getElementById('acad-date').value = new Date().toISOString().split('T')[0];
 
+  const toggleDuration = () => {
+    const durationGroup = document.getElementById('acad-duration-group');
+    if (durationGroup) {
+      durationGroup.style.display = typeSelect.value === 'exam' ? 'block' : 'none';
+    }
+  };
+
   const editId = localStorage.getItem('fs_edit_academic_id');
   if (type === true || editId) {
     const task = loadAcademicTasks().find(t => t.id === editId);
@@ -4286,6 +4305,7 @@ function openAcademicModal(type) {
     saveBtn.textContent = t('academic.save');
   }
 
+  toggleDuration();
   modal.classList.remove('hidden');
 }
 
@@ -4300,6 +4320,15 @@ function bindAcademicModal() {
   function closeModal() { modal.classList.add('hidden'); }
   cancelBtn.addEventListener('click', closeModal);
   overlay.addEventListener('click', closeModal);
+
+  // Toggle duration on change
+  const typeSelect = document.getElementById('acad-type');
+  typeSelect.addEventListener('change', () => {
+    const durationGroup = document.getElementById('acad-duration-group');
+    if (durationGroup) {
+      durationGroup.style.display = typeSelect.value === 'exam' ? 'block' : 'none';
+    }
+  });
 
   // Save
   form.onsubmit = (e) => {
@@ -4439,6 +4468,10 @@ function renderDashboardText() {
   document.getElementById('acad-opt-assignment').textContent = t('academic.typeAssignment');
   document.getElementById('acad-opt-project').textContent = t('academic.typeProject');
   document.getElementById('acad-opt-presentation').textContent = t('academic.typePresentation');
+  document.getElementById('acad-opt-essay').textContent = t('academic.typeEssay');
+  document.getElementById('acad-opt-lab').textContent = t('academic.typeLab');
+  document.getElementById('acad-opt-defense').textContent = t('academic.typeDefense');
+  document.getElementById('acad-opt-debate').textContent = t('academic.typeDebate');
   document.getElementById('acad-lbl-desc').textContent = t('academic.descLabel');
   document.getElementById('acad-desc').placeholder = t('academic.descPlaceholder');
   document.getElementById('acad-lbl-duration').textContent = t('academic.durationLabel');
