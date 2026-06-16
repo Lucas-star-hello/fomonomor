@@ -3807,6 +3807,7 @@ function renderRadarChart(scores) {
 
   const labels = [
     t('result.goalMatch'),
+    
     t('result.energyCost'),
     t('result.timeFeasibility'),
     t('result.prosConsBalance'),
@@ -4440,7 +4441,8 @@ function renderDashboardText() {
   document.getElementById('acad-opt-presentation').textContent = t('academic.typePresentation');
   document.getElementById('acad-lbl-desc').textContent = t('academic.descLabel');
   document.getElementById('acad-desc').placeholder = t('academic.descPlaceholder');
-  document.getElementById('acad-lbl-hours').textContent = t('academic.estHoursLabel');
+  document.getElementById('acad-lbl-duration').textContent = t('academic.durationLabel');
+  document.getElementById('acad-lbl-study-hours').textContent = t('academic.studyHoursLabel');
   document.getElementById('btn-acad-cancel').textContent = t('academic.cancel');
   document.getElementById('btn-acad-save').textContent = t('academic.save');
   document.getElementById('acad-lbl-paste').textContent = t('academic.pasteLabel');
