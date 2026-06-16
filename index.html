@@ -2018,10 +2018,14 @@ select.input {
           <label id="acad-lbl-desc" for="acad-desc"></label>
           <input type="text" id="acad-desc" class="input">
         </div>
-        <div class="form-group">
-          <label id="acad-lbl-hours" for="acad-hours"></label>
-          <input type="number" id="acad-hours" class="input" min="0.5" max="50" step="0.5" value="2">
-        </div>
+          <div class="form-group">
+            <label id="acad-lbl-duration" for="acad-duration"></label>
+            <input type="number" id="acad-duration" class="input" min="0" max="24" step="0.5" value="1.5">
+          </div>
+          <div class="form-group">
+            <label id="acad-lbl-study-hours" for="acad-study-hours"></label>
+            <input type="number" id="acad-study-hours" class="input" min="0" max="100" step="0.5" value="2">
+          </div>
 
         <!-- Paste schedule -->
         <div class="form-group paste-section">
@@ -2428,7 +2432,8 @@ const LANG = {
       typeLabel: "Type",
       descLabel: "Description",
       descPlaceholder: "e.g. Chapter 5–8 midterm",
-      estHoursLabel: "Estimated study/work hours",
+      durationLabel: "Test/Task Duration (hours)",
+      studyHoursLabel: "Expected Prep/Study (hours)",
       save: "Save",
       cancel: "Cancel",
       typeExam: "Exam",
@@ -2714,7 +2719,8 @@ const LANG = {
       typeLabel: "Loại",
       descLabel: "Mô tả",
       descPlaceholder: "VD: Thi giữa kỳ chương 5–8",
-      estHoursLabel: "Số giờ ôn tập / làm bài ước tính",
+      durationLabel: "Thời gian thi/làm (giờ)",
+      studyHoursLabel: "Thời gian ôn tập dự kiến (giờ)",
       save: "Lưu",
       cancel: "Hủy",
       typeExam: "Thi",
@@ -2909,6 +2915,16 @@ function toggleAcademicTask(id) {
   const idx = tasks.findIndex(t => t.id === id);
   if (idx !== -1) {
     tasks[idx].completed = !tasks[idx].completed;
+    saveAcademicTasks(tasks);
+  }
+  return tasks;
+}
+
+function updateAcademicTask(id, updates) {
+  const tasks = loadAcademicTasks();
+  const idx = tasks.findIndex(t => t.id === id);
+  if (idx !== -1) {
+    tasks[idx] = { ...tasks[idx], ...updates };
     saveAcademicTasks(tasks);
   }
   return tasks;
@@ -3916,6 +3932,38 @@ function initDashboard() {
   renderMotivationBoard();
   bindDashboardActions();
   initMotivationModal();
+
+  checkUpcomingExamsWarning();
+}
+
+function checkUpcomingExamsWarning() {
+  const today = new Date().toISOString().split('T')[0];
+  const lastWarning = localStorage.getItem('fs_exam_warning_date');
+  if (lastWarning === today) return; // Already warned today
+
+  const exams = loadAcademicTasks().filter(t => t.type === 'exam' && !t.completed);
+  if (exams.length === 0) return;
+
+  const now = new Date();
+  now.setHours(0,0,0,0);
+  const oneWeek = new Date(now);
+  oneWeek.setDate(oneWeek.getDate() + 7);
+
+  const upcoming = exams.filter(t => {
+    const d = new Date(t.date);
+    d.setHours(0,0,0,0);
+    return d >= now && d <= oneWeek;
+  });
+
+  if (upcoming.length > 0) {
+    const names = upcoming.map(e => e.subject).join(', ');
+    const msg = getLang() === 'vi' 
+      ? `Cảnh báo: Bạn có môn thi trong vòng 7 ngày tới! (${names}). Hãy chú ý phân bổ thời gian ôn tập nhé.` 
+      : `Warning: You have exams coming up within 7 days! (${names}). Remember to allocate your study time.`;
+    
+    showConfirmDialog(msg, () => {});
+    localStorage.setItem('fs_exam_warning_date', today);
+  }
 }
 
 function renderDashboardGreeting(user) {
@@ -4074,15 +4122,18 @@ function renderAcademicChecklist() {
     return new Date(a.date) - new Date(b.date);
   });
 
-  container.innerHTML = sorted.map(task => {
-    const typeClass = `badge-${task.type}`;
-    const typeLabels = {
-      exam: t('dashboard.examLabel'),
-      assignment: t('dashboard.assignmentLabel'),
-      project: t('dashboard.projectLabel'),
-      presentation: t('dashboard.presentationLabel'),
-    };
+  const exams = sorted.filter(t => t.type === 'exam');
+  const assignments = sorted.filter(t => t.type !== 'exam');
 
+  const typeLabels = {
+    exam: t('dashboard.examLabel'),
+    assignment: t('dashboard.assignmentLabel'),
+    project: t('dashboard.projectLabel'),
+    presentation: t('dashboard.presentationLabel'),
+  };
+
+  const renderTask = (task) => {
+    const typeClass = `badge-${task.type}`;
     return `
       <div class="academic-item ${task.completed ? 'completed' : ''}" data-id="${task.id}">
         <input type="checkbox" class="academic-checkbox" ${task.completed ? 'checked' : ''} data-task-id="${task.id}">
@@ -4091,13 +4142,27 @@ function renderAcademicChecklist() {
           <div class="academic-item-meta">
             <span class="academic-type-badge ${typeClass}">${typeLabels[task.type] || task.type}</span>
             <span>${t('dashboard.dueLabel')}: ${formatDate(task.date)}</span>
-            ${task.estHours ? `<span>${task.estHours} ${t('dashboard.estHours')}</span>` : ''}
+            ${task.duration ? `<span style="opacity: 0.8;">⏱️ ${task.duration}h</span>` : ''}
+            ${task.studyHours ? `<span style="opacity: 0.8;">📚 ${task.studyHours}h</span>` : ''}
           </div>
         </div>
+        <button class="academic-item-edit" data-task-id="${task.id}" title="Edit" style="font-size:1.2rem; background:none; border:none; cursor:pointer; color:var(--text-secondary); margin-right:8px;">⋮</button>
         <button class="academic-item-delete" data-task-id="${task.id}" title="Delete">×</button>
       </div>
     `;
-  }).join('');
+  };
+
+  let html = '';
+  if (exams.length > 0) {
+    html += `<h4 style="margin: 0.5rem 0; color: var(--text-secondary); font-size: 0.85rem; text-transform: uppercase;">${t('dashboard.examLabel')}</h4>`;
+    html += exams.map(renderTask).join('');
+  }
+  if (assignments.length > 0) {
+    html += `<h4 style="margin: 1.5rem 0 0.5rem 0; color: var(--text-secondary); font-size: 0.85rem; text-transform: uppercase;">${t('dashboard.assignmentLabel')} / ${t('dashboard.projectLabel')}</h4>`;
+    html += assignments.map(renderTask).join('');
+  }
+
+  container.innerHTML = html;
 
   // Bind checkbox events
   container.querySelectorAll('.academic-checkbox').forEach(chk => {
@@ -4113,6 +4178,15 @@ function renderAcademicChecklist() {
       deleteAcademicTask(btn.dataset.taskId);
       renderAcademicChecklist();
       renderWeekCalendar();
+    });
+  });
+
+  // Bind edit events
+  container.querySelectorAll('.academic-item-edit').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.taskId;
+      localStorage.setItem('fs_edit_academic_id', id);
+      openAcademicModal(true);
     });
   });
 }
@@ -4181,19 +4255,35 @@ function openAcademicModal(type) {
   const modal = document.getElementById('modal-academic');
   const title = document.getElementById('modal-academic-title');
   const typeSelect = document.getElementById('acad-type');
+  const saveBtn = document.getElementById('btn-acad-save');
 
-  if (type === 'exam') {
-    title.textContent = t('academic.addExamTitle');
-    typeSelect.value = 'exam';
-  } else {
-    title.textContent = t('academic.addTaskTitle');
-    typeSelect.value = 'assignment';
-  }
-
-  // Reset form
   document.getElementById('academic-form').reset();
-  typeSelect.value = type === 'exam' ? 'exam' : 'assignment';
   document.getElementById('acad-date').value = new Date().toISOString().split('T')[0];
+
+  const editId = localStorage.getItem('fs_edit_academic_id');
+  if (type === true || editId) {
+    const task = loadAcademicTasks().find(t => t.id === editId);
+    if (task) {
+      title.textContent = t('dashboard.settings'); // Or something generic
+      document.getElementById('acad-subject').value = task.subject || '';
+      document.getElementById('acad-date').value = task.date || '';
+      document.getElementById('acad-type').value = task.type || 'exam';
+      document.getElementById('acad-desc').value = task.description || '';
+      document.getElementById('acad-duration').value = task.duration || 1.5;
+      document.getElementById('acad-study-hours').value = task.studyHours || 2;
+      saveBtn.textContent = getLang() === 'vi' ? 'Cập nhật' : 'Update';
+    }
+  } else {
+    localStorage.removeItem('fs_edit_academic_id');
+    if (type === 'exam') {
+      title.textContent = t('academic.addExamTitle');
+      typeSelect.value = 'exam';
+    } else {
+      title.textContent = t('academic.addTaskTitle');
+      typeSelect.value = 'assignment';
+    }
+    saveBtn.textContent = t('academic.save');
+  }
 
   modal.classList.remove('hidden');
 }
@@ -4218,7 +4308,8 @@ function bindAcademicModal() {
       date: document.getElementById('acad-date').value,
       type: document.getElementById('acad-type').value,
       description: document.getElementById('acad-desc').value.trim(),
-      estHours: parseFloat(document.getElementById('acad-hours').value) || 2,
+      duration: parseFloat(document.getElementById('acad-duration').value) || 0,
+      studyHours: parseFloat(document.getElementById('acad-study-hours').value) || 0,
     };
 
     if (!task.subject || !task.date) {
@@ -4226,11 +4317,19 @@ function bindAcademicModal() {
       return;
     }
 
-    addAcademicTask(task);
+    const editId = localStorage.getItem('fs_edit_academic_id');
+    if (editId) {
+      updateAcademicTask(editId, task);
+      localStorage.removeItem('fs_edit_academic_id');
+      showToast(getLang() === 'vi' ? 'Đã cập nhật!' : 'Updated!');
+    } else {
+      addAcademicTask(task);
+      showToast(getLang() === 'vi' ? 'Đã thêm!' : 'Added!');
+    }
+
     closeModal();
     renderAcademicChecklist();
     renderWeekCalendar();
-    showToast(getLang() === 'vi' ? 'Đã thêm!' : 'Added!');
   };
 
   // Parse schedule text
@@ -4801,7 +4900,9 @@ function initOnboarding() {
       const chk = form.querySelector(`input[name="secondary"][value="${g}"]`);
       if (chk) chk.checked = true;
     });
-  } else if (window._preselectedGoal) {
+  } 
+  
+  if (window._preselectedGoal) {
     const priRadio = form.querySelector(`input[name="primary"][value="${window._preselectedGoal}"]`);
     if (priRadio) priRadio.checked = true;
   }
